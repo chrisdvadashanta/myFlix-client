@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"hquDj":[function(require,module,exports) {
+})({"hc3tM":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "022c1b16b4b6dfad";
+module.bundle.HMR_BUNDLE_ID = "890e741a975ef6c8";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -2934,53 +2934,41 @@ process.umask = function() {
     return 0;
 };
 
-},{}],"d8Dch":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$98a3 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{}],"8lqZg":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$20e5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$98a3.prelude(module);
+$parcel$ReactRefreshHelpers$20e5.prelude(module);
 
 try {
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _client = require("react-dom/client");
-// Import statement to indicate that you need to bundle `./index.scss`
+var _mainView = require("./components/main-view/main-view");
 var _indexScss = require("./index.scss");
-// Main component (will eventually use all the others)
-const MyFlixApplication = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "my-flix",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            children: "Good morning"
-        }, void 0, false, {
-            fileName: "src/index.jsx",
-            lineNumber: 10,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
-        fileName: "src/index.jsx",
-        lineNumber: 9,
-        columnNumber: 5
+const App = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainView.MainView), {}, void 0, false, {
+        fileName: "src/index.js",
+        lineNumber: 7,
+        columnNumber: 9
     }, undefined);
 };
-_c = MyFlixApplication;
-// Finds the root of your app
+_c = App;
 const container = document.querySelector("#root");
 const root = (0, _client.createRoot)(container);
-// Tells React to render your app in the root DOM element
-root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(MyFlixApplication, {}, void 0, false, {
-    fileName: "src/index.jsx",
-    lineNumber: 20,
+root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
+    fileName: "src/index.js",
+    lineNumber: 12,
     columnNumber: 13
 }, undefined));
 var _c;
-$RefreshReg$(_c, "MyFlixApplication");
+$RefreshReg$(_c, "App");
 
-  $parcel$ReactRefreshHelpers$98a3.postlude(module);
+  $parcel$ReactRefreshHelpers$20e5.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./index.scss":"lJZlQ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4YN8k"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/main-view/main-view":"4gflv","./index.scss":"lJZlQ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4YN8k"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -27165,7 +27153,331 @@ module.exports = require("ef03b89c8fe2794e");
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 })();
 
-},{}],"lJZlQ":[function() {},{}],"4YN8k":[function(require,module,exports) {
+},{}],"4gflv":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$f7a6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$f7a6.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MainView", ()=>MainView);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _movieCard = require("../movie-card/movie-card");
+var _movieView = require("../movie-view/movie-view");
+var _s = $RefreshSig$();
+const MainView = ()=>{
+    _s();
+    const [movies, setMovies] = (0, _react.useState)([
+        {
+            "_id": {
+                "$oid": "646dc9a474a1324822e199e9"
+            },
+            "Title": "Soul",
+            "Genre": [
+                {
+                    "Name": "Animation",
+                    "Description": "Animated film is a collection of illustrations that are photographed frame-by-frame and then played in a quick succession. Since its inception, animation has had a creative and imaginative tendency. Being able to bring animals and objects to life, this genre has catered towards fairy tales and children's stories."
+                }
+            ],
+            "Description": "American computer-animated drama film produced by Pixar Animation Studios for Walt Disney Pictures. The film was directed by Pete Docter and co-directed by Kemp Powers, who co-wrote it with Mike Jones, and produced by Dana Murray.",
+            "Director": {
+                "Name": "Pete Docter",
+                "Bio": "Pete Docter was born on October 9, 1968, in Bloomington, Minnesota...",
+                "ImageURL": "https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcSVauBJMaakMIY9BLxUHXVKBc6Ij0fQvacKpBT-6av5DTf9Z7g9vxN4hiCsiHK2PsTK",
+                "Birthdate": 1968
+            },
+            "Featured": true
+        },
+        {
+            "_id": {
+                "$oid": "646dca2c74a1324822e199ea"
+            },
+            "Title": "Nomadland",
+            "Genre": [
+                {
+                    "name": "Drama",
+                    "description": "Drama is a genre that focuses on serious storytelling and character development. It often explores complex themes, emotions, and moral dilemmas. Dramatic films typically present realistic situations and aim to evoke strong emotional responses from the audience."
+                }
+            ],
+            "Description": "Nomadland is a 2020 American drama film...",
+            "Director": {
+                "Name": "Chlo\xe9 Zhao",
+                "Bio": "Chlo\xe9 Zhao was born on March 31, 1982, in Beijing, China...",
+                "ImageURL": "https://t0.gstatic.com/licensed-image?q=tbn:ANd9GcR1uJMPp_Esod9f1i9pIwTyDdBUL7C5mg5TUew0tqqB7Fxg3L2xJTb0UoLd2XZyLSbz",
+                "Birthdate": 1982
+            },
+            "Featured": true
+        },
+        {
+            "_id": {
+                "$oid": "646dca4b74a1324822e199eb"
+            },
+            "Title": "Mank",
+            "Genre": [
+                {
+                    "name": "Drama",
+                    "description": "Drama is a genre that focuses on serious storytelling and character development. It often explores complex themes, emotions, and moral dilemmas. Dramatic films typically present realistic situations and aim to evoke strong emotional responses from the audience."
+                }
+            ],
+            "Description": "Mank is a 2020 American biographical drama film...",
+            "Director": {
+                "Name": "David Fincher",
+                "Bio": "David Fincher was born on August 28, 1962, in Denver, Colorado...",
+                "ImageURL": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQDMJlGgpiVnMI2nsWgbnWJYSsAIqyynSn8hMUX_bwAcpyv9H-p",
+                "Birthdate": 1962
+            },
+            "Featured": true
+        },
+        {
+            "_id": {
+                "$oid": "646dca6574a1324822e199ec"
+            },
+            "Title": "Minari",
+            "Genre": [
+                {
+                    "name": "Drama",
+                    "description": "Drama is a genre that focuses on serious storytelling and character development. It often explores complex themes, emotions, and moral dilemmas. Dramatic films typically present realistic situations and aim to evoke strong emotional responses from the audience."
+                }
+            ],
+            "Description": "Minari has a new description",
+            "Director": {
+                "Name": "Lee Isaac Chung",
+                "Bio": "Lee Isaac Chung was born on October 19, 1978, in Denver, Colorado...",
+                "ImageURL": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT9XLP8VRa4rl4B0bPa9H_cHsGGTP50QdjB27YqQlb_fy7I3n4Q",
+                "Birthdate": 1978
+            },
+            "Featured": true
+        },
+        {
+            "_id": {
+                "$oid": "646dca7f74a1324822e199ed"
+            },
+            "Title": "Promising Young Woman",
+            "Genre": [
+                {
+                    "name": "Thriller",
+                    "description": "Thriller is a genre that creates intense excitement, suspense, and anticipation. It often involves high stakes, danger, and unexpected plot twists. Thriller films keep the audience on the edge of their seats and typically feature suspenseful storylines and thrilling action sequences."
+                }
+            ],
+            "Description": "Promising Young Woman is a 2020 American black comedy thriller film...",
+            "Director": {
+                "Name": "Emerald Fennell",
+                "Bio": "Emerald Fennell was born on October 1, 1985, in Hammersmith, London...",
+                "ImageURL": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT7rOIAtNGEErvvUOtxyoHkFPCxRMgb8pw0e1HqWdrvYuMDhaNV",
+                "Birthdate": 1985
+            },
+            "Featured": true
+        },
+        {
+            "_id": {
+                "$oid": "646dca9774a1324822e199ee"
+            },
+            "Title": "The Trial of the Chicago 7",
+            "Genre": [
+                {
+                    "name": "Drama",
+                    "description": "Drama is a genre that focuses on serious storytelling and character development. It often explores complex themes, emotions, and moral dilemmas. Dramatic films typically present realistic situations and aim to evoke strong emotional responses from the audience."
+                }
+            ],
+            "Description": "The Trial of the Chicago 7 is a 2020 American legal drama film...",
+            "Director": {
+                "Name": "Aaron Sorkin",
+                "Bio": "Aaron Sorkin was born on June 9, 1961, in New York City, New York...",
+                "ImageURL": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTF4__4De06oA6aQ0mBJenaiNf3xByv71y5684ElXio9gJJRhAm",
+                "Birthdate": 1961
+            },
+            "Featured": true
+        },
+        {
+            "_id": {
+                "$oid": "646dcaae74a1324822e199ef"
+            },
+            "Genre": [
+                {
+                    "Name": "Animation",
+                    "Description": "Animated film is a collection of illustrations that are photographed frame-by-frame and then played in a quick succession. Since its inception, animation has had a creative and imaginative tendency. Being able to bring animals and objects to life, this genre has catered towards fairy tales and children's stories."
+                }
+            ],
+            "Description": "Toy Story is a 1995 American computer-animated buddy comedy film produced by Pixar Animation Studios...",
+            "Director": {
+                "Name": "John Lasseter",
+                "Bio": "John Lasseter is an American animator, film director, screenwriter, and producer...",
+                "ImageURL": "https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcR7MAwpFxK7aTlf1wLwkupdRTFPYPt1h-L5ICFmTXS5XfAuqoaP5bqf8puVWwLtYaMP",
+                "Birthdate": 1957
+            },
+            "Featured": true,
+            "Title": "Toy Story"
+        },
+        {
+            "_id": {
+                "$oid": "646dcac574a1324822e199f0"
+            },
+            "Title": "Coco",
+            "Genre": [
+                {
+                    "Name": "Animation",
+                    "Description": "Animated film is a collection of illustrations that are photographed frame-by-frame and then played in a quick succession. Since its inception, animation has had a creative and imaginative tendency. Being able to bring animals and objects to life, this genre has catered towards fairy tales and children's stories."
+                }
+            ],
+            "Description": "Coco is a 2017 American 3D computer-animated fantasy film...",
+            "Director": {
+                "Name": "Lee Unkrich",
+                "Bio": "Lee Unkrich was born on August 8, 1967, in Cleveland, Ohio...",
+                "ImageURL": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQenOp-f1zeoETh_mDGfGkUjoCr0xz3tfYNU5KbK5dV9iEh3Ltm",
+                "Birthdate": 1967
+            },
+            "Featured": true
+        },
+        {
+            "_id": {
+                "$oid": "646dcae274a1324822e199f1"
+            },
+            "Title": "Inception",
+            "Genre": [
+                {
+                    "name": "Thriller",
+                    "description": "Thriller is a genre that creates intense excitement, suspense, and anticipation. It often involves high stakes, danger, and unexpected plot twists. Thriller films keep the audience on the edge of their seats and typically feature suspenseful storylines and thrilling action sequences."
+                }
+            ],
+            "Description": "Inception is a 2010 science fiction action thriller film...",
+            "Director": {
+                "Name": "Christopher Nolan",
+                "Bio": "updated Bio",
+                "ImageURL": "https://t0.gstatic.com/licensed-image?q=tbn:ANd9GcS9KbgnntjGPbxTJYW_LOd8Ry7OP9fHgErMRp3J3ZQ16klJ512gEfI3hWFjUuWqqLBE",
+                "Birthdate": 1970
+            },
+            "Featured": true
+        },
+        {
+            "_id": {
+                "$oid": "646dcb0574a1324822e199f2"
+            },
+            "Title": "Interstellar",
+            "Genre": [
+                {
+                    "name": "Science Fiction",
+                    "description": "Science Fiction is a genre that explores imaginative and futuristic concepts. It often involves advanced technology, scientific possibilities, and futuristic societies. Science fiction films often speculate on the impact of science and technology on individuals and society as a whole."
+                }
+            ],
+            "Description": "Interstellar is a 2014 science fiction film set in a future where humanity is facing extinction...",
+            "Director": {
+                "Name": "Christopher Nolan",
+                "Bio": "updated Bio",
+                "ImageURL": "https://t0.gstatic.com/licensed-image?q=tbn:ANd9GcS9KbgnntjGPbxTJYW_LOd8Ry7OP9fHgErMRp3J3ZQ16klJ512gEfI3hWFjUuWqqLBE",
+                "Birthdate": 1970
+            },
+            "Featured": true
+        }
+    ]);
+    const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
+    if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
+        movie: selectedMovie,
+        onBackClick: ()=>setSelectedMovie(null)
+    }, void 0, false, {
+        fileName: "src/components/main-view/main-view.jsx",
+        lineNumber: 210,
+        columnNumber: 7
+    }, undefined);
+    if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: "The list is empty!"
+    }, void 0, false, {
+        fileName: "src/components/main-view/main-view.jsx",
+        lineNumber: 215,
+        columnNumber: 12
+    }, undefined);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                movie: movie,
+                onMovieClick: (newSelectedMovie)=>{
+                    setSelectedMovie(newSelectedMovie);
+                }
+            }, movie.id, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 221,
+                columnNumber: 8
+            }, undefined))
+    }, void 0, false, {
+        fileName: "src/components/main-view/main-view.jsx",
+        lineNumber: 219,
+        columnNumber: 5
+    }, undefined);
+};
+_s(MainView, "cjAg7HON89omz62dAwT4dIcduko=");
+_c = MainView;
+var _c;
+$RefreshReg$(_c, "MainView");
+
+  $parcel$ReactRefreshHelpers$f7a6.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","@parcel/transformer-js/src/esmodule-helpers.js":"3hjx4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4YN8k"}],"bwuIu":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$67b2.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieCard", ()=>MovieCard);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const MovieCard = ({ movie , onMovieClick  })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        onClick: ()=>{
+            onMovieClick(movie);
+        },
+        children: movie.Title
+    }, void 0, false, {
+        fileName: "src/components/movie-card/movie-card.jsx",
+        lineNumber: 2,
+        columnNumber: 10
+    }, undefined);
+};
+_c = MovieCard;
+var _c;
+$RefreshReg$(_c, "MovieCard");
+
+  $parcel$ReactRefreshHelpers$67b2.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"3hjx4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4YN8k"}],"3hjx4":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"4YN8k":[function(require,module,exports) {
 "use strict";
 var Refresh = require("9909c0ed16f49efb");
 function debounce(func, delay) {
@@ -27303,6 +27615,123 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"9909c0ed16f49efb":"hPGu3"}]},["hquDj","k4eWd","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"9909c0ed16f49efb":"hPGu3"}],"ggaUx":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$e9f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$e9f6.prelude(module);
 
-//# sourceMappingURL=index.b4b6dfad.js.map
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieView", ()=>MovieView);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const MovieView = ({ movie , onBackClick  })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    src: movie.Director.ImageURL
+                }, void 0, false, {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 6,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 5,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: "Title: "
+                    }, void 0, false, {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 9,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: movie.Title
+                    }, void 0, false, {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 10,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 8,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: "Title: "
+                    }, void 0, false, {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 13,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: movie.Description
+                    }, void 0, false, {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 14,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 12,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: "Director: "
+                    }, void 0, false, {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 17,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: movie.Director.Name
+                    }, void 0, false, {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 18,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 16,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: onBackClick,
+                children: "Back"
+            }, void 0, false, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 20,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/movie-view/movie-view.jsx",
+        lineNumber: 4,
+        columnNumber: 5
+    }, undefined);
+};
+_c = MovieView;
+var _c;
+$RefreshReg$(_c, "MovieView");
+
+  $parcel$ReactRefreshHelpers$e9f6.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"3hjx4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4YN8k"}],"lJZlQ":[function() {},{}]},["hc3tM","k4eWd","8lqZg"], "8lqZg", "parcelRequireaec4")
+
+//# sourceMappingURL=index.js.map
