@@ -7,17 +7,17 @@ export const MainView = () => {
   const [selectedMovie, setSelectedMovie] = useState (null);
 
   useEffect(() => {
-    fetch("https://guarded-peak-19726.herokuapp.com/movies")
+    fetch("https://api.jsonbin.io/v3/qs/649352cd9d312622a3737142")
     .then ((response) => response.json())
     .then ((data) => {
-      const movieFromApi = data.map((doc) => {
-        return{
-          id:doc._id,
-          Title: doc.Title,
-          Descritption: doc.Descritption,
-          Gerne: doc.Genre.Name,
-          Director: doc.Director.Name,
-          Image: doc.Director.ImageURL,
+      const movieFromApi = data.record.map((movie) => {
+        return {
+          id: movie._id.__$MSCoid,
+          Title: movie.Title,
+          Genre: movie.Genre[0].Name,
+          Description: movie.Description,
+          Director: movie.Director.Name?.[0],
+          Image: movie.Director.ImageURL,
         };
       });
       setMovies(movieFromApi);
