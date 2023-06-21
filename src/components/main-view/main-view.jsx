@@ -7,7 +7,7 @@ export const MainView = () => {
   const [selectedMovie, setSelectedMovie] = useState (null);
 
   useEffect(() => {
-    fetch(process.env.CONNECTION_URI)
+    fetch("https://guarded-peak-19726.herokuapp.com/movies")
     .then ((response) => response.json())
     .then ((data) => {
       const movieFromApi = data.map((doc) => {
@@ -23,7 +23,6 @@ export const MainView = () => {
       setMovies(movieFromApi);
     });
   }, []);
-  
  
   if (selectedMovie) {
     return (
