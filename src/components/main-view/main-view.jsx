@@ -6,7 +6,7 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState (null);
 
-const JsonApi = "https://api.jsonbin.io/v3/qs/649554cb8e4aa6225eb2fef0";
+const JsonApi = "https://api.jsonbin.io/v3/qs/6495b4b1b89b1e2299b3e32d";
 const herokuApi = "https://guarded-peak-19726.herokuapp.com/movies";
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const herokuApi = "https://guarded-peak-19726.herokuapp.com/movies";
           id: movie._id.__$MSCoid,
           Poster: movie.Poster,
           Title: movie.Title,
-          Genre: movie.Genre[0].Name,
+          Genre: movie.Genre[0].name,
           Description: movie.Description,
           Director: movie.Director.Name
         };
