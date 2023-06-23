@@ -21,7 +21,7 @@ const herokuApi = "https://guarded-peak-19726.herokuapp.com/movies";
           Title: movie.Title,
           Genre: movie.Genre[0].Name,
           Description: movie.Description,
-          Director: movie.Director.Name?.[0],
+          Director: movie.Director.Name
         };
       });
       setMovies(movieFromApi);
