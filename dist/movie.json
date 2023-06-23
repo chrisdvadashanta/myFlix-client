@@ -6,7 +6,7 @@
     "Title": "Soul",
     "Genre": [
       {
-        "Name": "Animation",
+        "name": "Animation",
         "Description": "Animated film is a collection of illustrations that are photographed frame-by-frame and then played in a quick succession. Since its inception, animation has had a creative and imaginative tendency. Being able to bring animals and objects to life, this genre has catered towards fairy tales and children's stories."
       }
     ],
@@ -131,7 +131,7 @@
     "Poster":"https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_SX300.jpg",
     "Genre": [
       {
-        "Name": "Animation",
+        "name": "Animation",
         "Description": "Animated film is a collection of illustrations that are photographed frame-by-frame and then played in a quick succession. Since its inception, animation has had a creative and imaginative tendency. Being able to bring animals and objects to life, this genre has catered towards fairy tales and children's stories."
       }
     ],
@@ -153,7 +153,7 @@
     "Title": "Coco",
     "Genre": [
       {
-        "Name": "Animation",
+        "name": "Animation",
         "Description": "Animated film is a collection of illustrations that are photographed frame-by-frame and then played in a quick succession. Since its inception, animation has had a creative and imaginative tendency. Being able to bring animals and objects to life, this genre has catered towards fairy tales and children's stories."
       }
     ],
