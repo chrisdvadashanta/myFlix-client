@@ -8,13 +8,3 @@ export const MovieCard = ({movie, onMovieClick}) => {
 };
 
 
-
-
-
-
-
-
-
-
-
-
