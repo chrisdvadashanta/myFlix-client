@@ -12,34 +12,40 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
-
-
-  const JsonApi = "https://api.jsonbin.io/v3/qs/6495b4b1b89b1e2299b3e32d";
-  const herokuApi = "https://guarded-peak-19726.herokuapp.com/movies";
-
   useEffect(() => {
     if (!token) return;
+    
+    if (data.user) {
+      localStorage.setItem("user", JSON.stringify(data.user));
+      localStorage.setItem("token", data.token);
+      onLoggedIn(data.user, data.token);
+    } else {
+      alert("No such user");
+    };
 
-    fetch(herokuApi, {
+    fetch("https://guarded-peak-19726.herokuapp.com/movies", {
       headers: { Authorization: `Bearer ${token}` },
     })
-      .then((response) => response.json())
-      .then((movies) => {
-        setMovies(movies);
-
+    .then((response) => response.json())
+    .then((data) => {
+      // Process the API response and update the movies state
+      const moviesFromApi = data.map((movie) => {
+        return {
+          Poster: movie.Poster,
+          Title: movie.Title,
+          Genre: movie.Genre[0].name,
+          Description: movie.Description,
+          Director: movie.Director.Name
+        };
       });
-  }, [token]);
 
-  //   return {
-  //     id: movie._id.__$MSCoid,
-  //     Poster: movie.Poster,
-  //     Title: movie.Title,
-  //     Genre: movie.Genre[0].name,
-  //     Description: movie.Description,
-  //     Director: movie.Director.Name
-  //   };
-  // });
-  // setMovies(movieFromApi);
+      setMovies(moviesFromApi);
+    })
+    .catch((error) => {
+      console.log('Error fetching movies:', error);
+    });
+}, [token]);
+
 
 
   if (!user) {
