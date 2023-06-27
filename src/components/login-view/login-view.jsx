@@ -5,7 +5,7 @@ export const LoginView = ({ onLoggedIn }) => {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const [birthday, setBirthday] = useState("");
-    const herokuApiLogin = "https://guarded-peak-19726.herokuapp.com/login";
+    const herokuRegister = "https://guarded-peak-19726.herokuapp.com/users";
     const openLibraryLogin = "https://openlibrary.org/account/login.json";
 
     const handleSubmit = (event) => {
@@ -18,7 +18,7 @@ export const LoginView = ({ onLoggedIn }) => {
             Birthday: birthday
         };
 
-        fetch(herokuApiLogin, {
+        fetch(herokuRegister, {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
@@ -53,9 +53,10 @@ export const LoginView = ({ onLoggedIn }) => {
         }
     }
 
-
+//////////Form//////////////
     return (
         <form onSubmit={handleSubmit}>
+            <h1> Registration </h1>
             <label>
                 Username:
                 <input
