@@ -5,10 +5,12 @@ export const SignupView = () => {
     const handleSubmit = (event) => {};
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [birthday, setBirthday] = useState("");
 
     return (
       <form onSubmit={handleSubmit}>
-            <h1> Login </h1>
+            <h1> Register </h1>
             <label>
                 Username:
                 <input
@@ -27,8 +29,26 @@ export const SignupView = () => {
                     required
                 />
             </label> <br />
+            <label>
+                Email:
+                <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                />
+            </label> <br />
+            <label>
+                Birthday:
+                <input
+                    type="date"
+                    value={birthday}
+                    onChange={(e) => setBirthday(e.target.value)}
+                    required
+                />
+            </label> <br />
         <button type="submit">
-            Login 
+            Register 
         </button>
       </form>
     );
