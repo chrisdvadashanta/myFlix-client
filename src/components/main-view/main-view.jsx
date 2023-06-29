@@ -11,22 +11,19 @@ export const MainView = () => {
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const Backend_API = "https://guarded-peak-19726.herokuapp.com";
 
   useEffect(() => {
     if (!token) return;
-    
-    if (data.user) {
-      localStorage.setItem("user", JSON.stringify(data.user));
-      localStorage.setItem("token", data.token);
-      onLoggedIn(data.user, data.token);
-    } else {
-      alert("No such user");
-    };
 
-    fetch("https://guarded-peak-19726.herokuapp.com/movies", {
+    fetch(`${Backend_API}/movies`, {
       headers: { Authorization: `Bearer ${token}` },
     })
-    .then((response) => response.json())
+    // .then((response) => response.json())
+    .then((response) => {
+      console.log('Response:', response); // Log the entire response object
+      return response.json();
+    })
     .then((data) => {
       // Process the API response and update the movies state
       const moviesFromApi = data.map((movie) => {
@@ -57,9 +54,7 @@ export const MainView = () => {
             setToken(token);
           }}
         />
-        <p> 
-          or
-        </p>
+        <p />
         <SignupView />
       </>
     );
