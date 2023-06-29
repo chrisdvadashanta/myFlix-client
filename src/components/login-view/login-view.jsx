@@ -3,22 +3,17 @@ import { React, useState } from "react";
 export const LoginView = ({ onLoggedIn }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [email, setEmail] = useState("");
-    const [birthday, setBirthday] = useState("");
-    const herokuRegister = "https://guarded-peak-19726.herokuapp.com/users";
-    const openLibraryLogin = "https://openlibrary.org/account/login.json";
+    const Backend_API = "https://guarded-peak-19726.herokuapp.com";
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
         const data = {
-            Username: username,
-            Password: password,
-            Email: email,
-            Birthday: birthday
+            username: username,
+            password: password,
         };
 
-        fetch(herokuRegister, {
+        fetch(`${Backend_API}/login`, {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
@@ -37,6 +32,7 @@ export const LoginView = ({ onLoggedIn }) => {
           }
         })
             .catch((e) => {
+                console.log("Error occurred: ", e);
                 alert("Something went wrong");
             });
     }
@@ -44,7 +40,7 @@ export const LoginView = ({ onLoggedIn }) => {
 //////////Form//////////////
     return (
         <form onSubmit={handleSubmit}>
-            <h1> Registration </h1>
+            <h1> Login </h1>
             <label>
                 Username:
                 <input
@@ -62,27 +58,9 @@ export const LoginView = ({ onLoggedIn }) => {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-            </label> <br />
-            <label>
-                Email:
-                <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-            </label> <br />
-            <label>
-                Birthday:
-                <input
-                    type="date"
-                    value={birthday}
-                    onChange={(e) => setBirthday(e.target.value)}
-                    required
-                />
-            </label> <br />
+            </label> 
             <button type="submit">
-                Register
+                Login
             </button>
         </form>
     );
