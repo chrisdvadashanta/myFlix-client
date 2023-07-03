@@ -3,13 +3,58 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-export const SignupView = () => {
+export const SignupView = ({onLoggedIn}) => {
 
-    const handleSubmit = (event) => {};
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
-    const [birthday, setBirthday] = useState("");
+    const [birthdate, setBirthdate] = useState("");
+    const Backend_API = "https://guarded-peak-19726.herokuapp.com";
+    
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        
+            const data = {
+                username: username,
+                password: password,
+                email: email,
+                birthdate: birthdate
+              };
+              
+              fetch(`${Backend_API}/users`, {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {
+                  "Content-Type": "application/json"
+                }
+              });
+        
+        // Perform login after successful registration
+        
+                fetch(`${Backend_API}/login`, {
+                    method: "POST",
+                    body: JSON.stringify(data),
+                    headers: {
+                      "Content-Type": "application/json"
+                    }
+                  })
+                    .then((response) => response.json())
+                    .then((data) => {
+                      console.log('Login response: ', data);
+                      if (data.user) {
+                        localStorage.setItem('user', JSON.stringify(data.user));
+                        localStorage.setItem('token', data.token);
+                        onLoggedIn(data.user, data.token);
+                        alert('Logged in successfully, please proceed to the homepage')
+                      } else {
+                        alert('No such user');
+                      }
+                    })
+                    .catch((error) => {
+                      console.log("Error occurred during login: ", error);
+                      alert("Something went wrong during login");
+                    });
+            };
 
     return (
       <Form 
@@ -55,12 +100,12 @@ export const SignupView = () => {
 
               <FloatingLabel 
               controlId="floatingBirthday" 
-              label="Birthday">
+              label="Birthdate">
                 <Form.Control 
                 placeholder="08.05.1978" 
                 type="date"
-                value={birthday}
-                onChange={(e) => setBirthday(e.target.value)}
+                value={birthdate}
+                onChange={(e) => setBirthdate(e.target.value)}
                 required
                 />
               </FloatingLabel>
@@ -77,4 +122,4 @@ export const SignupView = () => {
               </div>
             </Form>
           );
-  };
+        };
