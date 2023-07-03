@@ -1,50 +1,38 @@
 import PropTypes from "prop-types";
-import Accordion from 'react-bootstrap/Accordion';
-import Button from 'react-bootstrap/Button';
-
+import Accordion from "react-bootstrap/Accordion";
+import Button from "react-bootstrap/Button";
 
 export const MovieView = ({ movie, onBackClick }) => {
-
   return (
     <div>
-      <div align="center" >
-        <img src= {movie.Poster}  />
+      <div align="center">
+        <img src={movie.Poster} />
       </div>
       <p />
       <Accordion defaultActiveKey="0">
+        <Accordion.Item eventKey="0">
+          <Accordion.Header> Title: {movie.Title}</Accordion.Header>
+          <Accordion.Body>{movie.Description}</Accordion.Body>
+        </Accordion.Item>
 
-      <Accordion.Item eventKey="0">
-        <Accordion.Header> Title: {movie.Title}</Accordion.Header>
-        <Accordion.Body>
-        {movie.Description}
-        </Accordion.Body>
-      </Accordion.Item>  
+        <Accordion.Item eventKey="1">
+          <Accordion.Header> Director: {movie.Director.Name}</Accordion.Header>
+          <Accordion.Body>
+            Name and Age
+            {movie.Director.Description}
+          </Accordion.Body>
+        </Accordion.Item>
 
-      <Accordion.Item eventKey="1">
-        <Accordion.Header> Director: {movie.Director.Name}</Accordion.Header>
-        <Accordion.Body>
-          Name and Age
-        {movie.Director.Description}
-        </Accordion.Body>
-      </Accordion.Item> 
-
-      <Accordion.Item eventKey="2">
-        <Accordion.Header> Genre: {movie.Genre}</Accordion.Header>
-        <Accordion.Body>
-          Description
-        </Accordion.Body>
-      </Accordion.Item> 
-
+        <Accordion.Item eventKey="2">
+          <Accordion.Header> Genre: {movie.Genre}</Accordion.Header>
+          <Accordion.Body>Description</Accordion.Body>
+        </Accordion.Item>
       </Accordion>
       <p />
-
       <div className="d-grid gap-2">
-              <Button 
-                variant="primary" size="sm" 
-                onClick={onBackClick}
-              > 
-              Back 
-              </Button>
+        <Link to={`/`}>
+          <Button variant="primary" size="sm" >Back</Button>
+        </Link>
       </div>
     </div>
   );
@@ -53,14 +41,18 @@ export const MovieView = ({ movie, onBackClick }) => {
 MovieView.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string,
-    Poster:PropTypes.string,
+    Poster: PropTypes.string,
     Director: {
-      Name: PropTypes.string},
+      Name: PropTypes.string,
+    },
     Description: PropTypes.string,
-    Genre: PropTypes.string[{
-      "name":PropTypes.string,
-      "description":PropTypes.string
-    }]
+    Genre:
+      PropTypes.string[
+        {
+          name: PropTypes.string,
+          description: PropTypes.string,
+        }
+      ],
   }).isRequired,
-  onMovieClick: PropTypes.func.isRequired
+  onMovieClick: PropTypes.func.isRequired,
 };
