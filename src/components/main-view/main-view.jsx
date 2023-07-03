@@ -53,7 +53,11 @@ return(
       <Col md={5} >
         <LoginView onLoggedIn={(user, token) => { setUser(user); setToken(token); }} />
         <p />
-        <SignupView /> 
+        <SignupView
+        onLoggedIn={(user, token) => {
+          setUser(user);
+          setToken(token);
+         }} /> 
       </Col>
     ) : selectedMovie ? (
       <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
