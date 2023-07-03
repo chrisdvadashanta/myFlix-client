@@ -32294,7 +32294,7 @@ const SignupView = ()=>{
                 children: " Register "
             }, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 16,
+                lineNumber: 18,
                 columnNumber: 17
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _floatingLabelDefault.default), {
@@ -32309,12 +32309,12 @@ const SignupView = ()=>{
                     placeholder: "Username"
                 }, void 0, false, {
                     fileName: "src/components/signup-view/signup-view.jsx",
-                    lineNumber: 22,
+                    lineNumber: 24,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 17,
+                lineNumber: 19,
                 columnNumber: 15
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _floatingLabelDefault.default), {
@@ -32328,12 +32328,12 @@ const SignupView = ()=>{
                     required: true
                 }, void 0, false, {
                     fileName: "src/components/signup-view/signup-view.jsx",
-                    lineNumber: 33,
+                    lineNumber: 35,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 30,
+                lineNumber: 32,
                 columnNumber: 15
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _floatingLabelDefault.default), {
@@ -32347,12 +32347,12 @@ const SignupView = ()=>{
                     required: true
                 }, void 0, false, {
                     fileName: "src/components/signup-view/signup-view.jsx",
-                    lineNumber: 45,
+                    lineNumber: 47,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 42,
+                lineNumber: 44,
                 columnNumber: 15
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _floatingLabelDefault.default), {
@@ -32366,17 +32366,17 @@ const SignupView = ()=>{
                     required: true
                 }, void 0, false, {
                     fileName: "src/components/signup-view/signup-view.jsx",
-                    lineNumber: 57,
+                    lineNumber: 59,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 54,
+                lineNumber: 56,
                 columnNumber: 15
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 66,
+                lineNumber: 68,
                 columnNumber: 15
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -32386,15 +32386,15 @@ const SignupView = ()=>{
                     variant: "primary",
                     size: "sm",
                     className: "form-button",
-                    children: " Register "
+                    children: "Register"
                 }, void 0, false, {
                     fileName: "src/components/signup-view/signup-view.jsx",
-                    lineNumber: 68,
+                    lineNumber: 70,
                     columnNumber: 15
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 67,
+                lineNumber: 69,
                 columnNumber: 15
             }, undefined)
         ]

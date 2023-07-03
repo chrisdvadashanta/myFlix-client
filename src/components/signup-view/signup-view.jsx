@@ -12,7 +12,9 @@ export const SignupView = () => {
     const [birthday, setBirthday] = useState("");
 
     return (
-      <Form onSubmit={handleSubmit} className="floating-label-form" >
+      <Form 
+      onSubmit={handleSubmit} 
+      className="floating-label-form" >
                 <h1 align="center"> Register </h1>
               <FloatingLabel
                 controlId="floatingInput"
@@ -65,7 +67,13 @@ export const SignupView = () => {
 
               <p />
               <div className="d-grid gap-2">
-              <Button type="submit" variant="primary" size="sm" className="form-button" > Register </Button>
+              <Button 
+              type="submit" 
+              variant="primary" 
+              size="sm" 
+              className="form-button" > 
+              Register 
+              </Button>
               </div>
             </Form>
           );
