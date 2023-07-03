@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 
-export const LoginView = ({ onLoggedIn }) => {
+export const LoginView = ({onLoggedIn}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const Backend_API = "https://guarded-peak-19726.herokuapp.com";
@@ -37,7 +37,7 @@ export const LoginView = ({ onLoggedIn }) => {
             });
     }
 
-//////////Form//////////////
+//////////Form////////////
     return (
         <form onSubmit={handleSubmit}>
             <h1> Login </h1>
