@@ -1,6 +1,9 @@
 import Card from "react-bootstrap/Card";
+import { Button, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-export const MovieCard = ({ movie, onMovieClick }) => {
+
+export const MovieCard = ({ movie }) => {
   return (
     <Card className="h-100">
       <Card.Img

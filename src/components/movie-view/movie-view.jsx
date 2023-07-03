@@ -1,8 +1,10 @@
 import PropTypes from "prop-types";
 import Accordion from "react-bootstrap/Accordion";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
-export const MovieView = ({ movie, onBackClick }) => {
+
+export const MovieView = ({ movie }) => {
   return (
     <div>
       <div align="center">
@@ -40,6 +42,9 @@ export const MovieView = ({ movie, onBackClick }) => {
 
 MovieView.propTypes = {
   movie: PropTypes.shape({
+    _id: PropTypes.shape({
+      $oid: PropTypes.string,
+    }),
     Title: PropTypes.string,
     Poster: PropTypes.string,
     Director: {

@@ -6,7 +6,7 @@ import { SignupView } from "../signup-view/signup-view";
 import { Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { BrowserRouter, Routes, Route, Navigate, Link } from "react-router-dom";
-// import { NavigationBar } from "../navigation-bar/navigation-bar";
+import { NavigationBar } from "../navigation-bar/navigation-bar";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -49,12 +49,12 @@ export const MainView = () => {
 
   return (
     <BrowserRouter>
-      {/* <NavigationBar
+      <NavigationBar
         user={user}
         onLoggedOut={() => {
           setUser(null);
         }}
-      /> */}
+      />
       <Row className="justify-content-md-center">
         <Routes>
           <Route      /////////SignUp
@@ -95,7 +95,7 @@ export const MainView = () => {
                 <Col>The list is empty!</Col>
               ) : (
                 <Col md={8}>
-                  <MovieView m={movies} />
+                  <MovieView movies={movies} />
                 </Col>
               )}
             </>
@@ -121,14 +121,14 @@ export const MainView = () => {
             </>
           }
         />
-            <div className="d-grid gap-2">
+        </Routes>
+        {/* <div className="d-grid gap-2">
             <Link to={`/`}>
               <Button variant="primary" size="sm" className="button-logout">
                 Back
               </Button>
             </Link>
-            </div>
-        </Routes>
+            </div> */}
       </Row>
     </BrowserRouter>
   );
