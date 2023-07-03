@@ -1,5 +1,18 @@
-$color: steelblue;
+$primary: #47a6ff; // blue
+$secondary: #ffd700; // Gold
 
-.my-flix {
-  color: $color;
+@import '~bootstrap/scss/bootstrap.scss';
+
+.button-logout {
+  padding: 5px;
+}
+
+.floating-label-form .Form-group .FloatingLabel {
+  margin-bottom: 20px; 
+  padding: 5px;
+}
+
+.Container {
+  margin: 20px; 
+  padding: 10px;
 }
