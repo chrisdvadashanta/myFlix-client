@@ -32545,10 +32545,14 @@ const SignupView = ({ onLoggedIn })=>{
             }, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 lineNumber: 63,
 =======
                 lineNumber: 16,
 >>>>>>> 22429a2 (installing react bootstrap)
+=======
+                lineNumber: 18,
+>>>>>>> 6e3c156 (reordering signup view)
                 columnNumber: 17
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _floatingLabelDefault.default), {
@@ -32564,19 +32568,27 @@ const SignupView = ({ onLoggedIn })=>{
                 }, void 0, false, {
                     fileName: "src/components/signup-view/signup-view.jsx",
 <<<<<<< HEAD
+<<<<<<< HEAD
                     lineNumber: 69,
 =======
                     lineNumber: 22,
 >>>>>>> 22429a2 (installing react bootstrap)
+=======
+                    lineNumber: 24,
+>>>>>>> 6e3c156 (reordering signup view)
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 lineNumber: 64,
 =======
                 lineNumber: 17,
 >>>>>>> 22429a2 (installing react bootstrap)
+=======
+                lineNumber: 19,
+>>>>>>> 6e3c156 (reordering signup view)
                 columnNumber: 15
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _floatingLabelDefault.default), {
@@ -32591,19 +32603,27 @@ const SignupView = ({ onLoggedIn })=>{
                 }, void 0, false, {
                     fileName: "src/components/signup-view/signup-view.jsx",
 <<<<<<< HEAD
+<<<<<<< HEAD
                     lineNumber: 80,
 =======
                     lineNumber: 33,
 >>>>>>> 22429a2 (installing react bootstrap)
+=======
+                    lineNumber: 35,
+>>>>>>> 6e3c156 (reordering signup view)
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 lineNumber: 77,
 =======
                 lineNumber: 30,
 >>>>>>> 22429a2 (installing react bootstrap)
+=======
+                lineNumber: 32,
+>>>>>>> 6e3c156 (reordering signup view)
                 columnNumber: 15
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _floatingLabelDefault.default), {
@@ -32618,19 +32638,27 @@ const SignupView = ({ onLoggedIn })=>{
                 }, void 0, false, {
                     fileName: "src/components/signup-view/signup-view.jsx",
 <<<<<<< HEAD
+<<<<<<< HEAD
                     lineNumber: 92,
 =======
                     lineNumber: 45,
 >>>>>>> 22429a2 (installing react bootstrap)
+=======
+                    lineNumber: 47,
+>>>>>>> 6e3c156 (reordering signup view)
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 lineNumber: 89,
 =======
                 lineNumber: 42,
 >>>>>>> 22429a2 (installing react bootstrap)
+=======
+                lineNumber: 44,
+>>>>>>> 6e3c156 (reordering signup view)
                 columnNumber: 15
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _floatingLabelDefault.default), {
@@ -32656,26 +32684,38 @@ const SignupView = ({ onLoggedIn })=>{
                     required: true
                 }, void 0, false, {
                     fileName: "src/components/signup-view/signup-view.jsx",
+<<<<<<< HEAD
                     lineNumber: 57,
 >>>>>>> 22429a2 (installing react bootstrap)
+=======
+                    lineNumber: 59,
+>>>>>>> 6e3c156 (reordering signup view)
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 lineNumber: 101,
 =======
                 lineNumber: 54,
 >>>>>>> 22429a2 (installing react bootstrap)
+=======
+                lineNumber: 56,
+>>>>>>> 6e3c156 (reordering signup view)
                 columnNumber: 15
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 lineNumber: 113,
 =======
                 lineNumber: 66,
 >>>>>>> 22429a2 (installing react bootstrap)
+=======
+                lineNumber: 68,
+>>>>>>> 6e3c156 (reordering signup view)
                 columnNumber: 15
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -32685,6 +32725,7 @@ const SignupView = ({ onLoggedIn })=>{
                     variant: "primary",
                     size: "sm",
                     className: "form-button",
+<<<<<<< HEAD
 <<<<<<< HEAD
                     children: "Register"
                 }, void 0, false, {
@@ -32696,15 +32737,25 @@ const SignupView = ({ onLoggedIn })=>{
                     fileName: "src/components/signup-view/signup-view.jsx",
                     lineNumber: 68,
 >>>>>>> 22429a2 (installing react bootstrap)
+=======
+                    children: "Register"
+                }, void 0, false, {
+                    fileName: "src/components/signup-view/signup-view.jsx",
+                    lineNumber: 70,
+>>>>>>> 6e3c156 (reordering signup view)
                     columnNumber: 15
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 lineNumber: 114,
 =======
                 lineNumber: 67,
 >>>>>>> 22429a2 (installing react bootstrap)
+=======
+                lineNumber: 69,
+>>>>>>> 6e3c156 (reordering signup view)
                 columnNumber: 15
             }, undefined)
         ]
