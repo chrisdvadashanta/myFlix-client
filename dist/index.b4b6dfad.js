@@ -27257,21 +27257,13 @@ const MainView = ()=>{
             onBackClick: ()=>setSelectedMovie(null)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-<<<<<<< HEAD
             lineNumber: 63,
-=======
-            lineNumber: 59,
->>>>>>> 22429a2 (installing react bootstrap)
             columnNumber: 7
         }, undefined) : movies.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             children: "The list is empty!"
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-<<<<<<< HEAD
             lineNumber: 65,
-=======
-            lineNumber: 61,
->>>>>>> 22429a2 (installing react bootstrap)
             columnNumber: 7
         }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
             children: [
@@ -27285,20 +27277,12 @@ const MainView = ()=>{
                             }
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-<<<<<<< HEAD
                             lineNumber: 70,
-=======
-                            lineNumber: 66,
->>>>>>> 22429a2 (installing react bootstrap)
                             columnNumber: 9
                         }, undefined)
                     }, movie.id, false, {
                         fileName: "src/components/main-view/main-view.jsx",
-<<<<<<< HEAD
                         lineNumber: 69,
-=======
-                        lineNumber: 65,
->>>>>>> 22429a2 (installing react bootstrap)
                         columnNumber: 9
                     }, undefined)),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27349,11 +27333,7 @@ $RefreshReg$(_c, "MainView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-<<<<<<< HEAD
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN","react-bootstrap":"3AD9A","react-bootstrap/Button":"aPzUt","@parcel/transformer-js/src/esmodule-helpers.js":"3hjx4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4YN8k"}],"bwuIu":[function(require,module,exports) {
-=======
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"3hjx4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4YN8k","react-bootstrap/Button":"aPzUt"}],"bwuIu":[function(require,module,exports) {
->>>>>>> 22429a2 (installing react bootstrap)
 var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27366,11 +27346,7 @@ parcelHelpers.export(exports, "MovieCard", ()=>MovieCard);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _card = require("react-bootstrap/Card");
 var _cardDefault = parcelHelpers.interopDefault(_card);
-<<<<<<< HEAD
 const MovieCard = ({ movie, onMovieClick })=>{
-=======
-const MovieCard = ({ movie , onMovieClick  })=>{
->>>>>>> 22429a2 (installing react bootstrap)
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default), {
         className: "h-100",
         children: [
@@ -27464,13 +27440,8 @@ const CardText = (0, _createWithBsPrefixDefault.default)("card-text", {
 });
 const CardFooter = (0, _createWithBsPrefixDefault.default)("card-footer");
 const CardImgOverlay = (0, _createWithBsPrefixDefault.default)("card-img-overlay");
-<<<<<<< HEAD
 const Card = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, bg, text, border, body = false, children, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
 as: Component = "div", ...props }, ref)=>{
-=======
-const Card = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , bg , text , border , body =false , children , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "div" , ...props }, ref)=>{
->>>>>>> 22429a2 (installing react bootstrap)
     const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "card");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
         ref: ref,
@@ -27562,13 +27533,8 @@ const ThemeContext = /*#__PURE__*/ _react.createContext({
     breakpoints: DEFAULT_BREAKPOINTS,
     minBreakpoint: DEFAULT_MIN_BREAKPOINT
 });
-<<<<<<< HEAD
 const { Consumer, Provider } = ThemeContext;
 function ThemeProvider({ prefixes = {}, breakpoints = DEFAULT_BREAKPOINTS, minBreakpoint = DEFAULT_MIN_BREAKPOINT, dir, children }) {
-=======
-const { Consumer , Provider  } = ThemeContext;
-function ThemeProvider({ prefixes ={} , breakpoints =DEFAULT_BREAKPOINTS , minBreakpoint =DEFAULT_MIN_BREAKPOINT , dir , children  }) {
->>>>>>> 22429a2 (installing react bootstrap)
     const contextValue = (0, _react.useMemo)(()=>({
             prefixes: {
                 ...prefixes
@@ -27588,7 +27554,6 @@ function ThemeProvider({ prefixes ={} , breakpoints =DEFAULT_BREAKPOINTS , minBr
     });
 }
 function useBootstrapPrefix(prefix, defaultPrefix) {
-<<<<<<< HEAD
     const { prefixes } = (0, _react.useContext)(ThemeContext);
     return prefix || prefixes[defaultPrefix] || defaultPrefix;
 }
@@ -27602,21 +27567,6 @@ function useBootstrapMinBreakpoint() {
 }
 function useIsRTL() {
     const { dir } = (0, _react.useContext)(ThemeContext);
-=======
-    const { prefixes  } = (0, _react.useContext)(ThemeContext);
-    return prefix || prefixes[defaultPrefix] || defaultPrefix;
-}
-function useBootstrapBreakpoints() {
-    const { breakpoints  } = (0, _react.useContext)(ThemeContext);
-    return breakpoints;
-}
-function useBootstrapMinBreakpoint() {
-    const { minBreakpoint  } = (0, _react.useContext)(ThemeContext);
-    return minBreakpoint;
-}
-function useIsRTL() {
-    const { dir  } = (0, _react.useContext)(ThemeContext);
->>>>>>> 22429a2 (installing react bootstrap)
     return dir === "rtl";
 }
 function createBootstrapComponent(Component, opts) {
@@ -27625,11 +27575,7 @@ function createBootstrapComponent(Component, opts) {
     };
     const isClassy = Component.prototype && Component.prototype.isReactComponent;
     // If it's a functional component make sure we don't break it with a ref
-<<<<<<< HEAD
     const { prefix, forwardRefAs = isClassy ? "ref" : "innerRef" } = opts;
-=======
-    const { prefix , forwardRefAs =isClassy ? "ref" : "innerRef"  } = opts;
->>>>>>> 22429a2 (installing react bootstrap)
     const Wrapped = /*#__PURE__*/ _react.forwardRef(({ ...props }, ref)=>{
         props[forwardRefAs] = ref;
         const bsPrefix = useBootstrapPrefix(props.bsPrefix, prefix);
