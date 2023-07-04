@@ -27217,78 +27217,20 @@ const MainView = ()=>{
     }, [
         token
     ]);
-    if (!user) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
-                onLoggedIn: (user, token)=>{
-                    setUser(user);
-                    setToken(token);
-                }
-            }, void 0, false, {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 51,
-                columnNumber: 9
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 57,
-                columnNumber: 9
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupView.SignupView), {
-                onLoggedIn: (user, token)=>{
-                    setUser(user);
-                    setToken(token);
-                }
-            }, void 0, false, {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 58,
-                columnNumber: 9
-            }, undefined)
-        ]
-    }, void 0, true);
-    if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
-        movie: selectedMovie,
-        onBackClick: ()=>setSelectedMovie(null)
-    }, void 0, false, {
-        fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 70,
-        columnNumber: 7
-    }, undefined);
-    if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: "The list is empty!"
-    }, void 0, false, {
-        fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 75,
-        columnNumber: 12
-    }, undefined);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: [
-            movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
-                    movie: movie,
-                    onMovieClick: (newSelectedMovie)=>{
-                        setSelectedMovie(newSelectedMovie);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+        className: "justify-content-md-center",
+        children: !user ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+            md: 5,
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
+                    onLoggedIn: (user, token)=>{
+                        setUser(user);
+                        setToken(token);
                     }
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 81,
+                    lineNumber: 54,
                     columnNumber: 9
-<<<<<<< HEAD
-                }, undefined)),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: ()=>{
-                    setUser(null);
-                    setToken(null);
-                    localStorage.clear();
-                },
-                children: "Logout"
-            }, void 0, false, {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 89,
-                columnNumber: 7
-            }, undefined)
-        ]
-    }, void 0, true, {
-=======
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
@@ -27368,10 +27310,9 @@ const MainView = ()=>{
             ]
         }, void 0, true)
     }, void 0, false, {
->>>>>>> 957cb5f (adding params to <signupview>)
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 79,
-        columnNumber: 5
+        lineNumber: 51,
+        columnNumber: 3
     }, undefined);
 };
 _s(MainView, "9wJBvfUyU2IigbyWC+M5y3EH9h4=");
@@ -27397,7 +27338,7 @@ parcelHelpers.export(exports, "MovieCard", ()=>MovieCard);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _card = require("react-bootstrap/Card");
 var _cardDefault = parcelHelpers.interopDefault(_card);
-const MovieCard = ({ movie , onMovieClick  })=>{
+const MovieCard = ({ movie, onMovieClick })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default), {
         className: "h-100",
         children: [
@@ -27491,8 +27432,8 @@ const CardText = (0, _createWithBsPrefixDefault.default)("card-text", {
 });
 const CardFooter = (0, _createWithBsPrefixDefault.default)("card-footer");
 const CardImgOverlay = (0, _createWithBsPrefixDefault.default)("card-img-overlay");
-const Card = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , bg , text , border , body =false , children , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "div" , ...props }, ref)=>{
+const Card = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, bg, text, border, body = false, children, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = "div", ...props }, ref)=>{
     const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "card");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
         ref: ref,
@@ -27584,8 +27525,8 @@ const ThemeContext = /*#__PURE__*/ _react.createContext({
     breakpoints: DEFAULT_BREAKPOINTS,
     minBreakpoint: DEFAULT_MIN_BREAKPOINT
 });
-const { Consumer , Provider  } = ThemeContext;
-function ThemeProvider({ prefixes ={} , breakpoints =DEFAULT_BREAKPOINTS , minBreakpoint =DEFAULT_MIN_BREAKPOINT , dir , children  }) {
+const { Consumer, Provider } = ThemeContext;
+function ThemeProvider({ prefixes = {}, breakpoints = DEFAULT_BREAKPOINTS, minBreakpoint = DEFAULT_MIN_BREAKPOINT, dir, children }) {
     const contextValue = (0, _react.useMemo)(()=>({
             prefixes: {
                 ...prefixes
@@ -27605,19 +27546,19 @@ function ThemeProvider({ prefixes ={} , breakpoints =DEFAULT_BREAKPOINTS , minBr
     });
 }
 function useBootstrapPrefix(prefix, defaultPrefix) {
-    const { prefixes  } = (0, _react.useContext)(ThemeContext);
+    const { prefixes } = (0, _react.useContext)(ThemeContext);
     return prefix || prefixes[defaultPrefix] || defaultPrefix;
 }
 function useBootstrapBreakpoints() {
-    const { breakpoints  } = (0, _react.useContext)(ThemeContext);
+    const { breakpoints } = (0, _react.useContext)(ThemeContext);
     return breakpoints;
 }
 function useBootstrapMinBreakpoint() {
-    const { minBreakpoint  } = (0, _react.useContext)(ThemeContext);
+    const { minBreakpoint } = (0, _react.useContext)(ThemeContext);
     return minBreakpoint;
 }
 function useIsRTL() {
-    const { dir  } = (0, _react.useContext)(ThemeContext);
+    const { dir } = (0, _react.useContext)(ThemeContext);
     return dir === "rtl";
 }
 function createBootstrapComponent(Component, opts) {
@@ -27626,7 +27567,7 @@ function createBootstrapComponent(Component, opts) {
     };
     const isClassy = Component.prototype && Component.prototype.isReactComponent;
     // If it's a functional component make sure we don't break it with a ref
-    const { prefix , forwardRefAs =isClassy ? "ref" : "innerRef"  } = opts;
+    const { prefix, forwardRefAs = isClassy ? "ref" : "innerRef" } = opts;
     const Wrapped = /*#__PURE__*/ _react.forwardRef(({ ...props }, ref)=>{
         props[forwardRefAs] = ref;
         const bsPrefix = useBootstrapPrefix(props.bsPrefix, prefix);
@@ -28529,8 +28470,8 @@ var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
 const pascalCase = (str)=>str[0].toUpperCase() + (0, _camelizeDefault.default)(str).slice(1);
-function createWithBsPrefix(prefix, { displayName =pascalCase(prefix) , Component , defaultProps  } = {}) {
-    const BsComponent = /*#__PURE__*/ _react.forwardRef(({ className , bsPrefix , as: Tag = Component || "div" , ...props }, ref)=>{
+function createWithBsPrefix(prefix, { displayName = pascalCase(prefix), Component, defaultProps } = {}) {
+    const BsComponent = /*#__PURE__*/ _react.forwardRef(({ className, bsPrefix, as: Tag = Component || "div", ...props }, ref)=>{
         const componentProps = {
             ...defaultProps,
             ...props
@@ -28579,7 +28520,7 @@ var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
 const CardImg = /*#__PURE__*/ _react.forwardRef(// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-({ bsPrefix , className , variant , as: Component = "img" , ...props }, ref)=>{
+({ bsPrefix, className, variant, as: Component = "img", ...props }, ref)=>{
     const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "card-img");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
         ref: ref,
@@ -28600,8 +28541,8 @@ var _themeProvider = require("./ThemeProvider");
 var _cardHeaderContext = require("./CardHeaderContext");
 var _cardHeaderContextDefault = parcelHelpers.interopDefault(_cardHeaderContext);
 var _jsxRuntime = require("react/jsx-runtime");
-const CardHeader = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "div" , ...props }, ref)=>{
+const CardHeader = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = "div", ...props }, ref)=>{
     const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "card-header");
     const contextValue = (0, _react.useMemo)(()=>({
             cardHeaderBsPrefix: prefix
@@ -28783,7 +28724,7 @@ var _accordion = require("react-bootstrap/Accordion");
 var _accordionDefault = parcelHelpers.interopDefault(_accordion);
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
-const MovieView = ({ movie , onBackClick  })=>{
+const MovieView = ({ movie, onBackClick })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -29718,7 +29659,7 @@ var _accordionItemDefault = parcelHelpers.interopDefault(_accordionItem);
 var _jsxRuntime = require("react/jsx-runtime");
 const Accordion = /*#__PURE__*/ _react.forwardRef((props, ref)=>{
     const { // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-    as: Component = "div" , activeKey , bsPrefix , className , onSelect , flush , alwaysOpen , ...controlledProps } = (0, _uncontrollable.useUncontrolled)(props, {
+    as: Component = "div", activeKey, bsPrefix, className, onSelect, flush, alwaysOpen, ...controlledProps } = (0, _uncontrollable.useUncontrolled)(props, {
         activeKey: "onSelect"
     });
     const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "accordion");
@@ -30216,9 +30157,9 @@ var _accordionItemContext = require("./AccordionItemContext");
 var _accordionItemContextDefault = parcelHelpers.interopDefault(_accordionItemContext);
 var _jsxRuntime = require("react/jsx-runtime");
 const AccordionBody = /*#__PURE__*/ _react.forwardRef(({ // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "div" , bsPrefix , className , onEnter , onEntering , onEntered , onExit , onExiting , onExited , ...props }, ref)=>{
+as: Component = "div", bsPrefix, className, onEnter, onEntering, onEntered, onExit, onExiting, onExited, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "accordion-body");
-    const { eventKey  } = (0, _react.useContext)((0, _accordionItemContextDefault.default));
+    const { eventKey } = (0, _react.useContext)((0, _accordionItemContextDefault.default));
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _accordionCollapseDefault.default), {
         eventKey: eventKey,
         onEnter: onEnter,
@@ -30251,8 +30192,8 @@ var _accordionContextDefault = parcelHelpers.interopDefault(_accordionContext);
 var _jsxRuntime = require("react/jsx-runtime");
 /**
  * This component accepts all of [`Collapse`'s props](/docs/utilities/transitions#collapse-1).
- */ const AccordionCollapse = /*#__PURE__*/ _react.forwardRef(({ as: Component = "div" , bsPrefix , className , children , eventKey , ...props }, ref)=>{
-    const { activeEventKey  } = (0, _react.useContext)((0, _accordionContextDefault.default));
+ */ const AccordionCollapse = /*#__PURE__*/ _react.forwardRef(({ as: Component = "div", bsPrefix, className, children, eventKey, ...props }, ref)=>{
+    const { activeEventKey } = (0, _react.useContext)((0, _accordionContextDefault.default));
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "accordion-collapse");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _collapseDefault.default), {
         ref: ref,
@@ -30310,7 +30251,7 @@ const collapseStyles = {
     [(0, _transition.ENTERING)]: "collapsing",
     [(0, _transition.ENTERED)]: "collapse show"
 };
-const Collapse = /*#__PURE__*/ (0, _reactDefault.default).forwardRef(({ onEnter , onEntering , onEntered , onExit , onExiting , className , children , dimension ="height" , in: inProp = false , timeout =300 , mountOnEnter =false , unmountOnExit =false , appear =false , getDimensionValue =getDefaultDimensionValue , ...props }, ref)=>{
+const Collapse = /*#__PURE__*/ (0, _reactDefault.default).forwardRef(({ onEnter, onEntering, onEntered, onExit, onExiting, className, children, dimension = "height", in: inProp = false, timeout = 300, mountOnEnter = false, unmountOnExit = false, appear = false, getDimensionValue = getDefaultDimensionValue, ...props }, ref)=>{
     /* Compute dimension */ const computedDimension = typeof dimension === "function" ? dimension() : dimension;
     /* -- Expanding -- */ const handleEnter = (0, _react.useMemo)(()=>(0, _createChainedFunctionDefault.default)((elem)=>{
             elem.style[computedDimension] = "0";
@@ -31251,7 +31192,7 @@ var _safeFindDOMNode = require("./safeFindDOMNode");
 var _safeFindDOMNodeDefault = parcelHelpers.interopDefault(_safeFindDOMNode);
 var _jsxRuntime = require("react/jsx-runtime");
 // Normalizes Transition callbacks when nodeRef is used.
-const TransitionWrapper = /*#__PURE__*/ (0, _reactDefault.default).forwardRef(({ onEnter , onEntering , onEntered , onExit , onExiting , onExited , addEndListener , children , childRef , ...props }, ref)=>{
+const TransitionWrapper = /*#__PURE__*/ (0, _reactDefault.default).forwardRef(({ onEnter, onEntering, onEntered, onExit, onExiting, onExited, addEndListener, children, childRef, ...props }, ref)=>{
     const nodeRef = (0, _react.useRef)(null);
     const mergedRef = (0, _useMergedRefsDefault.default)(nodeRef, childRef);
     const attachRef = (r)=>{
@@ -31393,7 +31334,7 @@ var _accordionItemContextDefault = parcelHelpers.interopDefault(_accordionItemCo
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
 function useAccordionButton(eventKey, onClick) {
-    const { activeEventKey , onSelect , alwaysOpen  } = (0, _react.useContext)((0, _accordionContextDefault.default));
+    const { activeEventKey, onSelect, alwaysOpen } = (0, _react.useContext)((0, _accordionContextDefault.default));
     return (e)=>{
         /*
       Compare the event key in context with the given event key.
@@ -31416,11 +31357,11 @@ function useAccordionButton(eventKey, onClick) {
     };
 }
 const AccordionButton = /*#__PURE__*/ _react.forwardRef(({ // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "button" , bsPrefix , className , onClick , ...props }, ref)=>{
+as: Component = "button", bsPrefix, className, onClick, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "accordion-button");
-    const { eventKey  } = (0, _react.useContext)((0, _accordionItemContextDefault.default));
+    const { eventKey } = (0, _react.useContext)((0, _accordionItemContextDefault.default));
     const accordionOnClick = useAccordionButton(eventKey, onClick);
-    const { activeEventKey  } = (0, _react.useContext)((0, _accordionContextDefault.default));
+    const { activeEventKey } = (0, _react.useContext)((0, _accordionContextDefault.default));
     if (Component === "button") props.type = "button";
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
         ref: ref,
@@ -31444,7 +31385,7 @@ var _accordionButton = require("./AccordionButton");
 var _accordionButtonDefault = parcelHelpers.interopDefault(_accordionButton);
 var _jsxRuntime = require("react/jsx-runtime");
 const AccordionHeader = /*#__PURE__*/ _react.forwardRef(({ // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "h2" , bsPrefix , className , children , onClick , ...props }, ref)=>{
+as: Component = "h2", bsPrefix, className, children, onClick, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "accordion-header");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
         ref: ref,
@@ -31470,7 +31411,7 @@ var _accordionItemContext = require("./AccordionItemContext");
 var _accordionItemContextDefault = parcelHelpers.interopDefault(_accordionItemContext);
 var _jsxRuntime = require("react/jsx-runtime");
 const AccordionItem = /*#__PURE__*/ _react.forwardRef(({ // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "div" , bsPrefix , className , eventKey , ...props }, ref)=>{
+as: Component = "div", bsPrefix, className, eventKey, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "accordion-item");
     const contextValue = (0, _react.useMemo)(()=>({
             eventKey
@@ -31498,9 +31439,9 @@ var _react = require("react");
 var _button = require("@restart/ui/Button");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const Button = /*#__PURE__*/ _react.forwardRef(({ as , bsPrefix , variant ="primary" , size , active =false , disabled =false , className , ...props }, ref)=>{
+const Button = /*#__PURE__*/ _react.forwardRef(({ as, bsPrefix, variant = "primary", size, active = false, disabled = false, className, ...props }, ref)=>{
     const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "btn");
-    const [buttonProps, { tagName  }] = (0, _button.useButtonProps)({
+    const [buttonProps, { tagName }] = (0, _button.useButtonProps)({
         tagName: as,
         disabled,
         ...props
@@ -31543,7 +31484,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 function isTrivialHref(href) {
     return !href || href.trim() === "#";
 }
-function useButtonProps({ tagName , disabled , href , target , rel , role , onClick , tabIndex =0 , type  }) {
+function useButtonProps({ tagName, disabled, href, target, rel, role, onClick, tabIndex = 0, type }) {
     if (!tagName) {
         if (href != null || target != null || rel != null) tagName = "a";
         else tagName = "button";
@@ -31595,8 +31536,8 @@ function useButtonProps({ tagName , disabled , href , target , rel , role , onCl
     ];
 }
 const Button = /*#__PURE__*/ _react.forwardRef((_ref, ref)=>{
-    let { as: asProp , disabled  } = _ref, props = _objectWithoutPropertiesLoose(_ref, _excluded);
-    const [buttonProps, { tagName: Component  }] = useButtonProps(Object.assign({
+    let { as: asProp, disabled } = _ref, props = _objectWithoutPropertiesLoose(_ref, _excluded);
+    const [buttonProps, { tagName: Component }] = useButtonProps(Object.assign({
         tagName: asProp,
         disabled
     }, props));
@@ -31626,7 +31567,7 @@ var _formDefault = parcelHelpers.interopDefault(_form);
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _s = $RefreshSig$();
-const LoginView = ({ onLoggedIn  })=>{
+const LoginView = ({ onLoggedIn })=>{
     _s();
     const [username, setUsername] = (0, _react.useState)("");
     const [password, setPassword] = (0, _react.useState)("");
@@ -31657,7 +31598,7 @@ const LoginView = ({ onLoggedIn  })=>{
         });
     };
     //////////Form////////////
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default), {
         onSubmit: handleSubmit,
         className: "floating-label-form",
         children: [
@@ -31666,7 +31607,7 @@ const LoginView = ({ onLoggedIn  })=>{
                 children: " Login "
             }, void 0, false, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 45,
+                lineNumber: 46,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _floatingLabelDefault.default), {
@@ -31681,12 +31622,12 @@ const LoginView = ({ onLoggedIn  })=>{
                     placeholder: "Username"
                 }, void 0, false, {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 51,
+                    lineNumber: 52,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 46,
+                lineNumber: 47,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _floatingLabelDefault.default), {
@@ -31700,17 +31641,17 @@ const LoginView = ({ onLoggedIn  })=>{
                     required: true
                 }, void 0, false, {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 62,
+                    lineNumber: 63,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 59,
+                lineNumber: 60,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 70,
+                lineNumber: 71,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -31723,18 +31664,18 @@ const LoginView = ({ onLoggedIn  })=>{
                     children: " Login "
                 }, void 0, false, {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 72,
+                    lineNumber: 73,
                     columnNumber: 7
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 71,
+                lineNumber: 72,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/login-view/login-view.jsx",
-        lineNumber: 44,
+        lineNumber: 45,
         columnNumber: 5
     }, undefined);
 };
@@ -31758,7 +31699,7 @@ var _formGroup = require("./FormGroup");
 var _formGroupDefault = parcelHelpers.interopDefault(_formGroup);
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const FloatingLabel = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , children , controlId , label , ...props }, ref)=>{
+const FloatingLabel = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, children, controlId, label, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "form-floating");
     return /*#__PURE__*/ (0, _jsxRuntime.jsxs)((0, _formGroupDefault.default), {
         ref: ref,
@@ -31784,8 +31725,8 @@ var _react = require("react");
 var _formContext = require("./FormContext");
 var _formContextDefault = parcelHelpers.interopDefault(_formContext);
 var _jsxRuntime = require("react/jsx-runtime");
-const FormGroup = /*#__PURE__*/ _react.forwardRef(({ controlId , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "div" , ...props }, ref)=>{
+const FormGroup = /*#__PURE__*/ _react.forwardRef(({ controlId, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = "div", ...props }, ref)=>{
     const context = (0, _react.useMemo)(()=>({
             controlId
         }), [
@@ -31854,8 +31795,8 @@ const propTypes = {
    */ validated: (0, _propTypesDefault.default).bool,
     as: (0, _propTypesDefault.default).elementType
 };
-const Form = /*#__PURE__*/ _react.forwardRef(({ className , validated , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "form" , ...props }, ref)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+const Form = /*#__PURE__*/ _react.forwardRef(({ className, validated, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = "form", ...props }, ref)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
         ...props,
         ref: ref,
         className: (0, _classnamesDefault.default)(className, validated && "was-validated")
@@ -31892,11 +31833,11 @@ var _formContextDefault = parcelHelpers.interopDefault(_formContext);
 var _themeProvider = require("./ThemeProvider");
 var _elementChildren = require("./ElementChildren");
 var _jsxRuntime = require("react/jsx-runtime");
-const FormCheck = /*#__PURE__*/ _react.forwardRef(({ id , bsPrefix , bsSwitchPrefix , inline =false , reverse =false , disabled =false , isValid =false , isInvalid =false , feedbackTooltip =false , feedback , feedbackType , className , style , title ="" , type ="checkbox" , label , children , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as ="input" , ...props }, ref)=>{
+const FormCheck = /*#__PURE__*/ _react.forwardRef(({ id, bsPrefix, bsSwitchPrefix, inline = false, reverse = false, disabled = false, isValid = false, isInvalid = false, feedbackTooltip = false, feedback, feedbackType, className, style, title = "", type = "checkbox", label, children, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as = "input", ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "form-check");
     bsSwitchPrefix = (0, _themeProvider.useBootstrapPrefix)(bsSwitchPrefix, "form-switch");
-    const { controlId  } = (0, _react.useContext)((0, _formContextDefault.default));
+    const { controlId } = (0, _react.useContext)((0, _formContextDefault.default));
     const innerFormContext = (0, _react.useMemo)(()=>({
             controlId: id || controlId
         }), [
@@ -31960,7 +31901,7 @@ const propTypes = {
     as: (0, _propTypesDefault.default).elementType
 };
 const Feedback = /*#__PURE__*/ _react.forwardRef(// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-({ as: Component = "div" , className , type ="valid" , tooltip =false , ...props }, ref)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+({ as: Component = "div", className, type = "valid", tooltip = false, ...props }, ref)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
         ...props,
         ref: ref,
         className: (0, _classnamesDefault.default)(className, `${type}-${tooltip ? "tooltip" : "feedback"}`)
@@ -31979,9 +31920,9 @@ var _formContext = require("./FormContext");
 var _formContextDefault = parcelHelpers.interopDefault(_formContext);
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const FormCheckInput = /*#__PURE__*/ _react.forwardRef(({ id , bsPrefix , className , type ="checkbox" , isValid =false , isInvalid =false , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "input" , ...props }, ref)=>{
-    const { controlId  } = (0, _react.useContext)((0, _formContextDefault.default));
+const FormCheckInput = /*#__PURE__*/ _react.forwardRef(({ id, bsPrefix, className, type = "checkbox", isValid = false, isInvalid = false, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = "input", ...props }, ref)=>{
+    const { controlId } = (0, _react.useContext)((0, _formContextDefault.default));
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "form-check-input");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
         ...props,
@@ -32004,8 +31945,8 @@ var _formContext = require("./FormContext");
 var _formContextDefault = parcelHelpers.interopDefault(_formContext);
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const FormCheckLabel = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , htmlFor , ...props }, ref)=>{
-    const { controlId  } = (0, _react.useContext)((0, _formContextDefault.default));
+const FormCheckLabel = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, htmlFor, ...props }, ref)=>{
+    const { controlId } = (0, _react.useContext)((0, _formContextDefault.default));
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "form-check-label");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)("label", {
         ...props,
@@ -32067,9 +32008,9 @@ var _formContext = require("./FormContext");
 var _formContextDefault = parcelHelpers.interopDefault(_formContext);
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const FormControl = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , type , size , htmlSize , id , className , isValid =false , isInvalid =false , plaintext , readOnly , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "input" , ...props }, ref)=>{
-    const { controlId  } = (0, _react.useContext)((0, _formContextDefault.default));
+const FormControl = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, type, size, htmlSize, id, className, isValid = false, isInvalid = false, plaintext, readOnly, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = "input", ...props }, ref)=>{
+    const { controlId } = (0, _react.useContext)((0, _formContextDefault.default));
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "form-control");
     let classes;
     if (plaintext) classes = {
@@ -32160,8 +32101,8 @@ var _formContextDefault = parcelHelpers.interopDefault(_formContext);
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
 const FormLabel = /*#__PURE__*/ _react.forwardRef(({ // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "label" , bsPrefix , column =false , visuallyHidden =false , className , htmlFor , ...props }, ref)=>{
-    const { controlId  } = (0, _react.useContext)((0, _formContextDefault.default));
+as: Component = "label", bsPrefix, column = false, visuallyHidden = false, className, htmlFor, ...props }, ref)=>{
+    const { controlId } = (0, _react.useContext)((0, _formContextDefault.default));
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "form-label");
     let columnClass = "col-form-label";
     if (typeof column === "string") columnClass = `${columnClass} ${columnClass}-${column}`;
@@ -32195,7 +32136,7 @@ var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-function useCol({ as , bsPrefix , className , ...props }) {
+function useCol({ as, bsPrefix, className, ...props }) {
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "col");
     const breakpoints = (0, _themeProvider.useBootstrapBreakpoints)();
     const minBreakpoint = (0, _themeProvider.useBootstrapMinBreakpoint)();
@@ -32207,7 +32148,7 @@ function useCol({ as , bsPrefix , className , ...props }) {
         let span;
         let offset;
         let order;
-        if (typeof propValue === "object" && propValue != null) ({ span , offset , order  } = propValue);
+        if (typeof propValue === "object" && propValue != null) ({ span, offset, order } = propValue);
         else span = propValue;
         const infix = brkPoint !== minBreakpoint ? `-${brkPoint}` : "";
         if (span) spans.push(span === true ? `${bsPrefix}${infix}` : `${bsPrefix}${infix}-${span}`);
@@ -32228,7 +32169,7 @@ function useCol({ as , bsPrefix , className , ...props }) {
 }
 const Col = /*#__PURE__*/ _react.forwardRef(// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
 (props, ref)=>{
-    const [{ className , ...colProps }, { as: Component = "div" , bsPrefix , spans  }] = useCol(props);
+    const [{ className, ...colProps }, { as: Component = "div", bsPrefix, spans }] = useCol(props);
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
         ...colProps,
         ref: ref,
@@ -32248,8 +32189,8 @@ var _themeProvider = require("./ThemeProvider");
 var _formContext = require("./FormContext");
 var _formContextDefault = parcelHelpers.interopDefault(_formContext);
 var _jsxRuntime = require("react/jsx-runtime");
-const FormRange = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , id , ...props }, ref)=>{
-    const { controlId  } = (0, _react.useContext)((0, _formContextDefault.default));
+const FormRange = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, id, ...props }, ref)=>{
+    const { controlId } = (0, _react.useContext)((0, _formContextDefault.default));
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "form-range");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)("input", {
         ...props,
@@ -32272,8 +32213,8 @@ var _themeProvider = require("./ThemeProvider");
 var _formContext = require("./FormContext");
 var _formContextDefault = parcelHelpers.interopDefault(_formContext);
 var _jsxRuntime = require("react/jsx-runtime");
-const FormSelect = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , size , htmlSize , className , isValid =false , isInvalid =false , id , ...props }, ref)=>{
-    const { controlId  } = (0, _react.useContext)((0, _formContextDefault.default));
+const FormSelect = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, size, htmlSize, className, isValid = false, isInvalid = false, id, ...props }, ref)=>{
+    const { controlId } = (0, _react.useContext)((0, _formContextDefault.default));
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "form-select");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)("select", {
         ...props,
@@ -32295,7 +32236,7 @@ var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
 const FormText = /*#__PURE__*/ _react.forwardRef(// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-({ bsPrefix , className , as: Component = "small" , muted , ...props }, ref)=>{
+({ bsPrefix, className, as: Component = "small", muted, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "form-text");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
         ...props,
@@ -32343,7 +32284,7 @@ var _formDefault = parcelHelpers.interopDefault(_form);
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _s = $RefreshSig$();
-const SignupView = ({ onLoggedIn  })=>{
+const SignupView = ({ onLoggedIn })=>{
     _s();
     const [username, setUsername] = (0, _react.useState)("");
     const [password, setPassword] = (0, _react.useState)("");
@@ -32385,11 +32326,7 @@ const SignupView = ({ onLoggedIn  })=>{
             alert("Something went wrong during login");
         });
     };
-<<<<<<< HEAD
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
-=======
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default), {
->>>>>>> 957cb5f (adding params to <signupview>)
         onSubmit: handleSubmit,
         className: "floating-label-form",
         children: [
@@ -32398,123 +32335,7 @@ const SignupView = ({ onLoggedIn  })=>{
                 children: " Register "
             }, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                lineNumber: 58,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                children: [
-                    "Username:",
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "text",
-                        value: username,
-                        onChange: (e)=>setUsername(e.target.value),
-                        required: true
-                    }, void 0, false, {
-                        fileName: "src/components/signup-view/signup-view.jsx",
-                        lineNumber: 61,
-                        columnNumber: 9
-                    }, undefined),
-                    " ",
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
-                        fileName: "src/components/signup-view/signup-view.jsx",
-                        lineNumber: 66,
-                        columnNumber: 12
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 59,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                children: [
-                    "Password:",
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "password",
-                        value: password,
-                        onChange: (e)=>setPassword(e.target.value),
-                        required: true
-                    }, void 0, false, {
-                        fileName: "src/components/signup-view/signup-view.jsx",
-                        lineNumber: 70,
-                        columnNumber: 9
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 68,
-                columnNumber: 7
-            }, undefined),
-            " ",
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
-                fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 76,
-                columnNumber: 16
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                children: [
-                    "Email:",
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "email",
-                        value: email,
-                        onChange: (e)=>setEmail(e.target.value),
-                        required: true
-                    }, void 0, false, {
-                        fileName: "src/components/signup-view/signup-view.jsx",
-                        lineNumber: 79,
-                        columnNumber: 9
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 77,
-                columnNumber: 7
-            }, undefined),
-            " ",
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
-                fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 85,
-                columnNumber: 16
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                children: [
-                    "Birthday:",
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "date",
-                        value: birthdate,
-                        onChange: (e)=>setBirthdate(e.target.value),
-                        required: true
-                    }, void 0, false, {
-                        fileName: "src/components/signup-view/signup-view.jsx",
-                        lineNumber: 88,
-                        columnNumber: 9
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 86,
-                columnNumber: 7
-            }, undefined),
-            " ",
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
-                fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 94,
-                columnNumber: 16
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                type: "submit",
-                children: "Register"
-            }, void 0, false, {
-                fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 95,
-                columnNumber: 7
-=======
-                lineNumber: 18,
-=======
                 lineNumber: 63,
->>>>>>> 957cb5f (adding params to <signupview>)
                 columnNumber: 17
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _floatingLabelDefault.default), {
@@ -32616,18 +32437,12 @@ const SignupView = ({ onLoggedIn  })=>{
                 fileName: "src/components/signup-view/signup-view.jsx",
                 lineNumber: 114,
                 columnNumber: 15
->>>>>>> 6e3c156 (reordering signup view)
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/signup-view/signup-view.jsx",
-<<<<<<< HEAD
-        lineNumber: 57,
-        columnNumber: 5
-=======
         lineNumber: 60,
         columnNumber: 7
->>>>>>> 957cb5f (adding params to <signupview>)
     }, undefined);
 };
 _s(SignupView, "RIZRq4jE1cgzcLOHGIpSeTDhd80=");
@@ -32927,7 +32742,7 @@ const AlertLink = (0, _createWithBsPrefixDefault.default)("alert-link", {
     Component: (0, _anchorDefault.default)
 });
 const Alert = /*#__PURE__*/ _react.forwardRef((uncontrolledProps, ref)=>{
-    const { bsPrefix , show =true , closeLabel ="Close alert" , closeVariant , className , children , variant ="primary" , onClose , dismissible , transition =(0, _fadeDefault.default) , ...props } = (0, _uncontrollable.useUncontrolled)(uncontrolledProps, {
+    const { bsPrefix, show = true, closeLabel = "Close alert", closeVariant, className, children, variant = "primary", onClose, dismissible, transition = (0, _fadeDefault.default), ...props } = (0, _uncontrollable.useUncontrolled)(uncontrolledProps, {
         show: "onClose"
     });
     const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "alert");
@@ -33033,7 +32848,7 @@ function isTrivialHref(href) {
  * An generic `<a>` component that covers a few A11y cases, ensuring that
  * cases where the `href` is missing or trivial like "#" are treated like buttons.
  */ const Anchor = /*#__PURE__*/ _react.forwardRef((_ref, ref)=>{
-    let { onKeyDown  } = _ref, props = _objectWithoutPropertiesLoose(_ref, _excluded);
+    let { onKeyDown } = _ref, props = _objectWithoutPropertiesLoose(_ref, _excluded);
     const [buttonProps] = (0, _button.useButtonProps)(Object.assign({
         tagName: "a"
     }, props));
@@ -33432,7 +33247,7 @@ const fadeStyles = {
     [(0, _transition.ENTERING)]: "show",
     [(0, _transition.ENTERED)]: "show"
 };
-const Fade = /*#__PURE__*/ _react.forwardRef(({ className , children , transitionClasses ={} , onEnter , ...rest }, ref)=>{
+const Fade = /*#__PURE__*/ _react.forwardRef(({ className, children, transitionClasses = {}, onEnter, ...rest }, ref)=>{
     const props = {
         in: false,
         timeout: 300,
@@ -33482,7 +33297,7 @@ const propTypes = {
         "white"
     ])
 };
-const CloseButton = /*#__PURE__*/ _react.forwardRef(({ className , variant , "aria-label": ariaLabel = "Close" , ...props }, ref)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)("button", {
+const CloseButton = /*#__PURE__*/ _react.forwardRef(({ className, variant, "aria-label": ariaLabel = "Close", ...props }, ref)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)("button", {
         ref: ref,
         type: "button",
         className: (0, _classnamesDefault.default)("btn-close", variant && `btn-close-${variant}`, className),
@@ -33508,7 +33323,7 @@ var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const Badge = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , bg ="primary" , pill =false , text , className , as: Component = "span" , ...props }, ref)=>{
+const Badge = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, bg = "primary", pill = false, text, className, as: Component = "span", ...props }, ref)=>{
     const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "badge");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
         ref: ref,
@@ -33529,8 +33344,8 @@ var _themeProvider = require("./ThemeProvider");
 var _breadcrumbItem = require("./BreadcrumbItem");
 var _breadcrumbItemDefault = parcelHelpers.interopDefault(_breadcrumbItem);
 var _jsxRuntime = require("react/jsx-runtime");
-const Breadcrumb = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , listProps ={} , children , label ="breadcrumb" , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "nav" , ...props }, ref)=>{
+const Breadcrumb = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, listProps = {}, children, label = "breadcrumb", // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = "nav", ...props }, ref)=>{
     const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "breadcrumb");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
         "aria-label": label,
@@ -33559,8 +33374,8 @@ var _anchor = require("@restart/ui/Anchor");
 var _anchorDefault = parcelHelpers.interopDefault(_anchor);
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const BreadcrumbItem = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , active =false , children , className , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "li" , linkAs: LinkComponent = (0, _anchorDefault.default) , linkProps ={} , href , title , target , ...props }, ref)=>{
+const BreadcrumbItem = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, active = false, children, className, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = "li", linkAs: LinkComponent = (0, _anchorDefault.default), linkProps = {}, href, title, target, ...props }, ref)=>{
     const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "breadcrumb-item");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
         ref: ref,
@@ -33589,8 +33404,8 @@ var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const ButtonGroup = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , size , vertical =false , className , role ="group" , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "div" , ...rest }, ref)=>{
+const ButtonGroup = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, size, vertical = false, className, role = "group", // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = "div", ...rest }, ref)=>{
     const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "btn-group");
     let baseClass = prefix;
     if (vertical) baseClass = `${prefix}-vertical`;
@@ -33612,7 +33427,7 @@ var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const ButtonToolbar = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , role ="toolbar" , ...props }, ref)=>{
+const ButtonToolbar = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, role = "toolbar", ...props }, ref)=>{
     const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "btn-toolbar");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
         ...props,
@@ -33667,15 +33482,15 @@ function isVisible(element) {
     const elementStyle = getComputedStyle(element);
     return elementStyle.display !== "none" && elementStyle.visibility !== "hidden" && getComputedStyle(element.parentNode).display !== "none";
 }
-const Carousel = /*#__PURE__*/ _react.forwardRef(({ defaultActiveIndex =0 , ...uncontrolledProps }, ref)=>{
+const Carousel = /*#__PURE__*/ _react.forwardRef(({ defaultActiveIndex = 0, ...uncontrolledProps }, ref)=>{
     const { // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-    as: Component = "div" , bsPrefix , slide =true , fade =false , controls =true , indicators =true , indicatorLabels =[] , activeIndex , onSelect , onSlide , onSlid , interval =5000 , keyboard =true , onKeyDown , pause ="hover" , onMouseOver , onMouseOut , wrap =true , touch =true , onTouchStart , onTouchMove , onTouchEnd , prevIcon =/*#__PURE__*/ (0, _jsxRuntime.jsx)("span", {
+    as: Component = "div", bsPrefix, slide = true, fade = false, controls = true, indicators = true, indicatorLabels = [], activeIndex, onSelect, onSlide, onSlid, interval = 5000, keyboard = true, onKeyDown, pause = "hover", onMouseOver, onMouseOut, wrap = true, touch = true, onTouchStart, onTouchMove, onTouchEnd, prevIcon = /*#__PURE__*/ (0, _jsxRuntime.jsx)("span", {
         "aria-hidden": "true",
         className: "carousel-control-prev-icon"
-    }) , prevLabel ="Previous" , nextIcon =/*#__PURE__*/ (0, _jsxRuntime.jsx)("span", {
+    }), prevLabel = "Previous", nextIcon = /*#__PURE__*/ (0, _jsxRuntime.jsx)("span", {
         "aria-hidden": "true",
         className: "carousel-control-next-icon"
-    }) , nextLabel ="Next" , variant , className , children , ...props } = (0, _uncontrollable.useUncontrolled)({
+    }), nextLabel = "Next", variant, className, children, ...props } = (0, _uncontrollable.useUncontrolled)({
         defaultActiveIndex,
         ...uncontrolledProps
     }, {
@@ -34085,7 +33900,7 @@ var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
 const CarouselItem = /*#__PURE__*/ _react.forwardRef(({ // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "div" , bsPrefix , className , ...props }, ref)=>{
+as: Component = "div", bsPrefix, className, ...props }, ref)=>{
     const finalClassName = (0, _classnamesDefault.default)(className, (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "carousel-item"));
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
         ref: ref,
@@ -34137,8 +33952,8 @@ const DropdownItemText = (0, _createWithBsPrefixDefault.default)("dropdown-item-
     Component: "span"
 });
 const Dropdown = /*#__PURE__*/ _react.forwardRef((pProps, ref)=>{
-    const { bsPrefix , drop ="down" , show , className , align ="start" , onSelect , onToggle , focusFirstItemOnShow , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-    as: Component = "div" , navbar: _4 , autoClose =true , ...props } = (0, _uncontrollable.useUncontrolled)(pProps, {
+    const { bsPrefix, drop = "down", show, className, align = "start", onSelect, onToggle, focusFirstItemOnShow, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+    as: Component = "div", navbar: _4, autoClose = true, ...props } = (0, _uncontrollable.useUncontrolled)(pProps, {
         show: "onToggle"
     });
     const isInputGroup = (0, _react.useContext)((0, _inputGroupContextDefault.default));
@@ -34252,7 +34067,7 @@ function useRefWithUpdate() {
 /**
  * @displayName Dropdown
  * @public
- */ function Dropdown({ defaultShow , show: rawShow , onSelect , onToggle: rawOnToggle , itemSelector =`* [${(0, _dataKey.dataAttr)("dropdown-item")}]` , focusFirstItemOnShow , placement ="bottom-start" , children  }) {
+ */ function Dropdown({ defaultShow, show: rawShow, onSelect, onToggle: rawOnToggle, itemSelector = `* [${(0, _dataKey.dataAttr)("dropdown-item")}]`, focusFirstItemOnShow, placement = "bottom-start", children }) {
     const window = (0, _useWindowDefault.default)();
     const [show, onToggle] = (0, _uncontrollable.useUncontrolledProp)(rawShow, defaultShow, rawOnToggle);
     // We use normal refs instead of useCallbackRef in order to populate the
@@ -34335,7 +34150,7 @@ function useRefWithUpdate() {
         window
     ]), "keydown", (event)=>{
         var _menuRef$current, _toggleRef$current;
-        const { key  } = event;
+        const { key } = event;
         const target = event.target;
         const fromMenu = (_menuRef$current = menuRef.current) == null ? void 0 : _menuRef$current.contains(target);
         const fromToggle = (_toggleRef$current = toggleRef.current) == null ? void 0 : _toggleRef$current.contains(target);
@@ -34469,7 +34284,7 @@ function useUncontrolledProp(propValue, defaultValue, handler) {
 }
 function useUncontrolled(props, config) {
     return Object.keys(config).reduce((result, fieldName)=>{
-        const _ref = result, _defaultKey = defaultKey(fieldName), { [_defaultKey]: defaultValue , [fieldName]: propsValue  } = _ref, rest = _objectWithoutPropertiesLoose(_ref, [
+        const _ref = result, _defaultKey = defaultKey(fieldName), { [_defaultKey]: defaultValue, [fieldName]: propsValue } = _ref, rest = _objectWithoutPropertiesLoose(_ref, [
             _defaultKey,
             fieldName
         ].map(_toPropertyKey));
@@ -34548,13 +34363,13 @@ function useDropdownMenu(options = {}) {
     const context = (0, _react.useContext)((0, _dropdownContextDefault.default));
     const [arrowElement, attachArrowRef] = (0, _useCallbackRefDefault.default)();
     const hasShownRef = (0, _react.useRef)(false);
-    const { flip , offset , rootCloseEvent , fixed =false , placement: placementOverride , popperConfig ={} , enableEventListeners =true , usePopper: shouldUsePopper = !!context  } = options;
+    const { flip, offset, rootCloseEvent, fixed = false, placement: placementOverride, popperConfig = {}, enableEventListeners = true, usePopper: shouldUsePopper = !!context } = options;
     const show = (context == null ? void 0 : context.show) == null ? !!options.show : context.show;
     if (show && !hasShownRef.current) hasShownRef.current = true;
     const handleClose = (e)=>{
         context == null || context.toggle(false, e);
     };
-    const { placement , setMenu , menuElement , toggleElement  } = context || {};
+    const { placement, setMenu, menuElement, toggleElement } = context || {};
     const popper = (0, _usePopperDefault.default)(toggleElement, menuElement, (0, _mergeOptionsWithPopperConfigDefault.default)({
         placement: placementOverride || placement || "bottom-start",
         enabled: shouldUsePopper,
@@ -34601,7 +34416,7 @@ const defaultProps = {
  * @displayName DropdownMenu
  * @memberOf Dropdown
  */ function DropdownMenu(_ref) {
-    let { children  } = _ref, options = _objectWithoutPropertiesLoose(_ref, _excluded);
+    let { children } = _ref, options = _objectWithoutPropertiesLoose(_ref, _excluded);
     const [props, meta] = useDropdownMenu(options);
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _jsxRuntime.Fragment), {
         children: children(props, meta)
@@ -34648,17 +34463,17 @@ const ariaDescribedByModifier = {
     name: "ariaDescribedBy",
     enabled: true,
     phase: "afterWrite",
-    effect: ({ state  })=>()=>{
-            const { reference , popper  } = state.elements;
+    effect: ({ state })=>()=>{
+            const { reference, popper } = state.elements;
             if ("removeAttribute" in reference) {
                 const ids = (reference.getAttribute("aria-describedby") || "").split(",").filter((id)=>id.trim() !== popper.id);
                 if (!ids.length) reference.removeAttribute("aria-describedby");
                 else reference.setAttribute("aria-describedby", ids.join(","));
             }
         },
-    fn: ({ state  })=>{
+    fn: ({ state })=>{
         var _popper$getAttribute;
-        const { popper , reference  } = state.elements;
+        const { popper, reference } = state.elements;
         const role = (_popper$getAttribute = popper.getAttribute("role")) == null ? void 0 : _popper$getAttribute.toLowerCase();
         if (popper.id && role === "tooltip" && "setAttribute" in reference) {
             const ids = reference.getAttribute("aria-describedby");
@@ -34683,7 +34498,7 @@ const EMPTY_MODIFIERS = [];
  *
  * @returns {UsePopperState} The popper state
  */ function usePopper(referenceElement, popperElement, _ref = {}) {
-    let { enabled =true , placement ="bottom" , strategy ="absolute" , modifiers =EMPTY_MODIFIERS  } = _ref, config = _objectWithoutPropertiesLoose(_ref, _excluded);
+    let { enabled = true, placement = "bottom", strategy = "absolute", modifiers = EMPTY_MODIFIERS } = _ref, config = _objectWithoutPropertiesLoose(_ref, _excluded);
     const prevModifiers = (0, _react.useRef)(modifiers);
     const popperInstanceRef = (0, _react.useRef)();
     const update = (0, _react.useCallback)(()=>{
@@ -34711,7 +34526,7 @@ const EMPTY_MODIFIERS = [];
             requires: [
                 "computeStyles"
             ],
-            fn: ({ state  })=>{
+            fn: ({ state })=>{
                 const styles = {};
                 const attributes = {};
                 Object.keys(state.elements).forEach((element)=>{
@@ -36795,7 +36610,7 @@ const InitialTriggerEvents = {
  * @param {object=}  options
  * @param {boolean=} options.disabled
  * @param {string=}  options.clickTrigger The DOM event name (click, mousedown, etc) to attach listeners on
- */ function useClickOutside(ref, onClickOutside = noop, { disabled , clickTrigger ="click"  } = {}) {
+ */ function useClickOutside(ref, onClickOutside = noop, { disabled, clickTrigger = "click" } = {}) {
     const preventMouseClickOutsideRef = (0, _react.useRef)(false);
     const waitingForTrigger = (0, _react.useRef)(false);
     const handleMouseCapture = (0, _react.useCallback)((e)=>{
@@ -36894,7 +36709,7 @@ function toModifierArray(map = {}) {
         return map[k];
     });
 }
-function mergeOptionsWithPopperConfig({ enabled , enableEvents , placement , flip , offset , fixed , containerPadding , arrowElement , popperConfig ={}  }) {
+function mergeOptionsWithPopperConfig({ enabled, enableEvents, placement, flip, offset, fixed, containerPadding, arrowElement, popperConfig = {} }) {
     var _modifiers$eventListe, _modifiers$preventOve, _modifiers$preventOve2, _modifiers$offset, _modifiers$arrow;
     const modifiers = toModifierMap(popperConfig.modifiers);
     return Object.assign({}, popperConfig, {
@@ -36951,7 +36766,7 @@ const isRoleMenu = (el)=>{
 const noop = ()=>{};
 function useDropdownToggle() {
     const id = (0, _ssr.useSSRSafeId)();
-    const { show =false , toggle =noop , setToggle , menuElement  } = (0, _react.useContext)((0, _dropdownContextDefault.default)) || {};
+    const { show = false, toggle = noop, setToggle, menuElement } = (0, _react.useContext)((0, _dropdownContextDefault.default)) || {};
     const handleClick = (0, _react.useCallback)((e)=>{
         toggle(!show, e);
     }, [
@@ -36981,7 +36796,7 @@ function useDropdownToggle() {
  *
  * @displayName DropdownToggle
  * @memberOf Dropdown
- */ function DropdownToggle({ children  }) {
+ */ function DropdownToggle({ children }) {
     const [props, meta] = useDropdownToggle();
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _jsxRuntime.Fragment), {
         children: children(props, meta)
@@ -37187,10 +37002,10 @@ function _objectWithoutPropertiesLoose(source, excluded) {
     }
     return target;
 }
-function useDropdownItem({ key , href , active , disabled , onClick  }) {
+function useDropdownItem({ key, href, active, disabled, onClick }) {
     const onSelectCtx = (0, _react.useContext)((0, _selectableContextDefault.default));
     const navContext = (0, _react.useContext)((0, _navContextDefault.default));
-    const { activeKey  } = navContext || {};
+    const { activeKey } = navContext || {};
     const eventKey = (0, _selectableContext.makeEventKey)(key, href);
     const isActive = active == null && key != null ? (0, _selectableContext.makeEventKey)(activeKey) === eventKey : active;
     const handleClick = (0, _useEventCallbackDefault.default)((event)=>{
@@ -37211,7 +37026,7 @@ function useDropdownItem({ key , href , active , disabled , onClick  }) {
     ];
 }
 const DropdownItem = /*#__PURE__*/ _react.forwardRef((_ref, ref)=>{
-    let { eventKey , disabled , onClick , active , as: Component = (0, _buttonDefault.default)  } = _ref, props = _objectWithoutPropertiesLoose(_ref, _excluded);
+    let { eventKey, disabled, onClick, active, as: Component = (0, _buttonDefault.default) } = _ref, props = _objectWithoutPropertiesLoose(_ref, _excluded);
     const [dropdownItemProps] = useDropdownItem({
         key: eventKey,
         href: props.href,
@@ -37295,7 +37110,7 @@ var _anchor = require("@restart/ui/Anchor");
 var _anchorDefault = parcelHelpers.interopDefault(_anchor);
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const DropdownItem = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , eventKey , disabled =false , onClick , active , as: Component = (0, _anchorDefault.default) , ...props }, ref)=>{
+const DropdownItem = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, eventKey, disabled = false, onClick, active, as: Component = (0, _anchorDefault.default), ...props }, ref)=>{
     const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "dropdown-item");
     const [dropdownItemProps, meta] = (0, _dropdownItem.useDropdownItem)({
         key: eventKey,
@@ -37356,12 +37171,12 @@ function getDropdownMenuPlacement(alignEnd, dropDirection, isRTL) {
     else if (dropDirection === "up-centered") placement = "top";
     return placement;
 }
-const DropdownMenu = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , align , rootCloseEvent , flip =true , show: showProps , renderOnMount , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "div" , popperConfig , variant , ...props }, ref)=>{
+const DropdownMenu = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, align, rootCloseEvent, flip = true, show: showProps, renderOnMount, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = "div", popperConfig, variant, ...props }, ref)=>{
     let alignEnd = false;
     const isNavbar = (0, _react.useContext)((0, _navbarContextDefault.default));
     const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "dropdown-menu");
-    const { align: contextAlign , drop , isRTL  } = (0, _react.useContext)((0, _dropdownContextDefault.default));
+    const { align: contextAlign, drop, isRTL } = (0, _react.useContext)((0, _dropdownContextDefault.default));
     align = align || contextAlign;
     const isInputGroup = (0, _react.useContext)((0, _inputGroupContextDefault.default));
     const alignClasses = [];
@@ -37380,7 +37195,7 @@ as: Component = "div" , popperConfig , variant , ...props }, ref)=>{
         } else if (align === "end") alignEnd = true;
     }
     const placement = getDropdownMenuPlacement(alignEnd, drop, isRTL);
-    const [menuProps, { hasShown , popper , show , toggle  }] = (0, _dropdownMenu.useDropdownMenu)({
+    const [menuProps, { hasShown, popper, show, toggle }] = (0, _dropdownMenu.useDropdownMenu)({
         flip,
         rootCloseEvent,
         show: showProps,
@@ -37514,8 +37329,8 @@ var _themeProvider = require("./ThemeProvider");
 var _useWrappedRefWithWarning = require("./useWrappedRefWithWarning");
 var _useWrappedRefWithWarningDefault = parcelHelpers.interopDefault(_useWrappedRefWithWarning);
 var _jsxRuntime = require("react/jsx-runtime");
-const DropdownToggle = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , split , className , childBsPrefix , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = (0, _buttonDefault.default) , ...props }, ref)=>{
+const DropdownToggle = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, split, className, childBsPrefix, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = (0, _buttonDefault.default), ...props }, ref)=>{
     const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "dropdown-toggle");
     const dropdownContext = (0, _react.useContext)((0, _dropdownContextDefault.default));
     if (childBsPrefix !== undefined) props.bsPrefix = childBsPrefix;
@@ -37593,7 +37408,7 @@ const propTypes = {
  * _All unknown props are passed through to the `Dropdown` component._ Only
  * the Button `variant`, `size` and `bsPrefix` props are passed to the toggle,
  * along with menu-related props are passed to the `Dropdown.Menu`
- */ const DropdownButton = /*#__PURE__*/ _react.forwardRef(({ title , children , bsPrefix , rootCloseEvent , variant , size , menuRole , renderMenuOnMount , disabled , href , id , menuVariant , flip , ...props }, ref)=>/*#__PURE__*/ (0, _jsxRuntime.jsxs)((0, _dropdownDefault.default), {
+ */ const DropdownButton = /*#__PURE__*/ _react.forwardRef(({ title, children, bsPrefix, rootCloseEvent, variant, size, menuRole, renderMenuOnMount, disabled, href, id, menuVariant, flip, ...props }, ref)=>/*#__PURE__*/ (0, _jsxRuntime.jsxs)((0, _dropdownDefault.default), {
         ref: ref,
         ...props,
         children: [
@@ -37628,8 +37443,8 @@ var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const Container = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , fluid =false , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "div" , className , ...props }, ref)=>{
+const Container = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, fluid = false, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = "div", className, ...props }, ref)=>{
     const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "container");
     const suffix = typeof fluid === "string" ? `-${fluid}` : "-fluid";
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
@@ -37669,7 +37484,7 @@ const propTypes = {
    * Sets image shape as thumbnail.
    */ thumbnail: (0, _propTypesDefault.default).bool
 };
-const Image = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , fluid =false , rounded =false , roundedCircle =false , thumbnail =false , ...props }, ref)=>{
+const Image = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, fluid = false, rounded = false, roundedCircle = false, thumbnail = false, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "img");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)("img", {
         // eslint-disable-line jsx-a11y/alt-text
@@ -37707,7 +37522,7 @@ var _react = require("react");
 var _image = require("./Image");
 var _imageDefault = parcelHelpers.interopDefault(_image);
 var _jsxRuntime = require("react/jsx-runtime");
-const FigureImage = /*#__PURE__*/ _react.forwardRef(({ className , fluid =true , ...props }, ref)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _imageDefault.default), {
+const FigureImage = /*#__PURE__*/ _react.forwardRef(({ className, fluid = true, ...props }, ref)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _imageDefault.default), {
         ref: ref,
         ...props,
         fluid: fluid,
@@ -37756,8 +37571,8 @@ const InputGroupRadio = (props)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)(InputGroupTe
             ...props
         })
     });
-const InputGroup = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , size , hasValidation , className , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "div" , ...props }, ref)=>{
+const InputGroup = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, size, hasValidation, className, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = "div", ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "input-group");
     // Intentionally an empty object. Used in detecting if a dropdown
     // exists under an input group.
@@ -37794,8 +37609,8 @@ var _listGroupItem = require("./ListGroupItem");
 var _listGroupItemDefault = parcelHelpers.interopDefault(_listGroupItem);
 var _jsxRuntime = require("react/jsx-runtime");
 const ListGroup = /*#__PURE__*/ _react.forwardRef((props, ref)=>{
-    const { className , bsPrefix: initialBsPrefix , variant , horizontal , numbered , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-    as ="div" , ...controlledProps } = (0, _uncontrollable.useUncontrolled)(props, {
+    const { className, bsPrefix: initialBsPrefix, variant, horizontal, numbered, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+    as = "div", ...controlledProps } = (0, _uncontrollable.useUncontrolled)(props, {
         activeKey: "onSelect"
     });
     const bsPrefix = (0, _themeProvider.useBootstrapPrefix)(initialBsPrefix, "list-group");
@@ -37858,7 +37673,7 @@ const noop = ()=>{};
 const EVENT_KEY_ATTR = (0, _dataKey.dataAttr)("event-key");
 const Nav = /*#__PURE__*/ _react.forwardRef((_ref, ref)=>{
     let { // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-    as: Component = "div" , onSelect , activeKey , role , onKeyDown  } = _ref, props = _objectWithoutPropertiesLoose(_ref, _excluded);
+    as: Component = "div", onSelect, activeKey, role, onKeyDown } = _ref, props = _objectWithoutPropertiesLoose(_ref, _excluded);
     // A ref and forceUpdate for refocus, b/c we only want to trigger when needed
     // and don't want to reset the set in the effect
     const forceUpdate = (0, _useForceUpdateDefault.default)();
@@ -37986,7 +37801,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
     }
     return target;
 }
-function useNavItem({ key , onClick , active , id , role , disabled  }) {
+function useNavItem({ key, onClick, active, id, role, disabled }) {
     const parentOnSelect = (0, _react.useContext)((0, _selectableContextDefault.default));
     const navContext = (0, _react.useContext)((0, _navContextDefault.default));
     const tabContext = (0, _react.useContext)((0, _tabContextDefault.default));
@@ -38034,7 +37849,7 @@ function useNavItem({ key , onClick , active , id , role , disabled  }) {
     ];
 }
 const NavItem = /*#__PURE__*/ _react.forwardRef((_ref, ref)=>{
-    let { as: Component = (0, _buttonDefault.default) , active , eventKey  } = _ref, options = _objectWithoutPropertiesLoose(_ref, _excluded);
+    let { as: Component = (0, _buttonDefault.default), active, eventKey } = _ref, options = _objectWithoutPropertiesLoose(_ref, _excluded);
     const [props, meta] = useNavItem(Object.assign({
         key: (0, _selectableContext.makeEventKey)(eventKey, options.href),
         active
@@ -38062,7 +37877,7 @@ var _navItem = require("@restart/ui/NavItem");
 var _selectableContext = require("@restart/ui/SelectableContext");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const ListGroupItem = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , active , disabled , eventKey , className , variant , action , as , ...props }, ref)=>{
+const ListGroupItem = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, active, disabled, eventKey, className, variant, action, as, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "list-group-item");
     const [navItemProps, meta] = (0, _navItem.useNavItem)({
         key: (0, _selectableContext.makeEventKey)(eventKey, props.href),
@@ -38152,7 +37967,7 @@ function BackdropTransition(props) {
         timeout: null
     });
 }
-/* eslint-enable no-use-before-define */ const Modal = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , style , dialogClassName , contentClassName , children , dialogAs: Dialog = (0, _modalDialogDefault.default) , "aria-labelledby": ariaLabelledby , "aria-describedby": ariaDescribedby , "aria-label": ariaLabel , /* BaseModal props */ show =false , animation =true , backdrop =true , keyboard =true , onEscapeKeyDown , onShow , onHide , container , autoFocus =true , enforceFocus =true , restoreFocus =true , restoreFocusOptions , onEntered , onExit , onExiting , onEnter , onEntering , onExited , backdropClassName , manager: propsManager , ...props }, ref)=>{
+/* eslint-enable no-use-before-define */ const Modal = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, style, dialogClassName, contentClassName, children, dialogAs: Dialog = (0, _modalDialogDefault.default), "aria-labelledby": ariaLabelledby, "aria-describedby": ariaDescribedby, "aria-label": ariaLabel, /* BaseModal props */ show = false, animation = true, backdrop = true, keyboard = true, onEscapeKeyDown, onShow, onHide, container, autoFocus = true, enforceFocus = true, restoreFocus = true, restoreFocusOptions, onEntered, onExit, onExiting, onEnter, onEntering, onExited, backdropClassName, manager: propsManager, ...props }, ref)=>{
     const [modalStyle, setStyle] = (0, _react.useState)({});
     const [animateStaticModal, setAnimateStaticModal] = (0, _react.useState)(false);
     const waitingForMouseUpRef = (0, _react.useRef)(false);
@@ -38448,7 +38263,7 @@ function useModalManager(provided) {
     });
 }
 const Modal = /*#__PURE__*/ (0, _react.forwardRef)((_ref, ref)=>{
-    let { show =false , role ="dialog" , className , style , children , backdrop =true , keyboard =true , onBackdropClick , onEscapeKeyDown , transition , runTransition , backdropTransition , runBackdropTransition , autoFocus =true , enforceFocus =true , restoreFocus =true , restoreFocusOptions , renderDialog , renderBackdrop =(props)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)("div", Object.assign({}, props)) , manager: providedManager , container: containerRef , onShow , onHide =()=>{} , onExit , onExited , onExiting , onEnter , onEntering , onEntered  } = _ref, rest = _objectWithoutPropertiesLoose(_ref, _excluded);
+    let { show = false, role = "dialog", className, style, children, backdrop = true, keyboard = true, onBackdropClick, onEscapeKeyDown, transition, runTransition, backdropTransition, runBackdropTransition, autoFocus = true, enforceFocus = true, restoreFocus = true, restoreFocusOptions, renderDialog, renderBackdrop = (props)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)("div", Object.assign({}, props)), manager: providedManager, container: containerRef, onShow, onHide = ()=>{}, onExit, onExited, onExiting, onEnter, onEntering, onEntered } = _ref, rest = _objectWithoutPropertiesLoose(_ref, _excluded);
     const ownerWindow = (0, _useWindowDefault.default)();
     const container = (0, _useWaitForDOMRefDefault.default)(containerRef);
     const modal = useModalManager(providedManager);
@@ -38629,7 +38444,7 @@ const OPEN_DATA_ATTRIBUTE = (0, _dataKey.dataAttr)("modal-open");
  * Manages a stack of Modals as well as ensuring
  * body scrolling is is disabled and padding accounted for
  */ class ModalManager {
-    constructor({ ownerDocument , handleContainerOverflow =true , isRTL =false  } = {}){
+    constructor({ ownerDocument, handleContainerOverflow = true, isRTL = false } = {}){
         this.handleContainerOverflow = handleContainerOverflow;
         this.isRTL = isRTL;
         this.modals = [];
@@ -38775,7 +38590,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _noopTransition = require("./NoopTransition");
 var _noopTransitionDefault = parcelHelpers.interopDefault(_noopTransition);
 var _jsxRuntime = require("react/jsx-runtime");
-function useTransition({ in: inProp , onTransition  }) {
+function useTransition({ in: inProp, onTransition }) {
     const ref = (0, _react.useRef)(null);
     const isInitialRef = (0, _react.useRef)(true);
     const handleTransition = (0, _useEventCallbackDefault.default)(onTransition);
@@ -38804,7 +38619,7 @@ function useTransition({ in: inProp , onTransition  }) {
     }, []);
     return ref;
 }
-function ImperativeTransition({ children , in: inProp , onExited , onEntered , transition  }) {
+function ImperativeTransition({ children, in: inProp, onExited, onEntered, transition }) {
     const [exited, setExited] = (0, _react.useState)(!inProp);
     // TODO: I think this needs to be in an effect
     if (inProp && exited) setExited(false);
@@ -38846,7 +38661,7 @@ var _useEventCallbackDefault = parcelHelpers.interopDefault(_useEventCallback);
 var _useMergedRefs = require("@restart/hooks/useMergedRefs");
 var _useMergedRefsDefault = parcelHelpers.interopDefault(_useMergedRefs);
 var _react = require("react");
-function NoopTransition({ children , in: inProp , onExited , mountOnEnter , unmountOnExit  }) {
+function NoopTransition({ children, in: inProp, onExited, mountOnEnter, unmountOnExit }) {
     const ref = (0, _react.useRef)(null);
     const hasEnteredRef = (0, _react.useRef)(inProp);
     const handleExited = (0, _useEventCallbackDefault.default)(onExited);
@@ -39009,7 +38824,7 @@ var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const ModalDialog = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , contentClassName , centered , size , fullscreen , children , scrollable , ...props }, ref)=>{
+const ModalDialog = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, contentClassName, centered, size, fullscreen, children, scrollable, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "modal");
     const dialogClass = `${bsPrefix}-dialog`;
     const fullScreenClass = typeof fullscreen === "string" ? `${bsPrefix}-fullscreen-${fullscreen}` : `${bsPrefix}-fullscreen`;
@@ -39043,7 +38858,7 @@ var _themeProvider = require("./ThemeProvider");
 var _abstractModalHeader = require("./AbstractModalHeader");
 var _abstractModalHeaderDefault = parcelHelpers.interopDefault(_abstractModalHeader);
 var _jsxRuntime = require("react/jsx-runtime");
-const ModalHeader = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , closeLabel ="Close" , closeButton =false , ...props }, ref)=>{
+const ModalHeader = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, closeLabel = "Close", closeButton = false, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "modal-header");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _abstractModalHeaderDefault.default), {
         ref: ref,
@@ -39067,7 +38882,7 @@ var _closeButtonDefault = parcelHelpers.interopDefault(_closeButton);
 var _modalContext = require("./ModalContext");
 var _modalContextDefault = parcelHelpers.interopDefault(_modalContext);
 var _jsxRuntime = require("react/jsx-runtime");
-const AbstractModalHeader = /*#__PURE__*/ _react.forwardRef(({ closeLabel ="Close" , closeVariant , closeButton =false , onHide , children , ...props }, ref)=>{
+const AbstractModalHeader = /*#__PURE__*/ _react.forwardRef(({ closeLabel = "Close", closeVariant, closeButton = false, onHide, children, ...props }, ref)=>{
     const context = (0, _react.useContext)((0, _modalContextDefault.default));
     const handleClick = (0, _useEventCallbackDefault.default)(()=>{
         context == null || context.onHide();
@@ -39122,7 +38937,7 @@ var _navLink = require("./NavLink");
 var _navLinkDefault = parcelHelpers.interopDefault(_navLink);
 var _jsxRuntime = require("react/jsx-runtime");
 const Nav = /*#__PURE__*/ _react.forwardRef((uncontrolledProps, ref)=>{
-    const { as ="div" , bsPrefix: initialBsPrefix , variant , fill =false , justify =false , navbar , navbarScroll , className , activeKey , ...props } = (0, _uncontrollable.useUncontrolled)(uncontrolledProps, {
+    const { as = "div", bsPrefix: initialBsPrefix, variant, fill = false, justify = false, navbar, navbarScroll, className, activeKey, ...props } = (0, _uncontrollable.useUncontrolled)(uncontrolledProps, {
         activeKey: "onSelect"
     });
     const bsPrefix = (0, _themeProvider.useBootstrapPrefix)(initialBsPrefix, "nav");
@@ -39134,7 +38949,7 @@ const Nav = /*#__PURE__*/ _react.forwardRef((uncontrolledProps, ref)=>{
     if (navbarContext) {
         navbarBsPrefix = navbarContext.bsPrefix;
         isNavbar = navbar == null ? true : navbar;
-    } else if (cardHeaderContext) ({ cardHeaderBsPrefix  } = cardHeaderContext);
+    } else if (cardHeaderContext) ({ cardHeaderBsPrefix } = cardHeaderContext);
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _navDefault.default), {
         as: as,
         ref: ref,
@@ -39242,7 +39057,7 @@ var _navItem = require("@restart/ui/NavItem");
 var _selectableContext = require("@restart/ui/SelectableContext");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const NavLink = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , as: Component = (0, _anchorDefault.default) , active , eventKey , disabled =false , ...props }, ref)=>{
+const NavLink = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, as: Component = (0, _anchorDefault.default), active, eventKey, disabled = false, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "nav-link");
     const [navItemProps, meta] = (0, _navItem.useNavItem)({
         key: (0, _selectableContext.makeEventKey)(eventKey, props.href),
@@ -39288,8 +39103,8 @@ const NavbarText = (0, _createWithBsPrefixDefault.default)("navbar-text", {
     Component: "span"
 });
 const Navbar = /*#__PURE__*/ _react.forwardRef((props, ref)=>{
-    const { bsPrefix: initialBsPrefix , expand =true , variant ="light" , bg , fixed , sticky , className , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-    as: Component = "nav" , expanded , onToggle , onSelect , collapseOnSelect =false , ...controlledProps } = (0, _uncontrollable.useUncontrolled)(props, {
+    const { bsPrefix: initialBsPrefix, expand = true, variant = "light", bg, fixed, sticky, className, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+    as: Component = "nav", expanded, onToggle, onSelect, collapseOnSelect = false, ...controlledProps } = (0, _uncontrollable.useUncontrolled)(props, {
         expanded: "onToggle"
     });
     const bsPrefix = (0, _themeProvider.useBootstrapPrefix)(initialBsPrefix, "navbar");
@@ -39348,7 +39163,7 @@ var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const NavbarBrand = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , as , ...props }, ref)=>{
+const NavbarBrand = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, as, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "navbar-brand");
     const Component = as || (props.href ? "a" : "span");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
@@ -39370,7 +39185,7 @@ var _themeProvider = require("./ThemeProvider");
 var _navbarContext = require("./NavbarContext");
 var _navbarContextDefault = parcelHelpers.interopDefault(_navbarContext);
 var _jsxRuntime = require("react/jsx-runtime");
-const NavbarCollapse = /*#__PURE__*/ _react.forwardRef(({ children , bsPrefix , ...props }, ref)=>{
+const NavbarCollapse = /*#__PURE__*/ _react.forwardRef(({ children, bsPrefix, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "navbar-collapse");
     const context = (0, _react.useContext)((0, _navbarContextDefault.default));
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _collapseDefault.default), {
@@ -39398,10 +39213,10 @@ var _themeProvider = require("./ThemeProvider");
 var _navbarContext = require("./NavbarContext");
 var _navbarContextDefault = parcelHelpers.interopDefault(_navbarContext);
 var _jsxRuntime = require("react/jsx-runtime");
-const NavbarToggle = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , children , label ="Toggle navigation" , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "button" , onClick , ...props }, ref)=>{
+const NavbarToggle = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, children, label = "Toggle navigation", // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = "button", onClick, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "navbar-toggler");
-    const { onToggle , expanded  } = (0, _react.useContext)((0, _navbarContextDefault.default)) || {};
+    const { onToggle, expanded } = (0, _react.useContext)((0, _navbarContextDefault.default)) || {};
     const handleClick = (0, _useEventCallbackDefault.default)((e)=>{
         if (onClick) onClick(e);
         if (onToggle) onToggle();
@@ -39482,10 +39297,10 @@ function BackdropTransition(props) {
         ...props
     });
 }
-const Offcanvas = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , children , "aria-labelledby": ariaLabelledby , placement ="start" , responsive , /* BaseModal props */ show =false , backdrop =true , keyboard =true , scroll =false , onEscapeKeyDown , onShow , onHide , container , autoFocus =true , enforceFocus =true , restoreFocus =true , restoreFocusOptions , onEntered , onExit , onExiting , onEnter , onEntering , onExited , backdropClassName , manager: propsManager , renderStaticNode =false , ...props }, ref)=>{
+const Offcanvas = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, children, "aria-labelledby": ariaLabelledby, placement = "start", responsive, /* BaseModal props */ show = false, backdrop = true, keyboard = true, scroll = false, onEscapeKeyDown, onShow, onHide, container, autoFocus = true, enforceFocus = true, restoreFocus = true, restoreFocusOptions, onEntered, onExit, onExiting, onEnter, onEntering, onExited, backdropClassName, manager: propsManager, renderStaticNode = false, ...props }, ref)=>{
     const modalManager = (0, _react.useRef)();
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "offcanvas");
-    const { onToggle  } = (0, _react.useContext)((0, _navbarContextDefault.default)) || {};
+    const { onToggle } = (0, _react.useContext)((0, _navbarContextDefault.default)) || {};
     const [showOffcanvas, setShowOffcanvas] = (0, _react.useState)(false);
     const hideResponsiveOffcanvas = (0, _useBreakpointDefault.default)(responsive || "xs", "up");
     (0, _react.useEffect)(()=>{
@@ -39751,7 +39566,7 @@ const transitionStyles = {
     [(0, _transition.ENTERING)]: "show",
     [(0, _transition.ENTERED)]: "show"
 };
-const OffcanvasToggling = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , children , in: inProp = false , mountOnEnter =false , unmountOnExit =false , appear =false , ...props }, ref)=>{
+const OffcanvasToggling = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, children, in: inProp = false, mountOnEnter = false, unmountOnExit = false, appear = false, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "offcanvas");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _transitionWrapperDefault.default), {
         ref: ref,
@@ -39781,7 +39596,7 @@ var _themeProvider = require("./ThemeProvider");
 var _abstractModalHeader = require("./AbstractModalHeader");
 var _abstractModalHeaderDefault = parcelHelpers.interopDefault(_abstractModalHeader);
 var _jsxRuntime = require("react/jsx-runtime");
-const OffcanvasHeader = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , closeLabel ="Close" , closeButton =false , ...props }, ref)=>{
+const OffcanvasHeader = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, closeLabel = "Close", closeButton = false, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "offcanvas-header");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _abstractModalHeaderDefault.default), {
         ref: ref,
@@ -39818,7 +39633,7 @@ var _dropdownDefault = parcelHelpers.interopDefault(_dropdown);
 var _navLink = require("./NavLink");
 var _navLinkDefault = parcelHelpers.interopDefault(_navLink);
 var _jsxRuntime = require("react/jsx-runtime");
-const NavDropdown = /*#__PURE__*/ _react.forwardRef(({ id , title , children , bsPrefix , className , rootCloseEvent , menuRole , disabled , active , renderMenuOnMount , menuVariant , ...props }, ref)=>{
+const NavDropdown = /*#__PURE__*/ _react.forwardRef(({ id, title, children, bsPrefix, className, rootCloseEvent, menuRole, disabled, active, renderMenuOnMount, menuVariant, ...props }, ref)=>{
     /* NavItem has no additional logic, it's purely presentational. Can set nav item class here to support "as" */ const navItemPrefix = (0, _themeProvider.useBootstrapPrefix)(undefined, "nav-item");
     return /*#__PURE__*/ (0, _jsxRuntime.jsxs)((0, _dropdownDefault.default), {
         ref: ref,
@@ -39874,12 +39689,12 @@ var _safeFindDOMNode = require("./safeFindDOMNode");
 var _safeFindDOMNodeDefault = parcelHelpers.interopDefault(_safeFindDOMNode);
 var _jsxRuntime = require("react/jsx-runtime");
 function wrapRefs(props, arrowProps) {
-    const { ref  } = props;
-    const { ref: aRef  } = arrowProps;
+    const { ref } = props;
+    const { ref: aRef } = arrowProps;
     props.ref = ref.__wrapped || (ref.__wrapped = (r)=>ref((0, _safeFindDOMNodeDefault.default)(r)));
     arrowProps.ref = aRef.__wrapped || (aRef.__wrapped = (r)=>aRef((0, _safeFindDOMNodeDefault.default)(r)));
 }
-const Overlay = /*#__PURE__*/ _react.forwardRef(({ children: overlay , transition =(0, _fadeDefault.default) , popperConfig ={} , rootClose =false , placement ="top" , show: outerShow = false , ...outerProps }, outerRef)=>{
+const Overlay = /*#__PURE__*/ _react.forwardRef(({ children: overlay, transition = (0, _fadeDefault.default), popperConfig = {}, rootClose = false, placement = "top", show: outerShow = false, ...outerProps }, outerRef)=>{
     const popperRef = (0, _react.useRef)({});
     const [firstRenderedState, setFirstRenderedState] = (0, _react.useState)(null);
     const [ref, modifiers] = (0, _useOverlayOffsetDefault.default)(outerProps.offset);
@@ -39911,7 +39726,7 @@ const Overlay = /*#__PURE__*/ _react.forwardRef(({ children: overlay , transitio
         rootClose: rootClose,
         placement: placement,
         show: outerShow,
-        children: (overlayProps, { arrowProps , popper: popperObj , show  })=>{
+        children: (overlayProps, { arrowProps, popper: popperObj, show })=>{
             var _popperObj$state, _popperObj$state$modi;
             wrapRefs(overlayProps, arrowProps);
             // Need to get placement from popper object, handling case when overlay is flipped using 'flip' prop
@@ -39976,7 +39791,7 @@ var _imperativeTransition = require("./ImperativeTransition");
  * Built on top of `Popper.js`, the overlay component is
  * great for custom tooltip overlays.
  */ const Overlay = /*#__PURE__*/ _react.forwardRef((props, outerRef)=>{
-    const { flip , offset , placement , containerPadding , popperConfig ={} , transition: Transition , runTransition  } = props;
+    const { flip, offset, placement, containerPadding, popperConfig = {}, transition: Transition, runTransition } = props;
     const [rootElement, attachRef] = (0, _useCallbackRefDefault.default)();
     const [arrowElement, attachArrowRef] = (0, _useCallbackRefDefault.default)();
     const mergedRef = (0, _useMergedRefsDefault.default)(attachRef, outerRef);
@@ -40006,7 +39821,7 @@ var _imperativeTransition = require("./ImperativeTransition");
     });
     if (!mountOverlay) // Don't bother showing anything if we don't have to.
     return null;
-    const { onExit , onExiting , onEnter , onEntering , onEntered  } = props;
+    const { onExit, onExiting, onEnter, onEntering, onEntered } = props;
     let child = props.children(Object.assign({}, popper.attributes.popper, {
         style: popper.styles.popper,
         ref: mergedRef
@@ -40062,7 +39877,7 @@ const noop = ()=>{};
  * @param {object=}  options
  * @param {boolean=} options.disabled
  * @param {string=}  options.clickTrigger The DOM event name (click, mousedown, etc) to attach listeners on
- */ function useRootClose(ref, onRootClose, { disabled , clickTrigger  } = {}) {
+ */ function useRootClose(ref, onRootClose, { disabled, clickTrigger } = {}) {
     const onClose = onRootClose || noop;
     (0, _useClickOutsideDefault.default)(ref, onClose, {
         disabled,
@@ -40155,7 +39970,7 @@ var _helpers = require("./helpers");
 var _getInitialPopperStyles = require("./getInitialPopperStyles");
 var _getInitialPopperStylesDefault = parcelHelpers.interopDefault(_getInitialPopperStyles);
 var _jsxRuntime = require("react/jsx-runtime");
-const Popover = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , placement ="right" , className , style , children , body , arrowProps , hasDoneInitialMeasure , popper , show , ...props }, ref)=>{
+const Popover = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, placement = "right", className, style, children, body, arrowProps, hasDoneInitialMeasure, popper, show, ...props }, ref)=>{
     const decoratedBsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "popover");
     const isRTL = (0, _themeProvider.useIsRTL)();
     const [primaryPlacement] = (placement == null ? void 0 : placement.split("-")) || [];
@@ -40249,7 +40064,7 @@ var _helpers = require("./helpers");
 var _getInitialPopperStyles = require("./getInitialPopperStyles");
 var _getInitialPopperStylesDefault = parcelHelpers.interopDefault(_getInitialPopperStyles);
 var _jsxRuntime = require("react/jsx-runtime");
-const Tooltip = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , placement ="right" , className , style , children , arrowProps , hasDoneInitialMeasure , popper , show , ...props }, ref)=>{
+const Tooltip = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, placement = "right", className, style, children, arrowProps, hasDoneInitialMeasure, popper, show, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "tooltip");
     const isRTL = (0, _themeProvider.useIsRTL)();
     const [primaryPlacement] = (placement == null ? void 0 : placement.split("-")) || [];
@@ -40323,17 +40138,17 @@ handler, args, relatedNative) {
     const related = e.relatedTarget || e.nativeEvent[relatedNative];
     if ((!related || related !== target) && !(0, _containsDefault.default)(target, related)) handler(...args);
 }
-function OverlayTrigger({ trigger =[
+function OverlayTrigger({ trigger = [
     "hover",
     "focus"
-] , overlay , children , popperConfig ={} , show: propsShow , defaultShow =false , onToggle , delay: propsDelay , placement , flip =placement && placement.indexOf("auto") !== -1 , ...props }) {
+], overlay, children, popperConfig = {}, show: propsShow, defaultShow = false, onToggle, delay: propsDelay, placement, flip = placement && placement.indexOf("auto") !== -1, ...props }) {
     const triggerNodeRef = (0, _react.useRef)(null);
     const mergedRef = (0, _useMergedRefsDefault.default)(triggerNodeRef, children.ref);
     const timeout = (0, _useTimeoutDefault.default)();
     const hoverStateRef = (0, _react.useRef)("");
     const [show, setShow] = (0, _uncontrollable.useUncontrolledProp)(propsShow, defaultShow, onToggle);
     const delay = normalizeDelay(propsDelay);
-    const { onFocus , onBlur , onClick  } = typeof children !== "function" ? _react.Children.only(children).props : {};
+    const { onFocus, onBlur, onClick } = typeof children !== "function" ? _react.Children.only(children).props : {};
     const attachRef = (r)=>{
         mergedRef((0, _safeFindDOMNodeDefault.default)(r));
     };
@@ -40445,7 +40260,7 @@ var _react = require("react");
 var _anchor = require("@restart/ui/Anchor");
 var _anchorDefault = parcelHelpers.interopDefault(_anchor);
 var _jsxRuntime = require("react/jsx-runtime");
-const PageItem = /*#__PURE__*/ _react.forwardRef(({ active =false , disabled =false , className , style , activeLabel ="(current)" , children , linkStyle , linkClassName , ...props }, ref)=>{
+const PageItem = /*#__PURE__*/ _react.forwardRef(({ active = false, disabled = false, className, style, activeLabel = "(current)", children, linkStyle, linkClassName, ...props }, ref)=>{
     const Component = active || disabled ? "span" : (0, _anchorDefault.default);
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)("li", {
         ref: ref,
@@ -40471,7 +40286,7 @@ const PageItem = /*#__PURE__*/ _react.forwardRef(({ active =false , disabled =fa
 PageItem.displayName = "PageItem";
 exports.default = PageItem;
 function createButton(name, defaultValue, label = name) {
-    const Button = /*#__PURE__*/ _react.forwardRef(({ children , ...props }, ref)=>/*#__PURE__*/ (0, _jsxRuntime.jsxs)(PageItem, {
+    const Button = /*#__PURE__*/ _react.forwardRef(({ children, ...props }, ref)=>/*#__PURE__*/ (0, _jsxRuntime.jsxs)(PageItem, {
             ...props,
             ref: ref,
             children: [
@@ -40504,7 +40319,7 @@ var _themeProvider = require("./ThemeProvider");
 var _pageItem = require("./PageItem");
 var _pageItemDefault = parcelHelpers.interopDefault(_pageItem);
 var _jsxRuntime = require("react/jsx-runtime");
-const Pagination = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , size , ...props }, ref)=>{
+const Pagination = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, size, ...props }, ref)=>{
     const decoratedBsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "pagination");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)("ul", {
         ref: ref,
@@ -40531,7 +40346,7 @@ var _usePlaceholderDefault = parcelHelpers.interopDefault(_usePlaceholder);
 var _placeholderButton = require("./PlaceholderButton");
 var _placeholderButtonDefault = parcelHelpers.interopDefault(_placeholderButton);
 var _jsxRuntime = require("react/jsx-runtime");
-const Placeholder = /*#__PURE__*/ _react.forwardRef(({ as: Component = "span" , ...props }, ref)=>{
+const Placeholder = /*#__PURE__*/ _react.forwardRef(({ as: Component = "span", ...props }, ref)=>{
     const placeholderProps = (0, _usePlaceholderDefault.default)(props);
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
         ...placeholderProps,
@@ -40551,9 +40366,9 @@ var _classnames = require("classnames");
 var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _themeProvider = require("./ThemeProvider");
 var _col = require("./Col");
-function usePlaceholder({ animation , bg , bsPrefix , size , ...props }) {
+function usePlaceholder({ animation, bg, bsPrefix, size, ...props }) {
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "placeholder");
-    const [{ className , ...colProps }] = (0, _col.useCol)(props);
+    const [{ className, ...colProps }] = (0, _col.useCol)(props);
     return {
         ...colProps,
         className: (0, _classnamesDefault.default)(className, animation ? `${bsPrefix}-${animation}` : bsPrefix, size && `${bsPrefix}-${size}`, bg && `bg-${bg}`)
@@ -40617,7 +40432,7 @@ function getPercentage(now, min, max) {
     const percentage = (now - min) / (max - min) * 100;
     return Math.round(percentage * ROUND_PRECISION) / ROUND_PRECISION;
 }
-function renderProgressBar({ min , now , max , label , visuallyHidden , striped , animated , className , style , variant , bsPrefix , ...props }, ref) {
+function renderProgressBar({ min, now, max, label, visuallyHidden, striped, animated, className, style, variant, bsPrefix, ...props }, ref) {
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
         ref: ref,
         ...props,
@@ -40640,7 +40455,7 @@ function renderProgressBar({ min , now , max , label , visuallyHidden , striped 
         }) : label
     });
 }
-const ProgressBar = /*#__PURE__*/ _react.forwardRef(({ isChild =false , ...rest }, ref)=>{
+const ProgressBar = /*#__PURE__*/ _react.forwardRef(({ isChild = false, ...rest }, ref)=>{
     const props = {
         min: 0,
         max: 100,
@@ -40651,7 +40466,7 @@ const ProgressBar = /*#__PURE__*/ _react.forwardRef(({ isChild =false , ...rest 
     };
     props.bsPrefix = (0, _themeProvider.useBootstrapPrefix)(props.bsPrefix, "progress");
     if (isChild) return renderProgressBar(props, ref);
-    const { min , now , max , label , visuallyHidden , striped , animated , bsPrefix , variant , className , children , ...wrapperProps } = props;
+    const { min, now, max, label, visuallyHidden, striped, animated, bsPrefix, variant, className, children, ...wrapperProps } = props;
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
         ref: ref,
         ...wrapperProps,
@@ -40687,7 +40502,7 @@ function toPercent(num) {
     if (num < 1) return `${num * 100}%`;
     return `${num}%`;
 }
-const Ratio = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , children , aspectRatio ="1x1" , style , ...props }, ref)=>{
+const Ratio = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, children, aspectRatio = "1x1", style, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "ratio");
     const isCustomRatio = typeof aspectRatio === "number";
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
@@ -40713,8 +40528,8 @@ var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const Row = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "div" , ...props }, ref)=>{
+const Row = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = "div", ...props }, ref)=>{
     const decoratedBsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "row");
     const breakpoints = (0, _themeProvider.useBootstrapBreakpoints)();
     const minBreakpoint = (0, _themeProvider.useBootstrapMinBreakpoint)();
@@ -40724,7 +40539,7 @@ as: Component = "div" , ...props }, ref)=>{
         const propValue = props[brkPoint];
         delete props[brkPoint];
         let cols;
-        if (propValue != null && typeof propValue === "object") ({ cols  } = propValue);
+        if (propValue != null && typeof propValue === "object") ({ cols } = propValue);
         else cols = propValue;
         const infix = brkPoint !== minBreakpoint ? `-${brkPoint}` : "";
         if (cols != null) classes.push(`${sizePrefix}${infix}-${cols}`);
@@ -40746,8 +40561,8 @@ var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const Spinner = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , variant , animation ="border" , size , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "div" , className , ...props }, ref)=>{
+const Spinner = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, variant, animation = "border", size, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = "div", className, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "spinner");
     const bsSpinnerPrefix = `${bsPrefix}-${animation}`;
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
@@ -40820,7 +40635,7 @@ const propTypes = {
  * _All unknown props are passed through to the `Dropdown` component._
  * The Button `variant`, `size` and `bsPrefix` props are passed to the button and toggle,
  * and menu-related props are passed to the `Dropdown.Menu`
- */ const SplitButton = /*#__PURE__*/ _react.forwardRef(({ id , bsPrefix , size , variant , title , type ="button" , toggleLabel ="Toggle dropdown" , children , onClick , href , target , menuRole , renderMenuOnMount , rootCloseEvent , flip , ...props }, ref)=>/*#__PURE__*/ (0, _jsxRuntime.jsxs)((0, _dropdownDefault.default), {
+ */ const SplitButton = /*#__PURE__*/ _react.forwardRef(({ id, bsPrefix, size, variant, title, type = "button", toggleLabel = "Toggle dropdown", children, onClick, href, target, menuRole, renderMenuOnMount, rootCloseEvent, flip, ...props }, ref)=>/*#__PURE__*/ (0, _jsxRuntime.jsxs)((0, _dropdownDefault.default), {
         ref: ref,
         ...props,
         as: (0, _buttonGroupDefault.default),
@@ -40877,7 +40692,7 @@ var _themeProvider = require("./ThemeProvider");
 var _createUtilityClasses = require("./createUtilityClasses");
 var _createUtilityClassesDefault = parcelHelpers.interopDefault(_createUtilityClasses);
 var _jsxRuntime = require("react/jsx-runtime");
-const Stack = /*#__PURE__*/ _react.forwardRef(({ as: Component = "div" , bsPrefix , className , direction , gap , ...props }, ref)=>{
+const Stack = /*#__PURE__*/ _react.forwardRef(({ as: Component = "div", bsPrefix, className, direction, gap, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, direction === "horizontal" ? "hstack" : "vstack");
     const breakpoints = (0, _themeProvider.useBootstrapBreakpoints)();
     const minBreakpoint = (0, _themeProvider.useBootstrapMinBreakpoint)();
@@ -40980,7 +40795,7 @@ var _tabsDefault = parcelHelpers.interopDefault(_tabs);
 var _getTabTransitionComponent = require("./getTabTransitionComponent");
 var _getTabTransitionComponentDefault = parcelHelpers.interopDefault(_getTabTransitionComponent);
 var _jsxRuntime = require("react/jsx-runtime");
-const TabContainer = ({ transition , ...props })=>/*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _tabsDefault.default), {
+const TabContainer = ({ transition, ...props })=>/*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _tabsDefault.default), {
         ...props,
         transition: (0, _getTabTransitionComponentDefault.default)(transition)
     });
@@ -41001,7 +40816,7 @@ var _tabPanel = require("./TabPanel");
 var _tabPanelDefault = parcelHelpers.interopDefault(_tabPanel);
 var _jsxRuntime = require("react/jsx-runtime");
 const Tabs = (props)=>{
-    const { id: userId , generateChildId: generateCustomChildId , onSelect: propsOnSelect , activeKey: propsActiveKey , defaultActiveKey , transition , mountOnEnter , unmountOnExit , children  } = props;
+    const { id: userId, generateChildId: generateCustomChildId, onSelect: propsOnSelect, activeKey: propsActiveKey, defaultActiveKey, transition, mountOnEnter, unmountOnExit, children } = props;
     const [activeKey, onSelect] = (0, _uncontrollable.useUncontrolledProp)(propsActiveKey, defaultActiveKey, propsOnSelect);
     const id = (0, _ssr.useSSRSafeId)(userId);
     const generateChildId = (0, _react.useMemo)(()=>generateCustomChildId || ((key, type)=>id ? `${id}-${type}-${key}` : null), [
@@ -41080,7 +40895,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
     return target;
 }
 function useTabPanel(_ref) {
-    let { active , eventKey , mountOnEnter , transition , unmountOnExit , role ="tabpanel" , onEnter , onEntering , onEntered , onExit , onExiting , onExited  } = _ref, props = _objectWithoutPropertiesLoose(_ref, _excluded);
+    let { active, eventKey, mountOnEnter, transition, unmountOnExit, role = "tabpanel", onEnter, onEntering, onEntered, onExit, onExiting, onExited } = _ref, props = _objectWithoutPropertiesLoose(_ref, _excluded);
     const context = (0, _react.useContext)((0, _tabContextDefault.default));
     if (!context) return [
         Object.assign({}, props, {
@@ -41100,7 +40915,7 @@ function useTabPanel(_ref) {
             onExited
         }
     ];
-    const { activeKey , getControlledId , getControllerId  } = context, rest = _objectWithoutPropertiesLoose(context, _excluded2);
+    const { activeKey, getControlledId, getControllerId } = context, rest = _objectWithoutPropertiesLoose(context, _excluded2);
     const key = (0, _selectableContext.makeEventKey)(eventKey);
     return [
         Object.assign({}, props, {
@@ -41125,8 +40940,8 @@ function useTabPanel(_ref) {
 }
 const TabPanel = /*#__PURE__*/ _react.forwardRef(// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
 (_ref2, ref)=>{
-    let { as: Component = "div"  } = _ref2, props = _objectWithoutPropertiesLoose(_ref2, _excluded3);
-    const [tabPanelProps, { isActive , onEnter , onEntering , onEntered , onExit , onExiting , onExited , mountOnEnter , unmountOnExit , transition: Transition = (0, _noopTransitionDefault.default)  }] = useTabPanel(props);
+    let { as: Component = "div" } = _ref2, props = _objectWithoutPropertiesLoose(_ref2, _excluded3);
+    const [tabPanelProps, { isActive, onEnter, onEntering, onEntered, onExit, onExiting, onExited, mountOnEnter, unmountOnExit, transition: Transition = (0, _noopTransitionDefault.default) }] = useTabPanel(props);
     // We provide an empty the TabContext so `<Nav>`s in `<TabPanel>`s don't
     // conflict with the top level one.
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _tabContextDefault.default).Provider, {
@@ -41192,9 +41007,9 @@ var _fadeDefault = parcelHelpers.interopDefault(_fade);
 var _getTabTransitionComponent = require("./getTabTransitionComponent");
 var _getTabTransitionComponentDefault = parcelHelpers.interopDefault(_getTabTransitionComponent);
 var _jsxRuntime = require("react/jsx-runtime");
-const TabPane = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , transition , ...props }, ref)=>{
-    const [{ className , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-    as: Component = "div" , ...rest }, { isActive , onEnter , onEntering , onEntered , onExit , onExiting , onExited , mountOnEnter , unmountOnExit , transition: Transition = (0, _fadeDefault.default)  }] = (0, _tabPanel.useTabPanel)({
+const TabPane = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, transition, ...props }, ref)=>{
+    const [{ className, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+    as: Component = "div", ...rest }, { isActive, onEnter, onEntering, onEntered, onExit, onExiting, onExited, mountOnEnter, unmountOnExit, transition: Transition = (0, _fadeDefault.default) }] = (0, _tabPanel.useTabPanel)({
         ...props,
         transition: (0, _getTabTransitionComponentDefault.default)(transition)
     });
@@ -41235,7 +41050,7 @@ var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const Table = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , striped , bordered , borderless , hover , size , variant , responsive , ...props }, ref)=>{
+const Table = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, striped, bordered, borderless, hover, size, variant, responsive, ...props }, ref)=>{
     const decoratedBsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "table");
     const classes = (0, _classnamesDefault.default)(className, decoratedBsPrefix, variant && `${decoratedBsPrefix}-${variant}`, size && `${decoratedBsPrefix}-${size}`, striped && `${decoratedBsPrefix}-${typeof striped === "string" ? `striped-${striped}` : "striped"}`, bordered && `${decoratedBsPrefix}-bordered`, borderless && `${decoratedBsPrefix}-borderless`, hover && `${decoratedBsPrefix}-hover`);
     const table = /*#__PURE__*/ (0, _jsxRuntime.jsx)("table", {
@@ -41284,7 +41099,7 @@ function getDefaultActiveKey(children) {
     return defaultActiveKey;
 }
 function renderTab(child) {
-    const { title , eventKey , disabled , tabClassName , tabAttrs , id  } = child.props;
+    const { title, eventKey, disabled, tabClassName, tabAttrs, id } = child.props;
     if (title == null) return null;
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _navItemDefault.default), {
         as: "li",
@@ -41302,7 +41117,7 @@ function renderTab(child) {
     });
 }
 const Tabs = (props)=>{
-    const { id , onSelect , transition , mountOnEnter =false , unmountOnExit =false , variant ="tabs" , children , activeKey =getDefaultActiveKey(children) , ...controlledProps } = (0, _uncontrollable.useUncontrolled)(props, {
+    const { id, onSelect, transition, mountOnEnter = false, unmountOnExit = false, variant = "tabs", children, activeKey = getDefaultActiveKey(children), ...controlledProps } = (0, _uncontrollable.useUncontrolled)(props, {
         activeKey: "onSelect"
     });
     return /*#__PURE__*/ (0, _jsxRuntime.jsxs)((0, _tabsDefault.default), {
@@ -41358,7 +41173,7 @@ var _themeProvider = require("./ThemeProvider");
 var _toastContext = require("./ToastContext");
 var _toastContextDefault = parcelHelpers.interopDefault(_toastContext);
 var _jsxRuntime = require("react/jsx-runtime");
-const Toast = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , transition: Transition = (0, _toastFadeDefault.default) , show =true , animation =true , delay =5000 , autohide =false , onClose , bg , ...props }, ref)=>{
+const Toast = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, transition: Transition = (0, _toastFadeDefault.default), show = true, animation = true, delay = 5000, autohide = false, onClose, bg, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "toast");
     // We use refs for these, because we don't want to restart the autohide
     // timer in case these values change.
@@ -41448,7 +41263,7 @@ var _closeButtonDefault = parcelHelpers.interopDefault(_closeButton);
 var _toastContext = require("./ToastContext");
 var _toastContextDefault = parcelHelpers.interopDefault(_toastContext);
 var _jsxRuntime = require("react/jsx-runtime");
-const ToastHeader = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , closeLabel ="Close" , closeVariant , closeButton =true , className , children , ...props }, ref)=>{
+const ToastHeader = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, closeLabel = "Close", closeVariant, closeButton = true, className, children, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "toast-header");
     const context = (0, _react.useContext)((0, _toastContextDefault.default));
     const handleClick = (0, _useEventCallbackDefault.default)((e)=>{
@@ -41508,8 +41323,8 @@ const positionClasses = {
     "bottom-center": "bottom-0 start-50 translate-middle-x",
     "bottom-end": "bottom-0 end-0"
 };
-const ToastContainer = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , position , containerPosition , className , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "div" , ...props }, ref)=>{
+const ToastContainer = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, position, containerPosition, className, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = "div", ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "toast-container");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
         ref: ref,
@@ -41531,7 +41346,7 @@ var _button = require("./Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _jsxRuntime = require("react/jsx-runtime");
 const noop = ()=>undefined;
-const ToggleButton = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , name , className , checked , type , onChange , value , disabled , id , inputRef , ...props }, ref)=>{
+const ToggleButton = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, name, className, checked, type, onChange, value, disabled, id, inputRef, ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "btn-check");
     return /*#__PURE__*/ (0, _jsxRuntime.jsxs)((0, _jsxRuntime.Fragment), {
         children: [
@@ -41578,7 +41393,7 @@ var _toggleButton = require("./ToggleButton");
 var _toggleButtonDefault = parcelHelpers.interopDefault(_toggleButton);
 var _jsxRuntime = require("react/jsx-runtime");
 const ToggleButtonGroup = /*#__PURE__*/ _react.forwardRef((props, ref)=>{
-    const { children , type ="radio" , name , value , onChange , vertical =false , ...controlledProps } = (0, _uncontrollable.useUncontrolled)(props, {
+    const { children, type = "radio", name, value, onChange, vertical = false, ...controlledProps } = (0, _uncontrollable.useUncontrolled)(props, {
         value: "onChange"
     });
     const getValues = ()=>value == null ? [] : [].concat(value);
@@ -41603,7 +41418,7 @@ const ToggleButtonGroup = /*#__PURE__*/ _react.forwardRef((props, ref)=>{
         vertical: vertical,
         children: (0, _elementChildren.map)(children, (child)=>{
             const values = getValues();
-            const { value: childVal , onChange: childOnChange  } = child.props;
+            const { value: childVal, onChange: childOnChange } = child.props;
             const handler = (e)=>handleToggle(childVal, e);
             return /*#__PURE__*/ _react.cloneElement(child, {
                 type,
