@@ -1,29 +1,51 @@
 import PropTypes from "prop-types";
+import Accordion from 'react-bootstrap/Accordion';
+import Button from 'react-bootstrap/Button';
+
 
 export const MovieView = ({ movie, onBackClick }) => {
 
   return (
     <div>
-      <div>
-        <img src= {movie.Poster} />
+      <div align="center" >
+        <img src= {movie.Poster}  />
       </div>
-      <div>
-        <span>Title: </span>
-        <span> {movie.Title}</span>
+      <p />
+      <Accordion defaultActiveKey="0">
+
+      <Accordion.Item eventKey="0">
+        <Accordion.Header> Title: {movie.Title}</Accordion.Header>
+        <Accordion.Body>
+        {movie.Description}
+        </Accordion.Body>
+      </Accordion.Item>  
+
+      <Accordion.Item eventKey="1">
+        <Accordion.Header> Director: {movie.Director.Name}</Accordion.Header>
+        <Accordion.Body>
+          Name and Age
+        {movie.Director.Description}
+        </Accordion.Body>
+      </Accordion.Item> 
+
+      <Accordion.Item eventKey="2">
+        <Accordion.Header> Genre: {movie.Genre}</Accordion.Header>
+        <Accordion.Body>
+          Description
+        </Accordion.Body>
+      </Accordion.Item> 
+
+      </Accordion>
+      <p />
+
+      <div className="d-grid gap-2">
+              <Button 
+                variant="primary" size="sm" 
+                onClick={onBackClick}
+              > 
+              Back 
+              </Button>
       </div>
-      <div>
-        <span>Genre: </span>
-        <span>{movie.Genre}</span>
-      </div>
-      <div>
-        <span>Description: </span>
-        <span>{movie.Description}</span>
-      </div>
-      <div>
-        <span>Director: </span>
-        <span>{movie.Director}</span>
-      </div>
-      <button onClick={onBackClick} >Back</button>
     </div>
   );
 };
