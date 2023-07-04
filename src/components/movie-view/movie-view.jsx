@@ -2,13 +2,16 @@ import PropTypes from "prop-types";
 import Accordion from "react-bootstrap/Accordion";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import "./movie-view.scss";
 
 
 export const MovieView = ({ movie }) => {
-  return (
+  console.log("log movie ", movie)
+    return (
+
     <div>
       <div align="center">
-        <img src={movie.Poster} />
+        <img src={movie.Poster} className="movie-poster" />
       </div>
       <p />
       <Accordion defaultActiveKey="0">
@@ -31,11 +34,9 @@ export const MovieView = ({ movie }) => {
         </Accordion.Item>
       </Accordion>
       <p />
-      <div className="d-grid gap-2">
-        <Link to={`/`}>
+        <Link to={`/`} className="d-grid gap-2">
           <Button variant="primary" size="sm" >Back</Button>
         </Link>
-      </div>
     </div>
   );
 };
