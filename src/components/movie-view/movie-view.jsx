@@ -59,5 +59,4 @@ MovieView.propTypes = {
         }
       ],
   }).isRequired,
-  onMovieClick: PropTypes.func.isRequired,
 };
