@@ -4,9 +4,10 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import { Row, Col, Container } from 'react-bootstrap';
+import { FloatingLabel } from "react-bootstrap";
 
 
-export const ProfileView = ({ user, movie, favoriteMovieList }) => {
+export const ProfileView = ({ user, movies }) => {
     ///// useState to update User information
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -32,14 +33,18 @@ export const ProfileView = ({ user, movie, favoriteMovieList }) => {
               });
             };
 
+  const favorites = movies.filter((movie) => {
+              return user.favorites.includes(movie.id)
+          });
+  
 ////////////// User Info ////////////////////
   return (
-    <Container>
-      <Row>                 //////Row 1 Profile and Carousel
-        <Col>               //////Profile Card
-            <Card style={{ width: "50%" }}>
+    <Container >
+      <Row>                 
+        <Col md={6} lg={6}>               
+            <Card >
             <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
+            <Card.Body >
                 <Card.Title>
                     {user.username}
                 </Card.Title>
@@ -53,18 +58,18 @@ export const ProfileView = ({ user, movie, favoriteMovieList }) => {
             </Card>
         </Col>
 
-        <Col>               //////Favorite Movies 
-        {favoriteMovieList.map((movies) => {
+        <Col >              
+        {favorites.map((movies) => {
           return(
             <Carousel>
-                <Carousel.Item key={movies._id}>
+                <Carousel.Item key={movies.id}>
                     <img
                     className="d-block w-100"
                     src={movies.Poster}
                     alt={movies.Title}
                     />
                     <Carousel.Caption>
-                      <Link to={`/movie/${movies._id}`} >
+                      <Link to={`/movie/${movies.id}`} >
                         <h3>Nr. 1 {movies.Title}</h3>
                         <p>{movies.Description}</p>
                       </Link>
@@ -77,12 +82,11 @@ export const ProfileView = ({ user, movie, favoriteMovieList }) => {
         </Col>
       </Row>
 
-      <Row>             ////// Row 2 Form and Deregister
-        <Col>           ////// User Info Update Form 
+      <Row>             
+        <Col md={6}>           
         <Form 
             onSubmit={handleSubmit} 
             className="floating-label-form" >
-                <h1 align="center"> Update your Data </h1>
               <FloatingLabel
                 controlId="floatingInput"
                 label="Username"
@@ -92,7 +96,6 @@ export const ProfileView = ({ user, movie, favoriteMovieList }) => {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                required
                 placeholder="Username" />
               </FloatingLabel>
         
@@ -104,7 +107,6 @@ export const ProfileView = ({ user, movie, favoriteMovieList }) => {
                 placeholder="Password" 
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}        
-                required
                 />
               </FloatingLabel>
 
@@ -116,7 +118,6 @@ export const ProfileView = ({ user, movie, favoriteMovieList }) => {
                 placeholder="name@example.com" 
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}        
-                required
                 />
               </FloatingLabel>
 
@@ -128,7 +129,6 @@ export const ProfileView = ({ user, movie, favoriteMovieList }) => {
                 type="date"
                 value={birthdate}
                 onChange={(e) => setBirthdate(e.target.value)}
-                required
                 />
               </FloatingLabel>
 
@@ -139,14 +139,16 @@ export const ProfileView = ({ user, movie, favoriteMovieList }) => {
               variant="primary" 
               size="sm" 
               className="form-button" > 
-              Register 
+              Update your data 
               </Button>
               </div>
             </Form>
         </Col>          
-        <Col>           ////// User Deregister
+        <Col md={6} >          
             <>
-                <Button variant="outline-primary"> Deregister </Button>{' '}
+              <Button variant="outline-primary"> 
+                Delete your Profile
+               </Button>
             </>
         </Col>
       </Row>
