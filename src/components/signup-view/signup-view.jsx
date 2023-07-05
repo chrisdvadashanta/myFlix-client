@@ -27,10 +27,7 @@ export const SignupView = ({onLoggedIn}) => {
                 headers: {
                   "Content-Type": "application/json"
                 }
-              });
-        
-        // Perform login after successful registration
-        
+              }).then(res.json).then(
                 fetch(`${Backend_API}/login`, {
                     method: "POST",
                     body: JSON.stringify(data),
@@ -53,8 +50,8 @@ export const SignupView = ({onLoggedIn}) => {
                     .catch((error) => {
                       console.log("Error occurred during login: ", error);
                       alert("Something went wrong during login");
-                    });
-            };
+                    })
+            )};
 
     return (
       <Form 
