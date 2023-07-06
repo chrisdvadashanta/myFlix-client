@@ -6,19 +6,21 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import "./movie-view.scss";
-
+import { Backend_API } from "../../utils/constant";
 
 export const MovieView = ({ movies, user, setUser, token}) => {
-  const Backend_API = "https://guarded-peak-19726.herokuapp.com";
   const { movieId } = useParams();
-  const [ isFavorite, setIsFavorite ] = useState(false);
+    const [ isFavorite, setIsFavorite ] = useState(false);
+
+    useEffect(() => {
+       const isFavorited = user.favorites.includes(movieId)
+       setIsFavorite(isFavorited)
+    }, []);
+
 
   const movie = movies.find((m) => m.id === movieId);
 
-  useEffect(() => {
-    const isFavorited = user.FavoriteMovies.includes(movieId)
-    setIsFavorite(isFavorited)
-    }, []);
+
 
   const removeFavorite = () => {
     fetch(`${Backend_API}/users/:username/:movieId`, {
