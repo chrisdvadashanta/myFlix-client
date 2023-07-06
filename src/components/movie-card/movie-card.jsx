@@ -13,7 +13,7 @@ export const MovieCard = ({ movie }) => {
         <Card.Title> {movie.Title} </Card.Title>
         <Card.Text> {movie.Description} </Card.Text>
         <Link className="d-grid gap-2 mt-auto" to={`/movies/${encodeURIComponent(movie.id)}`}>
-          <Button class="btn btn-primary " type="button">
+          <Button className="btn btn-primary " type="button">
             Open
           </Button>
         </Link>
