@@ -2,14 +2,18 @@ import { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import CardGroup from "react-bootstrap/CardGroup";
 import Form from "react-bootstrap/Form";
 import { Row, Col, Container } from "react-bootstrap";
 import { FloatingLabel } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
-import { ModalHeader } from "react-bootstrap";
+import { Backend_API } from "../../utils/constant";
+import "./profile-view.scss";
 
+export const ProfileView = ({ user, movies, onLogout }) => {
+  console.log("user favorite", user.favorites);
+  console.log("user info", user);
 
-export const ProfileView = ({ user, movies, toke, setUser, onLogout }) => {
   ///// useState to update User information
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -17,19 +21,16 @@ export const ProfileView = ({ user, movies, toke, setUser, onLogout }) => {
   const [birthdate, setBirthdate] = useState("");
 
   ///// favorite Movies filter
-  const favoriteMovies = movies.filter((movie) => {
-    return user.FavoriteMovies.includes(movie.id);
+  const favorites = movies.filter((movie) => {
+    return user.favorites.includes(movie.id);
   });
 
   ///// handle Modal
-  const [showModal, setShowModal] = useState(false);
-  const handleShowModal = () => setShowModal(true);
-  const handleCloseModal = () => setShowModal(false);
-
-
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   ///// handle update User
-  const Backend_API = "https://guarded-peak-19726.herokuapp.com";
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -66,11 +67,11 @@ export const ProfileView = ({ user, movies, toke, setUser, onLogout }) => {
   };
 
   return (
-    <Container>
-      <Row>
-        <Col md={6} lg={6}>
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px180" />
+    <Container >
+      <Row >
+        <Col >
+        <CardGroup>
+          <Card >
             <Card.Body>
               <Card.Title>{user.username}</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
@@ -79,31 +80,40 @@ export const ProfileView = ({ user, movies, toke, setUser, onLogout }) => {
               <Button variant="primary">Contact</Button>
             </Card.Body>
           </Card>
+          <Card className="image-card" > 
+            <Card.Img
+              variant="top"
+              src="https://www.shutterstock.com/image-vector/user-icon-trendy-flat-style-600w-418179865.jpg"
+              alt="profile icon"
+            />
+          </Card>
+        </CardGroup>
         </Col>
-
-        {favoriteMovies.map((movie) => {
-          return (
-            <Col>
-              <Carousel>
+        <Col  >
+          <Carousel >
+            {favorites.map((movie) => {
+              return (
                 <Carousel.Item key={movie.id}>
                   <img
                     className="d-block w-100"
                     src={movie.Poster}
                     alt={movie.Title}
                   />
-                  <Carousel.Caption>
-                    <Link to={`/movie/${movie.id}`}>
-                      <h3>Nr. 1 {movie.Title}</h3>
-                      <p>{movie.Description}</p>
-                    </Link>
+                  <Carousel.Caption className="carousel-caption">
+                    <h3 className="carousel-captionh3"> {movie.Title} </h3>
+                    <p> {movie.Description} </p>
                   </Carousel.Caption>
                 </Carousel.Item>
-              </Carousel>
-            </Col>
-          );
-        })}
+              );
+            })}
+          </Carousel>
+        </Col>
       </Row>
-
+      <Row>
+        <Col md={12}>
+          <h1>User Settings </h1>
+        </Col>
+      </Row>
       <Row>
         <Col md={6}>
           <Form onSubmit={handleSubmit} className="floating-label-form">
@@ -161,32 +171,27 @@ export const ProfileView = ({ user, movies, toke, setUser, onLogout }) => {
           </Form>
         </Col>
         <Col md={6}>
-            <Button variant="primary" onClick={handleShowModal} >
-              Delete your Profile
-            </Button>
-            <div
-              className="modal show"
-              style={{ display: "block", position: "initial" }}
-            >
-              <Modal.Dialog show={showModal} onHide={handleCloseModal} >
-                <Modal.Header closeButton>
-                  <Modal.Title>Delete Your Profile</Modal.Title>
-                </Modal.Header>
+          <Button variant="primary" onClick={handleShow}>
+            Delete your Profile
+          </Button>
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Delete Your Profile</Modal.Title>
+            </Modal.Header>
 
-                <Modal.Body>
-                  <p>Are you sure you want to delete your Profile ?</p>
-                </Modal.Body>
+            <Modal.Body>
+              <p>Are you sure you want to delete your Profile ?</p>
+            </Modal.Body>
 
-                <Modal.Footer>
-                  <Button variant="outline-primary" onClick={handleDeleteUser}>
-                    Yes
-                  </Button>
-                  <Button variant="primary" onClick={handleCloseModal} >
-                    No
-                  </Button>
-                </Modal.Footer>
-              </Modal.Dialog>
-            </div>
+            <Modal.Footer>
+              <Button variant="primary" onClick={handleClose}>
+                No
+              </Button>
+              <Button variant="outline-primary" onClick={handleDeleteUser}>
+                Yes
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </Col>
       </Row>
     </Container>
