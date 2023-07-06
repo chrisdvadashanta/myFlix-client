@@ -2,12 +2,11 @@ import { React, useState } from "react";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { Backend_API } from "../../utils/constant";
 
 export const LoginView = ({onLoggedIn}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const Backend_API = "https://guarded-peak-19726.herokuapp.com";
-
     const handleSubmit = (event) => {
         event.preventDefault();
 
