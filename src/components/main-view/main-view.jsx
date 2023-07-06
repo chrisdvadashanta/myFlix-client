@@ -4,27 +4,24 @@ import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import { Row, Col } from "react-bootstrap";
-import { useParams } from "react-router-dom";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { ProfileView } from "../profile-view/profile-view";
+import { Backend_API } from "../../utils/constant";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
   const [movies, setMovies] = useState([]);
-  const Backend_API = "https://guarded-peak-19726.herokuapp.com";
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
+  
   const onLogout = () => {
     setUser(null);
     setToken(null);
     localStorage.clear();
-}
-  const { movieid } = useParams();
-  // Find the movie object that matches the movieid parameter
-  const movie = movies.find((movie) => movie._id === movieid);
-
+  }
+  
   useEffect(() => {
     if (!token) return;
 
@@ -40,6 +37,7 @@ export const MainView = () => {
         // Process the API response and update the movies state
         const moviesFromApi = data.map((movie) => {
           return {
+            id: movie._id,             ////crucial to add as the moviecard need the movie.__id to reference back to the it
             Poster: movie.Poster,
             Title: movie.Title,
             Genre: movie.Genre[0].Name,
@@ -47,7 +45,6 @@ export const MainView = () => {
             Director: movie.Director,
           };
         });
-
         setMovies(moviesFromApi);
       })
       .catch((error) => {
@@ -55,6 +52,7 @@ export const MainView = () => {
       });
   }, [token]);
 
+  
   return (
     <BrowserRouter>
       <NavigationBar
@@ -109,8 +107,6 @@ export const MainView = () => {
                   <Col md={5}>
                     <ProfileView 
                     user={user}
-                    token={token}
-                    setUser={setUser}
                     movies={movies}
                     onLogout={onLogout} 
                     />
