@@ -2,14 +2,14 @@ import { React, useState } from "react";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { Backend_API } from "../../utils/constant";
 
-export const SignupView = ({onLoggedIn}) => {
+export const SignupView = () => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const [birthdate, setBirthdate] = useState("");
-    const Backend_API = "https://guarded-peak-19726.herokuapp.com";
     
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -27,31 +27,14 @@ export const SignupView = ({onLoggedIn}) => {
                 headers: {
                   "Content-Type": "application/json"
                 }
-              }).then(res.json).then(
-                fetch(`${Backend_API}/login`, {
-                    method: "POST",
-                    body: JSON.stringify(data),
-                    headers: {
-                      "Content-Type": "application/json"
-                    }
-                  })
-                    .then((response) => response.json())
-                    .then((data) => {
-                      console.log('Login response: ', data);
-                      if (data.user) {
-                        localStorage.setItem('user', JSON.stringify(data.user));
-                        localStorage.setItem('token', data.token);
-                        onLoggedIn(data.user, data.token);
-                        alert('Logged in successfully, please proceed to the homepage')
-                      } else {
-                        alert('No such user');
-                      }
-                    })
-                    .catch((error) => {
-                      console.log("Error occurred during login: ", error);
-                      alert("Something went wrong during login");
-                    })
-            )};
+                }).then(res => res.json()).then(res => res.json(data));
+              }
+            //     .then(res => res.json())
+            //     .catch((error) => {
+            //           console.log("Error occurred during signup: ", error);
+            //           alert("Something went wrong during signup");
+            //         })
+            // };
 
     return (
       <Form 
