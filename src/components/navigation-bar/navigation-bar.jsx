@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./navigation-bar.scss"
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
-  const userObject = JSON.parse(user);
 
   return (
     <Navbar bg="light" expand="lg">
@@ -35,9 +34,6 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
                 <Nav.Link onClick={onLoggedOut}>
                   Logout
                 </Nav.Link>
-                <Navbar.Text user={userObject} className="ms-auto">
-                  Signed in as: {user.username}
-                </Navbar.Text>
               </>
             )}
           </Nav>

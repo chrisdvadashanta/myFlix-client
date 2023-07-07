@@ -10,21 +10,12 @@ import { ProfileView } from "../profile-view/profile-view";
 import { Backend_API } from "../../utils/constant";
 
 export const MainView = () => {
-  // const storedUser = JSON.parse(localStorage.getItem("user"));
+  const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
-
-  const storedUser = localStorage.getItem("user");
-  let parsedUser;
-  try {
-    parsedUser = storedUser ? JSON.parse(storedUser) : null;
-  } catch (error) {
-    console.error("Error parsing user data from localStorage:", error);
-    parsedUser = null; // Set a fallback value
-  }
-
-  const [movies, setMovies] = useState([]);
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
+  const [movies, setMovies] = useState([]);
+
 
   const onLogout = () => {
     setUser(null);

@@ -9,15 +9,19 @@ import "./movie-view.scss";
 import { Backend_API } from "../../utils/constant";
 
 export const MovieView = ({ movies, user, setUser, token }) => {
+
   const { movieId } = useParams();
   const [isFavorite, setIsFavorite] = useState(false);
+  const movie = movies.find((m) => m.id === movieId);
+
 
   useEffect(() => {
     const isFavorited = user.favorites.includes(movieId);
     setIsFavorite(isFavorited);
   }, []);
-  const movie = movies.find((m) => m.id === movieId);
 
+
+  ///////////Favorite Button ///////////////
   const removeFavorite = () => {
     fetch(`${Backend_API}/:username/movies/:Title`, {
       method: "DELETE",
@@ -58,6 +62,9 @@ export const MovieView = ({ movies, user, setUser, token }) => {
       });
   };
 
+  console.log("movie data", movies);
+  console.log("user data", user);
+
   return (
     <div>
       <div className="image-container">
@@ -77,19 +84,23 @@ export const MovieView = ({ movies, user, setUser, token }) => {
       <Accordion defaultActiveKey="0">
         <Accordion.Item eventKey="0">
           <Accordion.Header> Title: {movie.Title}</Accordion.Header>
-          <Accordion.Body>{movie.Description}</Accordion.Body>
+            <Accordion.Body>
+            Description: {movie.Description}
+            </Accordion.Body>
         </Accordion.Item>
 
         <Accordion.Item eventKey="1">
           <Accordion.Header> Director: {movie.Director.Name}</Accordion.Header>
           <Accordion.Body>
-            {movie.Director.Bio}
+           Bio: {movie.Director.Bio}
           </Accordion.Body>
         </Accordion.Item>
 
         <Accordion.Item eventKey="2">
           <Accordion.Header> Genre: {movie.Genre}</Accordion.Header>
-          <Accordion.Body> ddd </Accordion.Body>
+            <Accordion.Body> 
+            {movie.Genre} 
+            </Accordion.Body>
         </Accordion.Item>
       </Accordion>
       <p />
