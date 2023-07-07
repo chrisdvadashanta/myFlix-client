@@ -10,18 +10,28 @@ import { ProfileView } from "../profile-view/profile-view";
 import { Backend_API } from "../../utils/constant";
 
 export const MainView = () => {
-  const storedUser = JSON.parse(localStorage.getItem("user"));
+  // const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
+
+  const storedUser = localStorage.getItem("user");
+  let parsedUser;
+  try {
+    parsedUser = storedUser ? JSON.parse(storedUser) : null;
+  } catch (error) {
+    console.error("Error parsing user data from localStorage:", error);
+    parsedUser = null; // Set a fallback value
+  }
+
   const [movies, setMovies] = useState([]);
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
-  
+
   const onLogout = () => {
     setUser(null);
     setToken(null);
     localStorage.clear();
-  }
-  
+  };
+
   useEffect(() => {
     if (!token) return;
 
@@ -37,12 +47,18 @@ export const MainView = () => {
         // Process the API response and update the movies state
         const moviesFromApi = data.map((movie) => {
           return {
-            id: movie._id,             ////crucial to add as the moviecard need the movie.__id to reference back to the it
+            id: movie._id,
             Poster: movie.Poster,
             Title: movie.Title,
-            Genre: movie.Genre[0].Name,
+            Genre: movie.Genre[0].name,
             Description: movie.Description,
-            Director: movie.Director,
+            Director: {
+              Name: movie.Director.Name,
+              Bio: movie.Director.Bio,
+              ImageURL: movie.Director.ImageURL,
+              Birthdate: movie.Director.Birthdate,
+            },
+            Featured: movie.Featured,
           };
         });
         setMovies(moviesFromApi);
@@ -52,14 +68,13 @@ export const MainView = () => {
       });
   }, [token]);
 
-  
   return (
     <BrowserRouter>
       <NavigationBar
         user={user}
         onLoggedOut={() => {
           setUser(null);
-          setToken(null)
+          setToken(null);
         }}
       />
       <Row className="justify-content-md-center">
@@ -87,9 +102,11 @@ export const MainView = () => {
                   <Navigate to="/" />
                 ) : (
                   <Col md={5}>
-                    <LoginView onLoggedIn={(user) => {
-                    setUser(user);
-                    setToken(token) }} 
+                    <LoginView
+                      onLoggedIn={(user) => {
+                        setUser(user);
+                        setToken(token);
+                      }}
                     />
                   </Col>
                 )}
@@ -105,10 +122,10 @@ export const MainView = () => {
                   <Navigate to="/login" replace />
                 ) : (
                   <Col md={5}>
-                    <ProfileView 
-                    user={user}
-                    movies={movies}
-                    onLogout={onLogout} 
+                    <ProfileView
+                      user={user}
+                      movies={movies}
+                      onLogout={onLogout}
                     />
                   </Col>
                 )}
@@ -126,11 +143,11 @@ export const MainView = () => {
                   <Col>The list is empty!</Col>
                 ) : (
                   <Col md={8}>
-                    <MovieView 
-                    movies={movies}
-                    user={user}
-                    setUser={setUser}
-                    token={token}
+                    <MovieView
+                      movies={movies}
+                      user={user}
+                      setUser={setUser}
+                      token={token}
                     />
                   </Col>
                 )}
@@ -158,7 +175,6 @@ export const MainView = () => {
               </>
             }
           />
-
         </Routes>
         {/* <div className="d-grid gap-2">
             <Link to={`/`}>
