@@ -9,21 +9,20 @@ import "./movie-view.scss";
 import { Backend_API } from "../../utils/constant";
 
 export const MovieView = ({ movies, user, setUser, token }) => {
-
+  console.log("local user",  localStorage.getItem('user'))
   const { movieId } = useParams();
   const [isFavorite, setIsFavorite] = useState(false);
   const movie = movies.find((m) => m.id === movieId);
 
-
   useEffect(() => {
     const isFavorited = user.favorites.includes(movieId);
     setIsFavorite(isFavorited);
-  }, []);
+  }, [user.favorites, movieId]);
 
 
-  ///////////Favorite Button ///////////////
+  ///////////Favorite Button Function ///////////////
   const removeFavorite = () => {
-    fetch(`${Backend_API}/:username/movies/:Title`, {
+    fetch(`${Backend_API}/users/${user.username}/movies/${movie.Title}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +42,7 @@ export const MovieView = ({ movies, user, setUser, token }) => {
   };
 
   const addToFavorite = () => {
-    fetch(`${Backend_API}/users/:username/movies/:Title`, {
+    fetch(`${Backend_API}/users/${user.username}/movies/${movie.Title}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -61,9 +60,6 @@ export const MovieView = ({ movies, user, setUser, token }) => {
         setUser(data);
       });
   };
-
-  console.log("movie data", movies);
-  console.log("user data", user);
 
   return (
     <div>
