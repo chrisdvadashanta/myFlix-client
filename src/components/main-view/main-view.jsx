@@ -9,14 +9,15 @@ import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { ProfileView } from "../profile-view/profile-view";
 import { Backend_API } from "../../utils/constant";
 
+
 export const MainView = () => {
+  console.log("Local user ","localStorage user:", localStorage.getItem("user"));
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
-
-
+  
   const onLogout = () => {
     setUser(null);
     setToken(null);
@@ -167,13 +168,6 @@ export const MainView = () => {
             }
           />
         </Routes>
-        {/* <div className="d-grid gap-2">
-            <Link to={`/`}>
-              <Button variant="primary" size="sm" className="button-logout">
-                Back
-              </Button>
-            </Link>
-            </div> */}
       </Row>
     </BrowserRouter>
   );
