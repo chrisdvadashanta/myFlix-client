@@ -27,12 +27,24 @@ export const SignupView = () => {
                 headers: {
                   "Content-Type": "application/json"
                 }
-                }).then(res => res.json()).then(res => res.json(data))
+                })
+                .then(response => {
+                  if (!response.ok) {
+                    throw new Error("Failed to create user"); // Throw an error if the response status is not OK
+                  }
+                  return response.json();
+                  
+                })
+                .then((data) => {
+                  console.log('Login response: ', data);
+                  alert("You can proceed to login");
+                })
                 .catch((error) => {
                       console.log("Error occurred during signup: ", error);
                       alert("Something went wrong during signup");
                     })
             };
+
 
     return (
       <Form 
