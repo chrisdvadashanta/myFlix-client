@@ -8,7 +8,6 @@ import "./movie-view.scss";
 import { Backend_API } from "../../utils/constant";
 import Modal from "react-bootstrap/Modal";
 
-
 export const MovieView = ({ movies, user, setUser, token }) => {
   const { movieId } = useParams();
   const [isFavorite, setIsFavorite] = useState(false);
@@ -24,10 +23,10 @@ export const MovieView = ({ movies, user, setUser, token }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-    ///// handle Modal removing favorite
-    const [showTwo, setShowTwo] = useState(false);
-    const handleShowTwo = () => setShowTwo(true);
-    const handleCloseTwo = () => setShowTwo(false);
+  ///// handle Modal removing favorite
+  const [showTwo, setShowTwo] = useState(false);
+  const handleShowTwo = () => setShowTwo(true);
+  const handleCloseTwo = () => setShowTwo(false);
 
   ///////////Favorite Button Function ///////////////
   const removeFavoriteMovie = () => {
@@ -42,7 +41,7 @@ export const MovieView = ({ movies, user, setUser, token }) => {
         console.log("Response:", response); // Log the entire response object
         if (response.ok) {
           return response.json();
-                }
+        }
       })
       .then((data) => {
         setIsFavorite(false);
@@ -71,7 +70,6 @@ export const MovieView = ({ movies, user, setUser, token }) => {
       });
   };
 
-
   return (
     <div>
       <div className="image-container">
@@ -82,7 +80,8 @@ export const MovieView = ({ movies, user, setUser, token }) => {
             onClick={() => {
               addToFavoriteMovie();
               handleShow();
-            }}>
+            }}
+          >
             Add ⭐
           </Button>
         </span>
@@ -92,20 +91,26 @@ export const MovieView = ({ movies, user, setUser, token }) => {
             onClick={() => {
               removeFavoriteMovie();
               handleShowTwo();
-            }}>
+            }}
+          >
             Remove 🚫
           </Button>
         </span>
-        <Modal show={show} onHide={handleClose} className="favorite-modal" centered>
+        <Modal
+          show={show}
+          onHide={handleClose}
+          className="favorite-modal"
+          centered
+        >
           <Modal.Header closeButton>
             <Modal.Title>Favorite Movies updated</Modal.Title>
           </Modal.Header>
         </Modal>
-        <Modal show={showTwo} onHide={handleCloseTwo} centered >
-              <Modal.Header>
-                <Modal.Title> Your Movie has been removed </Modal.Title>
-              </Modal.Header>
-            </Modal>
+        <Modal show={showTwo} onHide={handleCloseTwo} centered>
+          <Modal.Header>
+            <Modal.Title> Your Movie has been removed </Modal.Title>
+          </Modal.Header>
+        </Modal>
       </div>
       <p />
       <Accordion defaultActiveKey="0">
