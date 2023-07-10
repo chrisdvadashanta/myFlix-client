@@ -10,7 +10,6 @@ import Modal from "react-bootstrap/Modal";
 
 
 export const MovieView = ({ movies, user, setUser, token }) => {
-  console.log("local user", localStorage.getItem("user"));
   const { movieId } = useParams();
   const [isFavorite, setIsFavorite] = useState(false);
   const movie = movies.find((m) => m.id === movieId);
