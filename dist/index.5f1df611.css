@@ -41,6 +41,10 @@ nav {
   margin-bottom: 20px;
 }
 
+navbar-text {
+  text-align: right;
+}
+
 div.col-md-5 {
   width: 100%;
   margin-top: 20px;
