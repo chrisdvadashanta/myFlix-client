@@ -9,6 +9,10 @@ img{
     border-radius: 5px;
   }
 
+  Modal {
+    margin-top: 300px;
+  }
+
 ////////// Carousel ///////////
   .movie-carousel{
   margin: 20px;
@@ -44,7 +48,12 @@ img{
   padding: 50px;
 }
 
+
 ////////Button/////////
 .delete-button{
   text-align: center;
+}
+
+.usercard-button {
+  margin-top: 100px;
 }

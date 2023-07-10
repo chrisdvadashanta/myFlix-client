@@ -27,14 +27,12 @@ export const SignupView = () => {
                 headers: {
                   "Content-Type": "application/json"
                 }
-                }).then(res => res.json()).then(res => res.json(data));
-              }
-            //     .then(res => res.json())
-            //     .catch((error) => {
-            //           console.log("Error occurred during signup: ", error);
-            //           alert("Something went wrong during signup");
-            //         })
-            // };
+                }).then(res => res.json()).then(res => res.json(data))
+                .catch((error) => {
+                      console.log("Error occurred during signup: ", error);
+                      alert("Something went wrong during signup");
+                    })
+            };
 
     return (
       <Form 
