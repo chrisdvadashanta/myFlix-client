@@ -10,8 +10,7 @@ import Modal from "react-bootstrap/Modal";
 import { Backend_API } from "../../utils/constant";
 import "./profile-view.scss";
 
-export const ProfileView = ({ user, movies, onLogout }) => {
-  console.log("user infor", user)
+export const ProfileView = ({ user, movies, onLogout, token }) => {
   ///// useState to update User information
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -23,12 +22,7 @@ export const ProfileView = ({ user, movies, onLogout }) => {
     return user.favorites.includes(movie.id);
   });
 
-  ///// handle Modal
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  ///// handle update User
+  /////  Update User
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -39,18 +33,25 @@ export const ProfileView = ({ user, movies, onLogout }) => {
       birthdate: birthdate,
     };
 
-    fetch(`${Backend_API}/users`, {
-      method: "POST",
+    fetch(`${Backend_API}/users/${user.username}`, {
+      method: "PUT",
       body: JSON.stringify(data),
       headers: {
+        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
     });
   };
+  console.log("new user data", user);
 
-  ///// handle delete User
+  ///// handle Modal update user button
+  const [showTwo, setShowTwo] = useState(false);
+  const handleShowTwo = () => setShowTwo(true);
+  const handleCloseTwo = () => setShowTwo(false);
+
+  /////  Delete User
   const handleDeleteUser = () => {
-    fetch(`${Backend_API}/users/:username`, {
+    fetch(`${Backend_API}/users/${user.username}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -64,11 +65,16 @@ export const ProfileView = ({ user, movies, onLogout }) => {
     });
   };
 
+  ///// handle Modal delete button
+  const [show, setShow] = useState(false);
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow (false);
+
   return (
     <Container>
-      <Row className="row-1" >
+      <Row className="row-1">
         <Col md={6} sm={12}>
-          <Row className="row-1-1" >
+          <Row className="row-1-1">
             <CardGroup className="cardgroup-1">
               <Card>
                 <Card.Body>
@@ -76,7 +82,9 @@ export const ProfileView = ({ user, movies, onLogout }) => {
                   <Card.Subtitle className="mb-2 text-muted">
                     {user.email}
                   </Card.Subtitle>
-                  <Button variant="primary">Contact</Button>
+                  <Button variant="primary" className="usercard-button">
+                    Contact
+                  </Button>
                 </Card.Body>
               </Card>
               <Card className="image-card">
@@ -138,20 +146,26 @@ export const ProfileView = ({ user, movies, onLogout }) => {
                   variant="primary"
                   size="sm"
                   className="form-button"
+                  onClick={handleShowTwo}
                 >
                   Update your data
                 </Button>
               </div>
             </Form>
           </Row>
+          <Modal show={showTwo} onHide={handleCloseTwo} centered >
+              <Modal.Header>
+                <Modal.Title>Your Data is updated</Modal.Title>
+              </Modal.Header>
+            </Modal>
         </Col>
 
         <Col md={6} sm={12}>
           <Carousel className="movie-carousel">
             {favorites.map((movie) => {
               return (
-                <Carousel.Item key={movie.id} >
-                  <img 
+                <Carousel.Item key={movie.id}>
+                  <img
                     className="d-block w-100"
                     src={movie.Poster}
                     alt={movie.Title}
@@ -168,27 +182,31 @@ export const ProfileView = ({ user, movies, onLogout }) => {
       </Row>
 
       <Row className="row-3">
-          <Button variant="primary" onClick={handleShow} className="delete-button">
-            Delete your Profile
-          </Button>
-          <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Delete Your Profile</Modal.Title>
-            </Modal.Header>
+        <Button
+          variant="primary"
+          onClick={handleShow}
+          className="delete-button"
+        >
+          Delete your Profile
+        </Button>
+        <Modal show={show} onHide={handleClose} centered>
+          <Modal.Header closeButton>
+            <Modal.Title>Delete Your Profile</Modal.Title>
+          </Modal.Header>
 
-            <Modal.Body>
-              <p>Are you sure you want to delete your Profile ?</p>
-            </Modal.Body>
+          <Modal.Body>
+            <p>Are you sure you want to delete your Profile ?</p>
+          </Modal.Body>
 
-            <Modal.Footer>
-              <Button variant="primary" onClick={handleClose}>
-                No
-              </Button>
-              <Button variant="outline-primary" onClick={handleDeleteUser}>
-                Yes
-              </Button>
-            </Modal.Footer>
-          </Modal>
+          <Modal.Footer>
+            <Button variant="primary" onClick={handleClose}>
+              No
+            </Button>
+            <Button variant="outline-primary" onClick={handleDeleteUser}>
+              Yes
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </Row>
     </Container>
   );
