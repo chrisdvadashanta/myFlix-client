@@ -9,8 +9,10 @@ import { FloatingLabel } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import { Backend_API } from "../../utils/constant";
 import "./profile-view.scss";
+import { useResolvedPath } from "react-router";
 
 export const ProfileView = ({ user, movies, onLogout }) => {
+  console.log("user infor", user)
   ///// useState to update User information
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

@@ -19,9 +19,8 @@ export const MovieView = ({ movies, user, setUser, token }) => {
     setIsFavorite(isFavorited);
   }, [user.favorites, movieId]);
 
-
   ///////////Favorite Button Function ///////////////
-  const removeFavorite = () => {
+  const removeFavoriteMovie = () => {
     fetch(`${Backend_API}/users/${user.username}/movies/${movie.Title}`, {
       method: "DELETE",
       headers: {
@@ -30,8 +29,10 @@ export const MovieView = ({ movies, user, setUser, token }) => {
       },
     })
       .then((response) => {
+        console.log("Response:", response); // Log the entire response object
         if (response.ok) {
-          return response.json();
+        //  return response.send(`${movie.Title} has been removed from ${user.username} favorites`);
+        return console.log(movie);
         }
       })
       .then((data) => {
@@ -41,9 +42,9 @@ export const MovieView = ({ movies, user, setUser, token }) => {
       });
   };
 
-  const addToFavorite = () => {
+  const addToFavoriteMovie = () => {
     fetch(`${Backend_API}/users/${user.username}/movies/${movie.Title}`, {
-      method: "PUT",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -66,13 +67,13 @@ export const MovieView = ({ movies, user, setUser, token }) => {
       <div className="image-container">
       <img src={movie.Poster} className="movie-poster" />
       <span className="button-container-a">
-        <Button className="favoriteMovieButton" onClick={addToFavorite}>
-          add ⭐
+        <Button className="favoriteMovieButton" onClick={addToFavoriteMovie}>
+          Add ⭐
         </Button>
       </span>
       <span className="button-container-b">
-        <Button className="removeFavoriteMovieButton" onClick={removeFavorite}>
-          remove ⭐
+        <Button className="removeFavoriteMovieButton" onClick={removeFavoriteMovie}>
+          Remove 🚫
         </Button>
      </span>
       </div>
