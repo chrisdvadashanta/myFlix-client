@@ -68,7 +68,7 @@ export const ProfileView = ({ user, movies, onLogout, token }) => {
   ///// handle Modal delete button
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
-  const handleClose = () => setShow (false);
+  const handleClose = () => setShow(false);
 
   return (
     <Container>
@@ -153,11 +153,11 @@ export const ProfileView = ({ user, movies, onLogout, token }) => {
               </div>
             </Form>
           </Row>
-          <Modal show={showTwo} onHide={handleCloseTwo} centered >
-              <Modal.Header>
-                <Modal.Title>Your Data is updated</Modal.Title>
-              </Modal.Header>
-            </Modal>
+          <Modal show={showTwo} onHide={handleCloseTwo} centered>
+            <Modal.Header>
+              <Modal.Title>Your Data is updated</Modal.Title>
+            </Modal.Header>
+          </Modal>
         </Col>
 
         <Col md={6} sm={12}>
