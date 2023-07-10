@@ -97,7 +97,7 @@ export const MovieView = ({ movies, user, setUser, token }) => {
             Remove 🚫
           </Button>
         </span>
-        <Modal show={show} onHide={handleClose} className="favorite-modal">
+        <Modal show={show} onHide={handleClose} className="favorite-modal" centered>
           <Modal.Header closeButton>
             <Modal.Title>Favorite Movies updated</Modal.Title>
           </Modal.Header>

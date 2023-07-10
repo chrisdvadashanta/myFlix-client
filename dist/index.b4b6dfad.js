@@ -46883,6 +46883,7 @@ const MovieView = ({ movies, user, setUser, token })=>{
                         show: show,
                         onHide: handleClose,
                         className: "favorite-modal",
+                        centered: true,
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default).Header, {
                             closeButton: true,
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default).Title, {
