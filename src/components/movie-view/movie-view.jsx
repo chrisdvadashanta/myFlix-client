@@ -94,9 +94,9 @@ export const MovieView = ({ movies, user, setUser, token }) => {
         </Accordion.Item>
 
         <Accordion.Item eventKey="2">
-          <Accordion.Header> Genre: {movie.Genre}</Accordion.Header>
+          <Accordion.Header> Genre: {movie.Genre.name}</Accordion.Header>
             <Accordion.Body> 
-            {movie.Genre} 
+            {movie.Genre.description} 
             </Accordion.Body>
         </Accordion.Item>
       </Accordion>
@@ -110,23 +110,23 @@ export const MovieView = ({ movies, user, setUser, token }) => {
   );
 };
 
-MovieView.propTypes = {
-  movie: PropTypes.shape({
-    _id: PropTypes.shape({
-      $oid: PropTypes.string,
-    }),
-    Title: PropTypes.string,
-    Poster: PropTypes.string,
-    Director: {
-      Name: PropTypes.string,
-    },
-    Description: PropTypes.string,
-    Genre:
-      PropTypes.string[
-        {
-          name: PropTypes.string,
-          description: PropTypes.string,
-        }
-      ],
-  }).isRequired,
-};
+// MovieView.propTypes = {
+//   movie: PropTypes.shape({
+//     _id: PropTypes.shape({
+//       $oid: PropTypes.string,
+//     }),
+//     Title: PropTypes.string,
+//     Poster: PropTypes.string,
+//     Director: {
+//       Name: PropTypes.string,
+//     },
+//     Description: PropTypes.string,
+//     Genre:
+//       PropTypes.string[
+//         {
+//           name: PropTypes.string,
+//           description: PropTypes.string,
+//         }
+//       ],
+//   }).isRequired,
+// };
