@@ -29,12 +29,21 @@
   color: #ff0;
 }
 
+.favorite-modal {
+  justify-content: center;
+  margin-top: 300px;
+}
+
 .favoriteMovieButton {
   color: #000;
 }
 
 .navabar-username {
   text-align: right;
+}
+
+nav {
+  margin-bottom: 20px;
 }
 
 div.col-md-5 {
@@ -45,6 +54,10 @@ div.col-md-5 {
 
 img {
   border-radius: 5px;
+}
+
+Modal {
+  margin-top: 300px;
 }
 
 .movie-carousel {
@@ -78,6 +91,10 @@ img {
 
 .delete-button {
   text-align: center;
+}
+
+.usercard-button {
+  margin-top: 100px;
 }
 
 :root, [data-bs-theme="light"] {

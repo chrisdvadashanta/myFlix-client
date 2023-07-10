@@ -17,6 +17,8 @@ export const MainView = () => {
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
+
+
   
   const onLogout = () => {
     setUser(null);
@@ -30,7 +32,6 @@ export const MainView = () => {
     fetch(`${Backend_API}/movies`, {
       headers: { Authorization: `Bearer ${token}` },
     })
-      // .then((response) => response.json())
       .then((response) => {
         console.log("Response:", response); // Log the entire response object
         return response.json();
@@ -43,8 +44,8 @@ export const MainView = () => {
             Poster: movie.Poster,
             Title: movie.Title,
             Genre: {
-              Name: movie.Genre.name,
-              Description: movie.Genre.description,
+              Name: movie.Genre.Name,
+              Description: movie.Genre.Description,
             },
             Description: movie.Description,
             Director: {
@@ -62,6 +63,8 @@ export const MainView = () => {
         console.log("Error fetching movies:", error);
       });
   }, [token]);
+
+  console.log("movie data", movies)
 
   return (
     <BrowserRouter>
@@ -121,6 +124,7 @@ export const MainView = () => {
                       user={user}
                       movies={movies}
                       onLogout={onLogout}
+                      token={token}
                     />
                   </Col>
                 )}
