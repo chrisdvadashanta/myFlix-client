@@ -11,7 +11,6 @@ import { Backend_API } from "../../utils/constant";
 
 
 export const MainView = () => {
-  console.log("Local user ","localStorage user:", localStorage.getItem("user"));
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
   const [user, setUser] = useState(storedUser ? storedUser : null);
@@ -63,8 +62,6 @@ export const MainView = () => {
         console.log("Error fetching movies:", error);
       });
   }, [token]);
-
-  console.log("movie data", movies)
 
   return (
     <BrowserRouter>
