@@ -1,3 +1,101 @@
+.movie-poster {
+  width: 500px;
+}
+
+.image-container {
+  position: relative;
+}
+
+.movie-poster {
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.button-container-a {
+  position: absolute;
+  bottom: 10px;
+  right: 130px;
+}
+
+.button-container-b {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.removeFavoriteMovieButton {
+  color: #ff0;
+}
+
+.favoriteMovieButton {
+  color: #000;
+}
+
+.navabar-username {
+  text-align: right;
+}
+
+nav {
+  margin-bottom: 20px;
+}
+
+navbar-text {
+  text-align: right;
+}
+
+div.col-md-5 {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 200px;
+}
+
+img {
+  border-radius: 5px;
+}
+
+Modal {
+  margin-top: 300px;
+}
+
+.movie-carousel {
+  margin: 20px;
+}
+
+.carousel-caption {
+  text-align: left;
+  background-color: #060606b7;
+  font-size: 16px;
+}
+
+.carousel-captionh3 {
+  font-size: 20px;
+}
+
+.row-1 {
+  width: 100%;
+}
+
+.row-1-1, .row-1-2 {
+  width: 100%;
+  margin: 20px;
+  padding: 20px;
+}
+
+.row-3 {
+  margin: 20px;
+  padding: 50px;
+}
+
+.delete-button {
+  text-align: center;
+}
+
+.usercard-button {
+  margin-top: 100px;
+}
+
 :root, [data-bs-theme="light"] {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -13200,4 +13298,4 @@ textarea.form-control-lg {
   padding: 10px;
 }
 
-/*# sourceMappingURL=index.ce1d6491.css.map */
+/*# sourceMappingURL=index.5f1df611.css.map */

@@ -1,0 +1,32 @@
+.movie-poster {
+  width: 500px;
+}
+.image-container {
+  position: relative;
+}
+
+.movie-poster {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.button-container-a {
+  position: absolute;
+  bottom: 10;
+  right: 130;
+}
+.button-container-b {
+  position: absolute;
+  bottom: 10;
+  right: 10;
+}
+
+.removeFavoriteMovieButton {
+  color: yellow;
+}
+
+.favoriteMovieButton {
+  color: black;
+}
