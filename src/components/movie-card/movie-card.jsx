@@ -1,12 +1,15 @@
-import Card from "react-bootstrap/Card";
-import { Button, Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+
+import "./movie-card.scss";
+
 
 export const MovieCard = ({ movie }) => {
   return (
     <Card className="h-100">
       <a href={`/movies/${encodeURIComponent(movie.id)}`}>
-        <Card.Img variant="top" src={movie.Poster} />
+        <Card.Img variant="top" src={movie.Poster} className="movie-card-img"
+        />
       </a>
       <Card.Body className="d-flex flex-column">
         <Card.Title> {movie.Title} </Card.Title>
