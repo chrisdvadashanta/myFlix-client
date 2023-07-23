@@ -1,26 +1,65 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router";
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
 import Form from "react-bootstrap/Form";
-import { Row, Col, Container } from "react-bootstrap";
-import { FloatingLabel } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
+import { Row, Col, Container, FloatingLabel } from "react-bootstrap";
+
 import { Backend_API } from "../../utils/constant";
 import "./profile-view.scss";
 
-export const ProfileView = ({ user, movies, onLogout, token }) => {
+export const ProfileView = ({ user ,setUser, movies, onLogout, token }) => {
   ///// useState to update User information
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [birthdate, setBirthdate] = useState("");
+  const [activeIndex, setActiveIndex] = useState(0);
 
+  const { movieId } = useParams();
+  const [isFavorite, setIsFavorite] = useState(false);
+  const movie = movies.find((m) => m.id === movieId);
+
+  useEffect(() => {
+    const isFavorited = user.favorites.includes(movieId);
+    setIsFavorite(isFavorited);
+  }, [user.favorites, movieId]);
+
+  ///// handle Modal removing favorite
+  const [showRemove, setShowRemove] = useState(false);
+  const handleShowRemove = () => setShowRemove(true);
+  const handleCloseRemove = () => setShowRemove(false);
+
+  /////////// Remove Favorite Button Function ///////////////
+  const removeFavoriteMovie = (movieToRemove) => {
+    fetch(`${Backend_API}/users/${user.username}/movies/${movieToRemove.Title}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => {
+        console.log("Response:", response); // Log the entire response object
+        if (response.ok) {
+          return response.json();
+        }
+      })
+      .then((data) => {
+        setIsFavorite(false);
+        localStorage.setItem("user", JSON.stringify(data));
+        setUser(data);
+      });
+  };
+  
   ///// favorite Movies filter
   const favorites = movies.filter((movie) => {
     return user.favorites.includes(movie.id);
   });
+  
 
   /////  Update User
   const handleSubmit = (event) => {
@@ -73,7 +112,7 @@ export const ProfileView = ({ user, movies, onLogout, token }) => {
   return (
     <Container>
       <Row className="row-1">
-        <Col md={6} sm={12}>
+        <Col md={6} sm={12} className="order-md-1 order-sm-2">
           <Row className="row-1-1">
             <CardGroup className="cardgroup-1">
               <Card>
@@ -160,30 +199,59 @@ export const ProfileView = ({ user, movies, onLogout, token }) => {
           </Modal>
         </Col>
 
-        <Col md={6} sm={12}>
-          <Carousel className="movie-carousel">
-            {favorites.map((movie) => {
-              return (
-                <Carousel.Item key={movie.id}>
-                  <img
-                    className="d-block w-100"
-                    src={movie.Poster}
-                    alt={movie.Title}
-                  />
-                  <Carousel.Caption className="carousel-caption">
-                    <h3 className="carousel-captionh3"> {movie.Title} </h3>
-                    <p> {movie.Description} </p>
-                  </Carousel.Caption>
-                </Carousel.Item>
-              );
-            })}
-          </Carousel>
+        <Col md={6} sm={12} className="carousel-container order-md-2 order-sm-1">
+          <Carousel
+          className="movie-carousel"
+          interval={null}
+          activeIndex={activeIndex}
+          onSelect={(selectedIndex) => setActiveIndex(selectedIndex)}
+          >
+          {favorites.map((movie) => {
+                    return (
+                      <Carousel.Item key={movie.id}>
+                        <img
+                          className="d-block w-100"
+                          src={movie.Poster}
+                          alt={movie.Title}
+                        />
+                      </Carousel.Item>
+                    );
+                  })}
+      </Carousel>
+          <div className="button-container">
+              <Button
+                className="removeFavoriteMovieButton"
+                onClick={() => {
+                    const activeMovie = favorites[activeIndex];
+                    removeFavoriteMovie(activeMovie);
+                    handleShowRemove();
+                }}
+              >
+                Remove 🚫
+              </Button>
+        </div>
         </Col>
+        <Modal
+          show={showRemove}
+          onHide={handleCloseRemove}
+          className="favorite-modal"
+          centered
+          >
+          <Modal.Header closeButton >
+          <Modal.Title>Favorite Movies updated</Modal.Title>
+          </Modal.Header>
+          </Modal>
+              <Modal show={showRemove} onHide={handleCloseRemove} centered>
+              <Modal.Header>
+              <Modal.Title> Your Movie has been removed </Modal.Title>
+              </Modal.Header>
+    </Modal>
       </Row>
+
 
       <Row className="row-3">
         <Button
-          variant="primary"
+          variant="link"
           onClick={handleShow}
           className="delete-button"
         >
@@ -208,6 +276,6 @@ export const ProfileView = ({ user, movies, onLogout, token }) => {
           </Modal.Footer>
         </Modal>
       </Row>
-    </Container>
+    </Container >
   );
 };

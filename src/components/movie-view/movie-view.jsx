@@ -1,12 +1,10 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import Accordion from "react-bootstrap/Accordion";
-import Button from "react-bootstrap/Button";
+import { useState, useEffect } from "react";
+import Accordion  from "react-bootstrap/Accordion";
+import {Button, Modal} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import "./movie-view.scss";
 import { Backend_API } from "../../utils/constant";
-import Modal from "react-bootstrap/Modal";
 
 export const MovieView = ({ movies, user, setUser, token }) => {
   const { movieId } = useParams();
@@ -71,7 +69,7 @@ export const MovieView = ({ movies, user, setUser, token }) => {
   };
 
   return (
-    <div>
+    <div className="container-div">
       <div className="image-container">
         <img src={movie.Poster} className="movie-poster" />
         <span className="button-container-a">
@@ -102,7 +100,7 @@ export const MovieView = ({ movies, user, setUser, token }) => {
           className="favorite-modal"
           centered
         >
-          <Modal.Header closeButton>
+          <Modal.Header closeButton >
             <Modal.Title>Favorite Movies updated</Modal.Title>
           </Modal.Header>
         </Modal>

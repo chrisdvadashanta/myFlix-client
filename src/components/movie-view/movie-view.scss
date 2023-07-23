@@ -1,27 +1,33 @@
-.movie-poster {
-  width: 500px;
+.container-div{
+  margin-bottom: 100px;
 }
 .image-container {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .movie-poster {
-  display: block;
   width: 100%;
   height: auto;
   border-radius: 5px;
+  max-width: 500px;
 }
 
-.button-container-a {
-  position: absolute;
-  bottom: 10;
-  right: 130;
-}
+.button-container-a,
 .button-container-b {
   position: absolute;
-  bottom: 10;
-  right: 10;
+  bottom: 10px;
+  left: 20%; 
 }
+
+.button-container-b {
+  left: auto;
+  right: 20%; 
+}
+
+
 
 .removeFavoriteMovieButton {
   color: yellow;
