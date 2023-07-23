@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Row, Col, Container } from "react-bootstrap";
+
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
-import { Row, Col } from "react-bootstrap";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { ProfileView } from "../profile-view/profile-view";
+
+import SearchBar from "../search-bar/search-bar";
+import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { Backend_API } from "../../utils/constant";
+
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -20,6 +24,12 @@ export const MainView = () => {
     setUser(null);
     setToken(null);
     localStorage.clear();
+  };
+
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
   };
 
   useEffect(() => {
@@ -71,7 +81,7 @@ export const MainView = () => {
       />
       <Row className="justify-content-md-center">
         <Routes>
-          <Route /////////SignUp
+          <Route      /////////SignUp
             path="/users"
             element={
               <>
@@ -86,7 +96,7 @@ export const MainView = () => {
             }
           />
 
-          <Route ////////Login
+          <Route      ////////Login
             path="/login"
             element={
               <>
@@ -106,7 +116,7 @@ export const MainView = () => {
             }
           />
 
-          <Route ////////Profile
+          <Route      ////////Profile
             path="/profile"
             element={
               <>
@@ -119,6 +129,7 @@ export const MainView = () => {
                       movies={movies}
                       onLogout={onLogout}
                       token={token}
+                      setUser={setUser}
                     />
                   </Col>
                 )}
@@ -126,7 +137,7 @@ export const MainView = () => {
             }
           />
 
-          <Route ////////MovieView
+          <Route      ////////MovieView
             path="/movies/:movieId"
             element={
               <>
@@ -148,24 +159,42 @@ export const MainView = () => {
             }
           />
 
-          <Route ////////MovieCard
+        <Route        //////// MovieCard
             path="/"
             element={
-              <>
-                {!user ? (
-                  <Navigate to="/login" replace />
-                ) : movies.length === 0 ? (
-                  <Col>The list is empty!</Col>
-                ) : (
-                  <>
-                    {movies.map((movie) => (
-                      <Col className="mb-4" key={movie.id} md={3}>
-                        <MovieCard movie={movie} />
-                      </Col>
-                    ))}
-                  </>
-                )}
-              </>
+              <Container>
+                <Row>
+                    <Col>
+                      <SearchBar value={searchTerm} onChange={handleSearchChange} className="search-bar-movies"/>
+                    </Col>
+                </Row>
+                <Row>
+                  {!user ? (
+                    <Navigate to="/login" replace />
+                  ) : movies.length === 0 && searchTerm.trim() === "" ? (
+                    <div>Loading...</div>
+                  ) : (
+                    <>
+                      {searchTerm.trim() === "" ? ( 
+                          movies.map((movie) => (
+                            <Col className="mb-4" key={movie.id} md={3}>
+                              <MovieCard movie={movie} />
+                            </Col>
+                          ))
+                      ) : (
+                          movies.filter((movie) =>
+                              movie.Title.toLowerCase().includes(searchTerm.toLowerCase())
+                            )
+                            .map((movie) => (
+                              <Col className="mb-4" key={movie.id} md={3}>
+                                <MovieCard movie={movie} />
+                              </Col>
+                            ))
+                      )}
+                    </>
+                  )}
+                </Row>
+              </Container>
             }
           />
         </Routes>
