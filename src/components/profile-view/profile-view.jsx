@@ -16,7 +16,7 @@ export const ProfileView = ({ user ,setUser, movies, onLogout, token }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const [birthdate, setBirthdate] = useState("");
+  const [birthday, setBirthday] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
 
   const { movieId } = useParams();
@@ -69,7 +69,7 @@ export const ProfileView = ({ user ,setUser, movies, onLogout, token }) => {
       username: username,
       password: password,
       email: email,
-      birthdate: birthdate,
+      birthday: birthday,
     };
 
     fetch(`${Backend_API}/users/${user.username}`, {
@@ -79,6 +79,20 @@ export const ProfileView = ({ user ,setUser, movies, onLogout, token }) => {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
+    }).then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("Failed to update user data");
+      }
+    })
+    .then((updatedUser) => {
+      console.log("Updated user data:", updatedUser);
+      setUser(updatedUser); // Update the user state with the new data
+    })
+    .catch((error) => {
+      console.error("Error updating user data:", error);
+      // Handle the error, show an error message, etc.
     });
   };
   console.log("new user data", user);
@@ -173,8 +187,8 @@ export const ProfileView = ({ user ,setUser, movies, onLogout, token }) => {
                 <Form.Control
                   placeholder="08.05.1978"
                   type="date"
-                  value={birthdate}
-                  onChange={(e) => setBirthdate(e.target.value)}
+                  value={birthday}
+                  onChange={(e) => setBirthday(e.target.value)}
                 />
               </FloatingLabel>
 
