@@ -21,6 +21,7 @@ Modal {
   font-size: 16px;
   background-color: rgba(6, 6, 6, 0.717);
   text-align: left;
+  margin: 10px;
 }
 .carousel-captionh3 {
   font-size: 20px;
@@ -54,4 +55,16 @@ Modal {
 
 .usercard-button {
   margin-top: 100px;
+}
+
+.carousel-container {
+  position: relative;
+}
+
+.button-container {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+
 }
